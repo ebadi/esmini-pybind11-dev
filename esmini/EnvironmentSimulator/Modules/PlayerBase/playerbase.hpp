@@ -59,7 +59,7 @@ public:
 		ObjCallbackFunc func;
 		void *data;
 	} ObjCallback;
-
+	ScenarioPlayer();
 	ScenarioPlayer(int &argc, char *argv[]);
 	~ScenarioPlayer();
 	bool IsQuitRequested() { return quit_request; }

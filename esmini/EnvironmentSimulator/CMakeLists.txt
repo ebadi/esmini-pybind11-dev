@@ -482,3 +482,15 @@ if (USE_OSG)
 endif (USE_OSG)
 
 
+project(pyplayerbase)
+
+add_subdirectory(pybind11)
+pybind11_add_module(pyplayerbase ../src/playerbase/pyplayerbase.cpp)
+include_directories(${PLAYER_BASE_INCLUDE_DIR} ${SCENARIOENGINE_INCLUDE_DIRS} ${OSI_INCLUDE_DIR} ${COMMON_MINI_INCLUDE_DIR} ${ROADMANAGER_INCLUDE_DIR} ${CONTROLLERS_INCLUDE_DIR} ${VIEWER_BASE_INCLUDE_DIR})
+# EXAMPLE_VERSION_INFO is defined by setup.py and passed into the C++ code as a
+# define (VERSION_INFO) here.
+
+target_link_libraries(pyplayerbase PRIVATE ${SOCK_LIB} ${TIME_LIB}   ${SUMO_LIBRARIES}   ${OSG_LIBRARIES} ViewerBase PlayerBase Controllers CommonMini RoadManager ScenarioEngine esminiRMLib esminiLib)
+
+
+target_compile_definitions(pyplayerbase PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})

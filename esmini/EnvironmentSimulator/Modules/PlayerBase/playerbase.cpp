@@ -36,6 +36,13 @@ static void log_callback(const char *str)
 	printf("%s\n", str);
 }
 
+
+int a = 8;
+int& b = a;
+char* my_argv[] = { "filename", "--window",  "60", "60", "800", "400",  "--osc", "./esmini/resources/xosc/cut-in.xosc" , NULL};
+
+ScenarioPlayer::ScenarioPlayer(): maxStepSize(0.1), minStepSize(0.01), argc_(a)  {  ScenarioPlayer(a, my_argv ); }
+
 ScenarioPlayer::ScenarioPlayer(int &argc, char *argv[]) :
 	maxStepSize(0.1), minStepSize(0.01), argc_(argc), argv_(argv)
 {
