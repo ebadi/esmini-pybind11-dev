@@ -1,13 +1,19 @@
-Install and run the pyplayerbase package
+
+### Install and run the pyplayerbase package
 ```
 https://github.com/ebadi/esmini-pybind11-dev.git
 cd esmini-pybind11-dev
 pip3 install ./esmini
 export LD_LIBRARY_PATH=$PWD/esmini/bin ; python3 scenarioplayer.py
 ```
+Note that you have to place `libesminiLib.so` in `$PWD/esmini/bin`. Building esmini using the instruction below will automatically do that for you. 
 
+Building esmini:
+```
+cd esmini ; cmake .; cmake --build . --config Release --target install ; cd ..
+```
 
-
+### Please ignore, dev only 
 rebuilding pybind11 bindings (for development only): 
 ```
 IPATHS=" -Iesmini/externals/pugixml/ -Iesmini/EnvironmentSimulator/Modules/CommonMini/ -Iesmini/EnvironmentSimulator/Modules/RoadManager -Iesmini/EnvironmentSimulator/Modules/Controllers  -Iesmini/EnvironmentSimulator/Modules/PlayerBase -Iesmini/EnvironmentSimulator/Modules/ScenarioEngine/SourceFiles/  -Iesmini/EnvironmentSimulator/Modules/ScenarioEngine/OSCTypeDefs/ -Iesmini/EnvironmentSimulator/Modules/ViewerBase -Iesmini/EnvironmentSimulator/Libraries/esminiLib/  -Iesmini/EnvironmentSimulator/Libraries/esminiRMLib/ -Iesmini/bin/ -Iesmini/externals/OpenSceneGraph/linux/include/"
