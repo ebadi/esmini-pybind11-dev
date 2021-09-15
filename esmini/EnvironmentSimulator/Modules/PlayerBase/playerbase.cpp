@@ -37,11 +37,48 @@ static void log_callback(const char *str)
 }
 
 
-int a = 8;
-int& b = a;
-char* my_argv[] = { "filename", "--window",  "60", "60", "800", "400",  "--osc", "./esmini/resources/xosc/cut-in.xosc" , NULL};
+ScenarioPlayer::ScenarioPlayer(): maxStepSize(0.1), minStepSize(0.01)
+{
+	int my_argc = 8;
+	int& b = my_argc;
+	//char* my_argv[50] = { "filename", "--window",  "60", "60", "800", "400",  "--osc", "./esmini/resources/xosc/cut-in.xosc" , NULL};
 
-ScenarioPlayer::ScenarioPlayer(): maxStepSize(0.1), minStepSize(0.01), argc_(a)  {  ScenarioPlayer(a, my_argv ); }
+	char* arg0 = (char*)malloc(sizeof(char) * 50);
+	strcpy(arg0, "filename");
+	my_argv[0] = arg0;
+
+	char* arg1 = (char*)malloc(sizeof(char) * 50);
+	strcpy(arg1, "--window");
+	my_argv[1] = arg1;
+
+	char* arg2 = (char*)malloc(sizeof(char) * 50);
+	strcpy(arg2,  "60");
+	my_argv[2] = arg2;
+
+	char* arg3 = (char*)malloc(sizeof(char) * 50);
+	strcpy(arg3,  "60");
+	my_argv[3] = arg3;
+
+	char* arg4 = (char*)malloc(sizeof(char) * 50);
+	strcpy(arg4,  "800");
+	my_argv[4] = arg4;
+
+	char* arg5 = (char*)malloc(sizeof(char) * 50);
+	strcpy(arg5,  "400");
+	my_argv[5] = arg5;
+
+	char* arg6 = (char*)malloc(sizeof(char) * 50);
+	strcpy(arg6,  "--osc");
+	my_argv[6] = arg6;
+
+	char* arg7  = (char*)malloc(sizeof(char) * 50);
+	strcpy(arg7, "./esmini/resources/xosc/cut-in.xosc");
+	my_argv[7] = arg7;
+
+	my_argv[8] = NULL;
+
+	ScenarioPlayer(my_argc, my_argv );
+}
 
 ScenarioPlayer::ScenarioPlayer(int &argc, char *argv[]) :
 	maxStepSize(0.1), minStepSize(0.01), argc_(argc), argv_(argv)

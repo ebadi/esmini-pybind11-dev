@@ -137,7 +137,8 @@ private:
 	int osi_freq_;
 	int frame_counter_;
 	std::string osi_receiver_addr;
-	int &argc_;
+	//int &argc_;
+	int argc_;
 	char **argv_;
 	std::string titleString;
 };
