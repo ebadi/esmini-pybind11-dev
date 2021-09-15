@@ -41,7 +41,7 @@ ScenarioPlayer::ScenarioPlayer(): maxStepSize(0.1), minStepSize(0.01)
 {
 	int my_argc = 8;
 	int& b = my_argc;
-	//char* my_argv[50] = { "filename", "--window",  "60", "60", "800", "400",  "--osc", "./esmini/resources/xosc/cut-in.xosc" , NULL};
+	char* my_argv[50] ; //= { "filename", "--window",  "60", "60", "800", "400",  "--osc", "./esmini/resources/xosc/cut-in.xosc" , NULL};
 
 	char* arg0 = (char*)malloc(sizeof(char) * 50);
 	strcpy(arg0, "filename");
