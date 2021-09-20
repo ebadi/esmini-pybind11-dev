@@ -1,12 +1,17 @@
 
 ### Install and run the pyplayerbase package
 ```
-https://github.com/ebadi/esmini-pybind11-dev.git
+git clone https://github.com/ebadi/esmini-pybind11-dev.git
 cd esmini-pybind11-dev
+./dev-building-bindings.sh
+```
+Note that you have to place `libesminiLib.so` in `$PWD/esmini/bin`. Building esmini using the instruction below will automatically do that for you. 
+```
 pip3 install ./esmini
 export LD_LIBRARY_PATH=$PWD/esmini/bin ; python3 scenarioplayer.py
 ```
-Note that you have to place `libesminiLib.so` in `$PWD/esmini/bin`. Building esmini using the instruction below will automatically do that for you. 
+
+
 
 Building esmini:
 ```
