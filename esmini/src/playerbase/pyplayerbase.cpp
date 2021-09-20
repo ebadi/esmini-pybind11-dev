@@ -32,8 +32,7 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 {
 	{ // ScenarioPlayer file: line:35
 		pybind11::class_<ScenarioPlayer, std::shared_ptr<ScenarioPlayer>> cl(M(""), "ScenarioPlayer", "");
-		//cl.def( pybind11::init( [](){ return new ScenarioPlayer(); } ) );
-		cl.def( pybind11::init());
+		cl.def( pybind11::init( [](){ return new ScenarioPlayer(); } ) );
 		cl.def_readwrite("sensor", &ScenarioPlayer::sensor);
 		cl.def_readonly("maxStepSize", &ScenarioPlayer::maxStepSize);
 		cl.def_readonly("minStepSize", &ScenarioPlayer::minStepSize);
@@ -50,6 +49,22 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 		cl.def("AddObjectSensor", (void (ScenarioPlayer::*)(int, double, double, double, double, double, double, double, int)) &ScenarioPlayer::AddObjectSensor, "C++: ScenarioPlayer::AddObjectSensor(int, double, double, double, double, double, double, double, int) --> void", pybind11::arg("object_index"), pybind11::arg("pos_x"), pybind11::arg("pos_y"), pybind11::arg("pos_z"), pybind11::arg("heading"), pybind11::arg("near"), pybind11::arg("far"), pybind11::arg("fovH"), pybind11::arg("maxObj"));
 		cl.def("SetFixedTimestep", (void (ScenarioPlayer::*)(double)) &ScenarioPlayer::SetFixedTimestep, "C++: ScenarioPlayer::SetFixedTimestep(double) --> void", pybind11::arg("timestep"));
 		cl.def("GetFixedTimestep", (double (ScenarioPlayer::*)()) &ScenarioPlayer::GetFixedTimestep, "C++: ScenarioPlayer::GetFixedTimestep() --> double");
+		cl.def("GetOSIFreq", (int (ScenarioPlayer::*)()) &ScenarioPlayer::GetOSIFreq, "C++: ScenarioPlayer::GetOSIFreq() --> int");
+		cl.def("UpdateCSV_Log", (void (ScenarioPlayer::*)()) &ScenarioPlayer::UpdateCSV_Log, "C++: ScenarioPlayer::UpdateCSV_Log() --> void");
+		cl.def("GetNumberOfParameters", (int (ScenarioPlayer::*)()) &ScenarioPlayer::GetNumberOfParameters, "C++: ScenarioPlayer::GetNumberOfParameters() --> int");
+		cl.def("GetParameterName", (const char * (ScenarioPlayer::*)(int, enum scenarioengine::OSCParameterDeclarations::ParameterType *)) &ScenarioPlayer::GetParameterName, "C++: ScenarioPlayer::GetParameterName(int, enum scenarioengine::OSCParameterDeclarations::ParameterType *) --> const char *", pybind11::return_value_policy::automatic, pybind11::arg("index"), pybind11::arg("type"));
+		cl.def("SetParameterValue", (int (ScenarioPlayer::*)(const char *, const void *)) &ScenarioPlayer::SetParameterValue, "C++: ScenarioPlayer::SetParameterValue(const char *, const void *) --> int", pybind11::arg("name"), pybind11::arg("value"));
+		cl.def("GetParameterValue", (int (ScenarioPlayer::*)(const char *, void *)) &ScenarioPlayer::GetParameterValue, "C++: ScenarioPlayer::GetParameterValue(const char *, void *) --> int", pybind11::arg("name"), pybind11::arg("value"));
+		cl.def("GetParameterValueInt", (int (ScenarioPlayer::*)(const char *, int &)) &ScenarioPlayer::GetParameterValueInt, "C++: ScenarioPlayer::GetParameterValueInt(const char *, int &) --> int", pybind11::arg("name"), pybind11::arg("value"));
+		cl.def("GetParameterValueDouble", (int (ScenarioPlayer::*)(const char *, double &)) &ScenarioPlayer::GetParameterValueDouble, "C++: ScenarioPlayer::GetParameterValueDouble(const char *, double &) --> int", pybind11::arg("name"), pybind11::arg("value"));
+		cl.def("GetParameterValueBool", (int (ScenarioPlayer::*)(const char *, bool &)) &ScenarioPlayer::GetParameterValueBool, "C++: ScenarioPlayer::GetParameterValueBool(const char *, bool &) --> int", pybind11::arg("name"), pybind11::arg("value"));
+		cl.def("SetParameterValue", (int (ScenarioPlayer::*)(const char *, int)) &ScenarioPlayer::SetParameterValue, "C++: ScenarioPlayer::SetParameterValue(const char *, int) --> int", pybind11::arg("name"), pybind11::arg("value"));
+		cl.def("SetParameterValue", (int (ScenarioPlayer::*)(const char *, double)) &ScenarioPlayer::SetParameterValue, "C++: ScenarioPlayer::SetParameterValue(const char *, double) --> int", pybind11::arg("name"), pybind11::arg("value"));
+		cl.def("SetParameterValue", (int (ScenarioPlayer::*)(const char *, const char *)) &ScenarioPlayer::SetParameterValue, "C++: ScenarioPlayer::SetParameterValue(const char *, const char *) --> int", pybind11::arg("name"), pybind11::arg("value"));
+		cl.def("SetParameterValue", (int (ScenarioPlayer::*)(const char *, bool)) &ScenarioPlayer::SetParameterValue, "C++: ScenarioPlayer::SetParameterValue(const char *, bool) --> int", pybind11::arg("name"), pybind11::arg("value"));
+		cl.def("GetNumberOfProperties", (int (ScenarioPlayer::*)(int)) &ScenarioPlayer::GetNumberOfProperties, "C++: ScenarioPlayer::GetNumberOfProperties(int) --> int", pybind11::arg("index"));
+		cl.def("GetPropertyName", (const char * (ScenarioPlayer::*)(int, int)) &ScenarioPlayer::GetPropertyName, "C++: ScenarioPlayer::GetPropertyName(int, int) --> const char *", pybind11::return_value_policy::automatic, pybind11::arg("index"), pybind11::arg("propertyIndex"));
+		cl.def("GetPropertyValue", (const char * (ScenarioPlayer::*)(int, int)) &ScenarioPlayer::GetPropertyValue, "C++: ScenarioPlayer::GetPropertyValue(int, int) --> const char *", pybind11::return_value_policy::automatic, pybind11::arg("index"), pybind11::arg("propertyIndex"));
 	}
 }
 
@@ -89,9 +104,9 @@ PYBIND11_MODULE(pyplayerbase, root_module) {
 
 }
 
-// Source list file: /home/wave/repositories/new-esmini-pybind11/esmini/src/playerbase/pyplayerbase.sources
+// Source list file: /home/wave/repositories/esmini-pybind11-dev/esmini/src/playerbase/pyplayerbase.sources
 // pyplayerbase.cpp
 // unknown/unknown.cpp
 
-// Modules list file: /home/wave/repositories/new-esmini-pybind11/esmini/src/playerbase/pyplayerbase.modules
+// Modules list file: /home/wave/repositories/esmini-pybind11-dev/esmini/src/playerbase/pyplayerbase.modules
 // 
