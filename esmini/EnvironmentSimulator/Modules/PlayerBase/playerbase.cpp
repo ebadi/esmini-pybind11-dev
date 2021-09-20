@@ -71,13 +71,45 @@ ScenarioPlayer::ScenarioPlayer(): maxStepSize(0.1), minStepSize(0.01)
 	strcpy(arg6,  "--osc");
 	my_argv[6] = arg6;
 
-	char* arg7  = (char*)malloc(sizeof(char) * 50);
+	char* arg7  = (char*)malloc(sizeof(char) * 100);
 	strcpy(arg7, "./esmini/resources/xosc/cut-in.xosc");
 	my_argv[7] = arg7;
 
+    argv_ = my_argv;
+    argc_ = my_argc;
 	my_argv[8] = NULL;
+    fixed_timestep_ = 0.07; // just to demonstrate that the object kept the state
+	quit_request = false;
+	threads = false;
+	headless = false;
+	launch_server = false;
+	fixed_timestep_ = -1.0;
+	osi_receiver_addr = "";
+	osi_freq_ = 1;
+	CSV_Log = NULL;
+	osiReporter = NULL;
+	viewer_ = 0;
+	disable_controllers_ = false;
+	frame_counter_ = 0;
 
-	ScenarioPlayer(my_argc, my_argv );
+#ifdef _USE_OSG
+	viewerState_ = ViewerState::VIEWER_STATE_NOT_STARTED;
+#endif
+
+	int retval = Init();
+	if (retval == -1)
+	{
+	LOG("::::: Failed to initialize scenario player");
+		throw std::invalid_argument("Failed to initialize scenario player");
+	}
+	else if (retval == -2)
+	{
+	LOG("::::: Skipped initialize scenario player");
+		throw std::invalid_argument("Skipped initialize scenario player");
+	}
+	LOG("RETURN OF SCENARIO PLAYER %d ", retval );
+
+	LOG("::::: after calling ScenarioPlayer(my_argc, my_argv )");
 }
 
 ScenarioPlayer::ScenarioPlayer(int &argc, char *argv[]) :
