@@ -485,7 +485,7 @@ endif (USE_OSG)
 project(pyesmini)
 
 add_subdirectory(pybind11)
-pybind11_add_module(pyplayerbase ../src/playerbase/pyplayerbase.cpp)
+pybind11_add_module(pyplayerbase src/playerbase/pyplayerbase.cpp)
 include_directories(${PLAYER_BASE_INCLUDE_DIR} ${SCENARIOENGINE_INCLUDE_DIRS} ${OSI_INCLUDE_DIR} ${OSG_INCLUDE_DIR} ${COMMON_MINI_INCLUDE_DIR} ${ROADMANAGER_INCLUDE_DIR} ${CONTROLLERS_INCLUDE_DIR} ${VIEWER_BASE_INCLUDE_DIR})
 # EXAMPLE_VERSION_INFO is defined by setup.py and passed into the C++ code as a
 # define (VERSION_INFO) here.
@@ -495,7 +495,7 @@ target_compile_definitions(pyplayerbase PRIVATE VERSION_INFO=${EXAMPLE_VERSION_I
 
 
 
-pybind11_add_module(pyroadmanager MODULE ../src/roadmanager/pyroadmanager.cpp Libraries/esminiLib/esminiLib.hpp Modules/RoadManager/odrSpiral.cpp Modules/CommonMini/CommonMini.cpp Modules/CommonMini/buildnr.cpp Modules/CommonMini/version.cpp ../externals/pugixml/pugixml.cpp )
+pybind11_add_module(pyroadmanager MODULE src/roadmanager/pyroadmanager.cpp Libraries/esminiLib/esminiLib.hpp Modules/RoadManager/odrSpiral.cpp Modules/CommonMini/CommonMini.cpp Modules/CommonMini/buildnr.cpp Modules/CommonMini/version.cpp ../externals/pugixml/pugixml.cpp )
 include_directories(${PLAYER_BASE_INCLUDE_DIR} ${SCENARIOENGINE_INCLUDE_DIRS}  Libraries/esminiLib/ ${OSI_INCLUDE_DIR} ${OSG_INCLUDE_DIR} ${COMMON_MINI_INCLUDE_DIR} ${ROADMANAGER_INCLUDE_DIR} ${CONTROLLERS_INCLUDE_DIR} ${VIEWER_BASE_INCLUDE_DIR})
 target_link_libraries(pyroadmanager PRIVATE ${SOCK_LIB} ${TIME_LIB}   ViewerBase PlayerBase Controllers CommonMini RoadManager ScenarioEngine ${SUMO_LIBRARIES}  ${GTEST_LIBRARIES} ${OSI_LIBRARIES} ${OSG_LIBRARIES})
 target_compile_definitions(pyroadmanager PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
@@ -506,7 +506,7 @@ target_compile_definitions(pyroadmanager PRIVATE VERSION_INFO=${EXAMPLE_VERSION_
 
 file(GLOB CONTROLLER_SRCS "Modules/Controllers/*.cpp" )
 
-pybind11_add_module(pycontroller MODULE ../src/controller/pycontroller.cpp
+pybind11_add_module(pycontroller MODULE src/controller/pycontroller.cpp
 Modules/RoadManager/RoadManager.cpp
 Modules/RoadManager/odrSpiral.cpp
 Modules/CommonMini/buildnr.cpp
@@ -516,7 +516,7 @@ target_link_libraries(pycontroller PRIVATE ${SOCK_LIB} ${TIME_LIB}   ViewerBase 
 target_compile_definitions(pycontroller PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
 
 
-pybind11_add_module(pyscenarioengine ../src/scenarioengine/pyscenarioengine.cpp
+pybind11_add_module(pyscenarioengine src/scenarioengine/pyscenarioengine.cpp
 ${SCENARIO_SRCS}
 Modules/RoadManager/RoadManager.cpp
 Modules/RoadManager/odrSpiral.cpp
@@ -535,7 +535,7 @@ target_compile_definitions(pyscenarioengine PRIVATE VERSION_INFO=${EXAMPLE_VERSI
 #####################
 file(GLOB VIEWER_SRCS 	"Modules/ViewerBase/*.cpp" )
 
-pybind11_add_module(pyviewerbase MODULE ../src/viewerbase/pyviewerbase.cpp
+pybind11_add_module(pyviewerbase MODULE src/viewerbase/pyviewerbase.cpp
 Modules/RoadManager/RoadManager.cpp
 Modules/RoadManager/odrSpiral.cpp
 Modules/CommonMini/buildnr.cpp
@@ -553,13 +553,13 @@ target_compile_definitions(pyviewerbase PRIVATE VERSION_INFO=${EXAMPLE_VERSION_I
 
 
 
-pybind11_add_module(pyesminilib MODULE ../src/esminilib/pyesminilib.cpp )
+pybind11_add_module(pyesminilib MODULE src/esminilib/pyesminilib.cpp )
 target_link_libraries(pyesminilib PRIVATE ${SOCK_LIB} ${TIME_LIB}   ${SUMO_LIBRARIES}   ${OSG_LIBRARIES} ViewerBase PlayerBase Controllers CommonMini RoadManager ScenarioEngine esminiRMLib esminiLib)
 target_compile_definitions(pyesminilib PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
 
 
 
-pybind11_add_module(pyesminirmlib MODULE ../src/esminirmlib/pyesminirmlib.cpp   Libraries/esminiLib/esminiLib.hpp   Libraries/esminiRMLib/esminiRMLib.hpp )
+pybind11_add_module(pyesminirmlib MODULE src/esminirmlib/pyesminirmlib.cpp   Libraries/esminiLib/esminiLib.hpp   Libraries/esminiRMLib/esminiRMLib.hpp )
 include_directories(${PLAYER_BASE_INCLUDE_DIR} ${SCENARIOENGINE_INCLUDE_DIRS}  Libraries/esminiLib/   Libraries/esminiRMLib/ ${OSI_INCLUDE_DIR} ${OSG_INCLUDE_DIR} ${COMMON_MINI_INCLUDE_DIR} ${ROADMANAGER_INCLUDE_DIR} ${CONTROLLERS_INCLUDE_DIR} ${VIEWER_BASE_INCLUDE_DIR})
 target_link_libraries(pyesminirmlib PRIVATE   ${SOCK_LIB} ${TIME_LIB}   ${SUMO_LIBRARIES}   ${OSI_LIBRARIES} ${OSG_LIBRARIES} ViewerBase PlayerBase Controllers CommonMini RoadManager ScenarioEngine esminiRMLib esminiLib)
 target_compile_definitions(pyesminirmlib PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
