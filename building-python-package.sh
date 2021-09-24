@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# pip3 install esmini/
+pip3 install esmini/
 
 export LD_LIBRARY_PATH=$PWD/esmini/bin
 

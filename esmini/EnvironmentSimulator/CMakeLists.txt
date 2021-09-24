@@ -559,7 +559,7 @@ target_compile_definitions(pyesminilib PRIVATE VERSION_INFO=${EXAMPLE_VERSION_IN
 
 
 
-pybind11_add_module(pyesminirmlib MODULE ../src/esminirmlib/pyesminirmlib.cpp )
-target_link_libraries(pyesminirmlib PRIVATE   ${SOCK_LIB} ${TIME_LIB}   ${SUMO_LIBRARIES}  ${OSI_LIBRARIES} ${OSG_LIBRARIES} ViewerBase PlayerBase Controllers CommonMini RoadManager ScenarioEngine esminiRMLib esminiLib)
+pybind11_add_module(pyesminirmlib MODULE ../src/esminirmlib/pyesminirmlib.cpp   Libraries/esminiLib/esminiLib.hpp   Libraries/esminiRMLib/esminiRMLib.hpp )
+include_directories(${PLAYER_BASE_INCLUDE_DIR} ${SCENARIOENGINE_INCLUDE_DIRS}  Libraries/esminiLib/   Libraries/esminiRMLib/ ${OSI_INCLUDE_DIR} ${OSG_INCLUDE_DIR} ${COMMON_MINI_INCLUDE_DIR} ${ROADMANAGER_INCLUDE_DIR} ${CONTROLLERS_INCLUDE_DIR} ${VIEWER_BASE_INCLUDE_DIR})
+target_link_libraries(pyesminirmlib PRIVATE   ${SOCK_LIB} ${TIME_LIB}   ${SUMO_LIBRARIES}   ${OSI_LIBRARIES} ${OSG_LIBRARIES} ViewerBase PlayerBase Controllers CommonMini RoadManager ScenarioEngine esminiRMLib esminiLib)
 target_compile_definitions(pyesminirmlib PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
-
