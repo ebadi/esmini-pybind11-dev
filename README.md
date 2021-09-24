@@ -7,7 +7,7 @@ cd esmini-pybind11-dev
 ```
 Note that you have to place `libesminiLib.so` in `$PWD/esmini/bin`. Building esmini using the instruction below will automatically do that for you. 
 ```
-pip3 install ./esmini
+./building-python-package.sh
 export LD_LIBRARY_PATH=$PWD/esmini/bin ; python3 scenarioplayer.py
 ```
 
