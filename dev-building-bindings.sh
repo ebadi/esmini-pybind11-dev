@@ -6,12 +6,15 @@ array=( playerbase roadmanager scenarioengine  controller )
 for MYMODULE in "${array[@]}"
 do
 	echo $MYMODULE
+	echo "========="
 	rm -rf $PWD/esmini/EnvironmentSimulator/src/$MYMODULE
 	mkdir  $PWD/esmini/EnvironmentSimulator/src/$MYMODULE
 	~/binder/bin/binder --annotate-includes --trace --root-module py$MYMODULE --prefix $PWD/esmini/EnvironmentSimulator/src/$MYMODULE --bind $MYMODULE  --single-file  --config $PWD/esmini/EnvironmentSimulator/src/py$MYMODULE.cfg  $PWD/esmini/EnvironmentSimulator/src/py$MYMODULE.hpp  -- -std=c++14 -DNDEBUG $IPATHS
 done
 
 MYMODULE="viewerbase"
+echo $MYMODULE
+echo "========="
 rm -rf $PWD/esmini/EnvironmentSimulator/src/$MYMODULE
 mkdir  $PWD/esmini/EnvironmentSimulator/src/$MYMODULE
 ~/binder/bin/binder --annotate-includes --trace --root-module py$MYMODULE --prefix $PWD/esmini/EnvironmentSimulator/src/$MYMODULE --bind viewer --single-file  --config $PWD/esmini/EnvironmentSimulator/src/py$MYMODULE.cfg  $PWD/esmini/EnvironmentSimulator/src/py$MYMODULE.hpp  -- -std=c++14 -DNDEBUG $IPATHS
@@ -22,6 +25,7 @@ array=( esminilib esminirmlib )
 for MYMODULE in "${array[@]}"
 do
 	echo $MYMODULE
+	echo "========="
 	rm -rf $PWD/esmini/EnvironmentSimulator/src/$MYMODULE
 	mkdir  $PWD/esmini/EnvironmentSimulator/src/$MYMODULE
 	~/binder/bin/binder --annotate-includes --trace --root-module py$MYMODULE --prefix $PWD/esmini/EnvironmentSimulator/src/$MYMODULE --bind ""  --single-file  --config $PWD/esmini/EnvironmentSimulator/src/py$MYMODULE.cfg  $PWD/esmini/EnvironmentSimulator/src/py$MYMODULE.hpp  -- -std=c++14 -DNDEBUG $IPATHS

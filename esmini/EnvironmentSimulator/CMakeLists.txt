@@ -486,18 +486,57 @@ project(pyesmini)
 
 add_subdirectory(pybind11)
 pybind11_add_module(pyplayerbase src/playerbase/pyplayerbase.cpp)
-include_directories(${PLAYER_BASE_INCLUDE_DIR} ${SCENARIOENGINE_INCLUDE_DIRS} ${OSI_INCLUDE_DIR} ${OSG_INCLUDE_DIR} ${COMMON_MINI_INCLUDE_DIR} ${ROADMANAGER_INCLUDE_DIR} ${CONTROLLERS_INCLUDE_DIR} ${VIEWER_BASE_INCLUDE_DIR})
+include_directories(
+  ${SCENARIOENGINE_INCLUDE_DIRS}
+  ${ROADMANAGER_INCLUDE_DIR}
+  ${VIEWER_BASE_INCLUDE_DIR}
+  ${PLAYER_BASE_INCLUDE_DIR}
+  ${CONTROLLERS_INCLUDE_DIR}
+  ${OSG_INCLUDE_DIR}
+  ${SUMO_INCLUDE_DIR}
+  ${COMMON_MINI_INCLUDE_DIR}
+  ${OSI_INCLUDE_DIR}
+)
 # EXAMPLE_VERSION_INFO is defined by setup.py and passed into the C++ code as a
 # define (VERSION_INFO) here.
-target_link_libraries(pyplayerbase PRIVATE ${SOCK_LIB} ${TIME_LIB}   ${SUMO_LIBRARIES}   ${OSG_LIBRARIES} ViewerBase PlayerBase Controllers CommonMini RoadManager ScenarioEngine esminiRMLib esminiLib)
+target_link_libraries(pyplayerbase PRIVATE
+    ViewerBase ${OSG_LIBRARIES}
+    ${SUMO_LIBRARIES}
+    ${OSI_LIBRARIES}
+    PlayerBase
+    ScenarioEngine
+    Controllers
+    RoadManager
+    CommonMini
+    ${viewer_libs}
+    ${osi_libs}
+    ${sumo_libs}
+    ${TIME_LIB}
+    ${SOCK_LIB}
+)
 target_compile_definitions(pyplayerbase PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
+
 
 
 
 
 pybind11_add_module(pyroadmanager MODULE src/roadmanager/pyroadmanager.cpp Libraries/esminiLib/esminiLib.hpp Modules/RoadManager/odrSpiral.cpp Modules/CommonMini/CommonMini.cpp Modules/CommonMini/buildnr.cpp Modules/CommonMini/version.cpp ../externals/pugixml/pugixml.cpp )
 include_directories(${PLAYER_BASE_INCLUDE_DIR} ${SCENARIOENGINE_INCLUDE_DIRS}  Libraries/esminiLib/ ${OSI_INCLUDE_DIR} ${OSG_INCLUDE_DIR} ${COMMON_MINI_INCLUDE_DIR} ${ROADMANAGER_INCLUDE_DIR} ${CONTROLLERS_INCLUDE_DIR} ${VIEWER_BASE_INCLUDE_DIR})
-target_link_libraries(pyroadmanager PRIVATE ${SOCK_LIB} ${TIME_LIB}   ViewerBase PlayerBase Controllers CommonMini RoadManager ScenarioEngine ${SUMO_LIBRARIES}  ${GTEST_LIBRARIES} ${OSI_LIBRARIES} ${OSG_LIBRARIES})
+target_link_libraries(pyroadmanager PRIVATE
+    ViewerBase ${OSG_LIBRARIES}
+    ${SUMO_LIBRARIES}
+    ${OSI_LIBRARIES}
+    PlayerBase
+    ScenarioEngine
+    Controllers
+    RoadManager
+    CommonMini
+    ${viewer_libs}
+    ${osi_libs}
+    ${sumo_libs}
+    ${TIME_LIB}
+    ${SOCK_LIB}
+    )
 target_compile_definitions(pyroadmanager PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
 
 
@@ -512,7 +551,21 @@ Modules/RoadManager/odrSpiral.cpp
 Modules/CommonMini/buildnr.cpp
 Modules/CommonMini/version.cpp
 ../externals/pugixml/pugixml.cpp)
-target_link_libraries(pycontroller PRIVATE ${SOCK_LIB} ${TIME_LIB}   ViewerBase PlayerBase Controllers CommonMini RoadManager ScenarioEngine ${SUMO_LIBRARIES}  ${GTEST_LIBRARIES} ${OSI_LIBRARIES} ${OSG_LIBRARIES})
+target_link_libraries(pycontroller PRIVATE
+    ViewerBase ${OSG_LIBRARIES}
+    ${SUMO_LIBRARIES}
+    ${OSI_LIBRARIES}
+    PlayerBase
+    ScenarioEngine
+    Controllers
+    RoadManager
+    CommonMini
+    ${viewer_libs}
+    ${osi_libs}
+    ${sumo_libs}
+    ${TIME_LIB}
+    ${SOCK_LIB}
+)
 target_compile_definitions(pycontroller PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
 
 
@@ -525,7 +578,21 @@ Modules/CommonMini/buildnr.cpp
 Modules/CommonMini/version.cpp
 ../externals/pugixml/pugixml.cpp
 )
-target_link_libraries(pyscenarioengine PRIVATE ${SOCK_LIB} ${TIME_LIB}   ${SUMO_LIBRARIES}   ${OSG_LIBRARIES} ViewerBase PlayerBase Controllers CommonMini RoadManager ScenarioEngine esminiRMLib esminiLib)
+target_link_libraries(pyscenarioengine PRIVATE
+    ViewerBase ${OSG_LIBRARIES}
+    ${SUMO_LIBRARIES}
+    ${OSI_LIBRARIES}
+    PlayerBase
+    ScenarioEngine
+    Controllers
+    RoadManager
+    CommonMini
+    ${viewer_libs}
+    ${osi_libs}
+    ${sumo_libs}
+    ${TIME_LIB}
+    ${SOCK_LIB}
+${SOCK_LIB} ${TIME_LIB}   ${SUMO_LIBRARIES}   ${OSG_LIBRARIES} ViewerBase PlayerBase Controllers CommonMini RoadManager ScenarioEngine)
 target_compile_definitions(pyscenarioengine PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
 
 
@@ -547,19 +614,65 @@ add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 add_definitions(-DOSG_LIBRARY_STATIC ) # -D_SCENARIO_VIEWER
 
 
-target_link_libraries(pyviewerbase PRIVATE  ${SOCK_LIB} ${TIME_LIB}  ViewerBase PlayerBase Controllers CommonMini RoadManager ScenarioEngine ${SUMO_LIBRARIES}  ${GTEST_LIBRARIES} ${OSI_LIBRARIES} ${OSG_LIBRARIES})
+target_link_libraries(pyviewerbase PRIVATE
+    ViewerBase ${OSG_LIBRARIES}
+    ${SUMO_LIBRARIES}
+    ${OSI_LIBRARIES}
+    PlayerBase
+    ScenarioEngine
+    Controllers
+    RoadManager
+    CommonMini
+    ${viewer_libs}
+    ${osi_libs}
+    ${sumo_libs}
+    ${TIME_LIB}
+    ${SOCK_LIB}
+    )
 target_compile_definitions(pyviewerbase PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
 
 
 
 
 pybind11_add_module(pyesminilib MODULE src/esminilib/pyesminilib.cpp )
-target_link_libraries(pyesminilib PRIVATE ${SOCK_LIB} ${TIME_LIB}   ${SUMO_LIBRARIES}   ${OSG_LIBRARIES} ViewerBase PlayerBase Controllers CommonMini RoadManager ScenarioEngine esminiRMLib esminiLib)
+target_link_libraries(pyesminilib PRIVATE
+    ViewerBase ${OSG_LIBRARIES}
+    ${SUMO_LIBRARIES}
+    ${OSI_LIBRARIES}
+    PlayerBase
+    ScenarioEngine
+    Controllers
+    RoadManager
+    CommonMini
+    ${viewer_libs}
+    ${osi_libs}
+    ${sumo_libs}
+    ${TIME_LIB}
+    ${SOCK_LIB}
+     esminiRMLib esminiLib
+    )
 target_compile_definitions(pyesminilib PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
 
 
 
 pybind11_add_module(pyesminirmlib MODULE src/esminirmlib/pyesminirmlib.cpp   Libraries/esminiLib/esminiLib.hpp   Libraries/esminiRMLib/esminiRMLib.hpp )
 include_directories(${PLAYER_BASE_INCLUDE_DIR} ${SCENARIOENGINE_INCLUDE_DIRS}  Libraries/esminiLib/   Libraries/esminiRMLib/ ${OSI_INCLUDE_DIR} ${OSG_INCLUDE_DIR} ${COMMON_MINI_INCLUDE_DIR} ${ROADMANAGER_INCLUDE_DIR} ${CONTROLLERS_INCLUDE_DIR} ${VIEWER_BASE_INCLUDE_DIR})
-target_link_libraries(pyesminirmlib PRIVATE   ${SOCK_LIB} ${TIME_LIB}   ${SUMO_LIBRARIES}   ${OSI_LIBRARIES} ${OSG_LIBRARIES} ViewerBase PlayerBase Controllers CommonMini RoadManager ScenarioEngine esminiRMLib esminiLib)
+target_link_libraries(pyesminirmlib PRIVATE
+    ViewerBase ${OSG_LIBRARIES}
+    ${SUMO_LIBRARIES}
+    ${OSI_LIBRARIES}
+    PlayerBase
+    ScenarioEngine
+    Controllers
+    RoadManager
+    CommonMini
+    ${viewer_libs}
+    ${osi_libs}
+    ${sumo_libs}
+    ${TIME_LIB}
+    ${SOCK_LIB}
+     esminiRMLib esminiLib
+    )
 target_compile_definitions(pyesminirmlib PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
+
+
