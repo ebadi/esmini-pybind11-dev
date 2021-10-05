@@ -1,6 +1,11 @@
 - Fix documentation meta data (conf.py)
 - Fix documentation 
 
+1- Inter module 
+https://buildmedia.readthedocs.org/media/pdf/pybind11/stable/pybind11.pdf
+ImportError: generic_type: type "CoordinateSystem" is already registered!
+
+
 2- Windows build
 
 	- Test and see what happends when extra added parts are removed 

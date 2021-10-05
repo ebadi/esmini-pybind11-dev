@@ -151,33 +151,7 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 
 void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
-	std::cout << "B30_[scenarioengine::OSCProperties] ";
-	{ // scenarioengine::OSCProperties file: line:21
-		pybind11::class_<scenarioengine::OSCProperties, std::shared_ptr<scenarioengine::OSCProperties>> cl(M("scenarioengine"), "OSCProperties", "");
-		cl.def( pybind11::init( [](){ return new scenarioengine::OSCProperties(); } ) );
-		cl.def( pybind11::init( [](scenarioengine::OSCProperties const &o){ return new scenarioengine::OSCProperties(o); } ) );
-		cl.def_readwrite("property_", &scenarioengine::OSCProperties::property_);
-		cl.def_readwrite("file_", &scenarioengine::OSCProperties::file_);
 
-		{ // scenarioengine::OSCProperties::Property file: line:24
-			auto & enclosing_class = cl;
-			pybind11::class_<scenarioengine::OSCProperties::Property, std::shared_ptr<scenarioengine::OSCProperties::Property>> cl(enclosing_class, "Property", "");
-			cl.def( pybind11::init( [](){ return new scenarioengine::OSCProperties::Property(); } ) );
-			cl.def( pybind11::init( [](scenarioengine::OSCProperties::Property const &o){ return new scenarioengine::OSCProperties::Property(o); } ) );
-			cl.def_readwrite("name_", &scenarioengine::OSCProperties::Property::name_);
-			cl.def_readwrite("value_", &scenarioengine::OSCProperties::Property::value_);
-		}
-
-		{ // scenarioengine::OSCProperties::File file: line:31
-			auto & enclosing_class = cl;
-			pybind11::class_<scenarioengine::OSCProperties::File, std::shared_ptr<scenarioengine::OSCProperties::File>> cl(enclosing_class, "File", "");
-			cl.def( pybind11::init( [](){ return new scenarioengine::OSCProperties::File(); } ) );
-			cl.def( pybind11::init( [](scenarioengine::OSCProperties::File const &o){ return new scenarioengine::OSCProperties::File(o); } ) );
-			cl.def_readwrite("filepath_", &scenarioengine::OSCProperties::File::filepath_);
-			cl.def("assign", (class scenarioengine::OSCProperties::File & (scenarioengine::OSCProperties::File::*)(const class scenarioengine::OSCProperties::File &)) &scenarioengine::OSCProperties::File::operator=, "C++: scenarioengine::OSCProperties::File::operator=(const class scenarioengine::OSCProperties::File &) --> class scenarioengine::OSCProperties::File &", pybind11::return_value_policy::automatic, pybind11::arg(""));
-		}
-
-	}
 }
 
 
@@ -233,21 +207,7 @@ void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const 
 
 void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
-	std::cout << "B31_[scenarioengine::OSCParameterDeclarations] ";
-	{ // scenarioengine::OSCParameterDeclarations file: line:26
-		pybind11::class_<scenarioengine::OSCParameterDeclarations, std::shared_ptr<scenarioengine::OSCParameterDeclarations>> cl(M("scenarioengine"), "OSCParameterDeclarations", "");
-		cl.def( pybind11::init( [](scenarioengine::OSCParameterDeclarations const &o){ return new scenarioengine::OSCParameterDeclarations(o); } ) );
-		cl.def( pybind11::init( [](){ return new scenarioengine::OSCParameterDeclarations(); } ) );
 
-		pybind11::enum_<scenarioengine::OSCParameterDeclarations::ParameterType>(cl, "ParameterType", "")
-			.value("PARAM_TYPE_INTEGER", scenarioengine::OSCParameterDeclarations::ParameterType::PARAM_TYPE_INTEGER)
-			.value("PARAM_TYPE_DOUBLE", scenarioengine::OSCParameterDeclarations::ParameterType::PARAM_TYPE_DOUBLE)
-			.value("PARAM_TYPE_STRING", scenarioengine::OSCParameterDeclarations::ParameterType::PARAM_TYPE_STRING)
-			.value("PARAM_TYPE_BOOL", scenarioengine::OSCParameterDeclarations::ParameterType::PARAM_TYPE_BOOL);
-
-		cl.def_readwrite("Parameter", &scenarioengine::OSCParameterDeclarations::Parameter);
-		cl.def("assign", (class scenarioengine::OSCParameterDeclarations & (scenarioengine::OSCParameterDeclarations::*)(const class scenarioengine::OSCParameterDeclarations &)) &scenarioengine::OSCParameterDeclarations::operator=, "C++: scenarioengine::OSCParameterDeclarations::operator=(const class scenarioengine::OSCParameterDeclarations &) --> class scenarioengine::OSCParameterDeclarations &", pybind11::return_value_policy::automatic, pybind11::arg(""));
-	}
 }
 
 
@@ -405,19 +365,7 @@ struct PyCallBack_scenarioengine_Controller : public scenarioengine::Controller 
 
 void bind_unknown_unknown_3(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
-	std::cout << "B32_[scenarioengine::Parameters] ";
-	{ // scenarioengine::Parameters file: line:25
-		pybind11::class_<scenarioengine::Parameters, std::shared_ptr<scenarioengine::Parameters>> cl(M("scenarioengine"), "Parameters", "");
-		cl.def( pybind11::init( [](){ return new scenarioengine::Parameters(); } ) );
-		cl.def( pybind11::init( [](scenarioengine::Parameters const &o){ return new scenarioengine::Parameters(o); } ) );
-		cl.def_readwrite("paramDeclarationsSize_", &scenarioengine::Parameters::paramDeclarationsSize_);
-		cl.def_readwrite("catalog_param_assignments", &scenarioengine::Parameters::catalog_param_assignments);
-		cl.def_readwrite("parameterDeclarations_", &scenarioengine::Parameters::parameterDeclarations_);
-		cl.def("CreateRestorePoint", (void (scenarioengine::Parameters::*)()) &scenarioengine::Parameters::CreateRestorePoint, "C++: scenarioengine::Parameters::CreateRestorePoint() --> void");
-		cl.def("RestoreParameterDeclarations", (void (scenarioengine::Parameters::*)()) &scenarioengine::Parameters::RestoreParameterDeclarations, "C++: scenarioengine::Parameters::RestoreParameterDeclarations() --> void");
-		cl.def("GetNumberOfParameters", (int (scenarioengine::Parameters::*)()) &scenarioengine::Parameters::GetNumberOfParameters, "C++: scenarioengine::Parameters::GetNumberOfParameters() --> int");
-		cl.def("GetParameterName", (const char * (scenarioengine::Parameters::*)(int, enum scenarioengine::OSCParameterDeclarations::ParameterType *)) &scenarioengine::Parameters::GetParameterName, "C++: scenarioengine::Parameters::GetParameterName(int, enum scenarioengine::OSCParameterDeclarations::ParameterType *) --> const char *", pybind11::return_value_policy::automatic, pybind11::arg("index"), pybind11::arg("type"));
-	}
+
 	std::cout << "B33_[scenarioengine::Controller] ";
 	{ // scenarioengine::Controller file: line:31
 		pybind11::class_<scenarioengine::Controller, std::shared_ptr<scenarioengine::Controller>, PyCallBack_scenarioengine_Controller> cl(M("scenarioengine"), "Controller", "");
