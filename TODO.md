@@ -1,9 +1,6 @@
 - Fix documentation meta data (conf.py)
 - Fix documentation 
 
-1- Better solution for "ImportError: libesminiLib.so: cannot open shared object file: No such file or directory"
-export LD_LIBRARY_PATH=$PWD/esmini/bin
-
 2- Windows build
 
 	- Test and see what happends when extra added parts are removed 

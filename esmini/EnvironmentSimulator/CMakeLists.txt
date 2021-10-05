@@ -484,6 +484,8 @@ endif (USE_OSG)
 
 project(pyesmini)
 
+set(CMAKE_BUILD_TYPE "Release") # https://github.com/microsoft/vcpkg/issues/20237?amp=1
+
 add_subdirectory(pybind11)
 pybind11_add_module(pyplayerbase src/playerbase/pyplayerbase.cpp)
 include_directories(
