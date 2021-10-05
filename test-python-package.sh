@@ -1,8 +1,5 @@
 #!/bin/bash
 
-pip3 install esmini/
-
-
 array=( playerbase roadmanager scenarioengine viewerbase controller)
 for MYMODULE in "${array[@]}"
 do
