@@ -30,24 +30,11 @@
 	PYBIND11_MAKE_OPAQUE(std::shared_ptr<void>)
 #endif
 
-struct Ptr {
-    Ptr(const void *v) : p(v) { }
-    void *p;
-};
-
-GetODRManager_wrapper()
-
 void bind_unknown_unknown(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
 	std::cout << "B0_[ScenarioPlayer] ";
 	{ // ScenarioPlayer file: line:35
 
-
-        pybind11::class_<Ptr>(m, "Ptr")
-            .def(py::init<const std::string &>())
-            .def("setName", &Pet::setName)
-            .def("getName", &Pet::getName);
-    }
 
 		pybind11::class_<ScenarioPlayer, std::shared_ptr<ScenarioPlayer>> cl(M(""), "ScenarioPlayer", "");
 		cl.def( pybind11::init( [](){ return new ScenarioPlayer(); } ) );

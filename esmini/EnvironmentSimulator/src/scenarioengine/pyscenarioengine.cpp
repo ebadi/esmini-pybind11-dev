@@ -27,7 +27,15 @@
 
 void bind_unknown_unknown(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
+	std::cout << "B0_[ControlDomains] ";
+	// ControlDomains file: line:79
+	pybind11::enum_<ControlDomains>(M(""), "ControlDomains", "")
+		.value("DOMAIN_NONE", ControlDomains::DOMAIN_NONE)
+		.value("DOMAIN_LONG", ControlDomains::DOMAIN_LONG)
+		.value("DOMAIN_LAT", ControlDomains::DOMAIN_LAT)
+		.value("DOMAIN_BOTH", ControlDomains::DOMAIN_BOTH);
 
+;
 
 	std::cout << "B1_[class std::__cxx11::basic_string<char> ControlDomain2Str(enum ControlDomains)] ";
 	std::cout << "B2_[bool FileExists(const char *)] ";
@@ -92,7 +100,37 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 
 void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
+	std::cout << "B30_[roadmanager::CoordinateSystem] ";
+	// roadmanager::CoordinateSystem file: line:1377
+	pybind11::enum_<roadmanager::CoordinateSystem>(M("roadmanager"), "CoordinateSystem", "")
+		.value("CS_UNDEFINED", roadmanager::CoordinateSystem::CS_UNDEFINED)
+		.value("CS_ENTITY", roadmanager::CoordinateSystem::CS_ENTITY)
+		.value("CS_LANE", roadmanager::CoordinateSystem::CS_LANE)
+		.value("CS_ROAD", roadmanager::CoordinateSystem::CS_ROAD)
+		.value("CS_TRAJECTORY", roadmanager::CoordinateSystem::CS_TRAJECTORY);
 
+;
+
+	std::cout << "B31_[roadmanager::RelativeDistanceType] ";
+	// roadmanager::RelativeDistanceType file: line:1386
+	pybind11::enum_<roadmanager::RelativeDistanceType>(M("roadmanager"), "RelativeDistanceType", "")
+		.value("REL_DIST_UNDEFINED", roadmanager::RelativeDistanceType::REL_DIST_UNDEFINED)
+		.value("REL_DIST_LATERAL", roadmanager::RelativeDistanceType::REL_DIST_LATERAL)
+		.value("REL_DIST_LONGITUDINAL", roadmanager::RelativeDistanceType::REL_DIST_LONGITUDINAL)
+		.value("REL_DIST_CARTESIAN", roadmanager::RelativeDistanceType::REL_DIST_CARTESIAN)
+		.value("REL_DIST_EUCLIDIAN", roadmanager::RelativeDistanceType::REL_DIST_EUCLIDIAN);
+
+;
+
+	std::cout << "B32_[roadmanager::Position] ";
+	std::cout << "B33_[roadmanager::Route] ";
+	std::cout << "B34_[roadmanager::RoadPath] ";
+	std::cout << "B35_[roadmanager::PolyLineBase] ";
+	std::cout << "B36_[roadmanager::Shape] ";
+	std::cout << "B37_[roadmanager::PolyLineShape] ";
+	std::cout << "B38_[roadmanager::ClothoidShape] ";
+	std::cout << "B39_[roadmanager::NurbsShape] ";
+	std::cout << "B40_[roadmanager::RMTrajectory] ";
 }
 
 
@@ -1561,7 +1599,46 @@ void bind_unknown_unknown_6(std::function< pybind11::module &(std::string const 
 		cl.def("Print", (void (scenarioengine::OSCPositionTrajectory::*)()) &scenarioengine::OSCPositionTrajectory::Print, "C++: scenarioengine::OSCPositionTrajectory::Print() --> void");
 		cl.def("assign", (class scenarioengine::OSCPositionTrajectory & (scenarioengine::OSCPositionTrajectory::*)(const class scenarioengine::OSCPositionTrajectory &)) &scenarioengine::OSCPositionTrajectory::operator=, "C++: scenarioengine::OSCPositionTrajectory::operator=(const class scenarioengine::OSCPositionTrajectory &) --> class scenarioengine::OSCPositionTrajectory &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
+	std::cout << "B67_[scenarioengine::Controller] ";
+	{ // scenarioengine::Controller file: line:31
+		pybind11::class_<scenarioengine::Controller, std::shared_ptr<scenarioengine::Controller>, PyCallBack_scenarioengine_Controller> cl(M("scenarioengine"), "Controller", "");
+		cl.def( pybind11::init( [](){ return new scenarioengine::Controller(); }, [](){ return new PyCallBack_scenarioengine_Controller(); } ) );
+		cl.def( pybind11::init( [](PyCallBack_scenarioengine_Controller const &o){ return new PyCallBack_scenarioengine_Controller(o); } ) );
+		cl.def( pybind11::init( [](scenarioengine::Controller const &o){ return new scenarioengine::Controller(o); } ) );
 
+		pybind11::enum_<scenarioengine::Controller::Type>(cl, "Type", pybind11::arithmetic(), "")
+			.value("CONTROLLER_TYPE_DEFAULT", scenarioengine::Controller::CONTROLLER_TYPE_DEFAULT)
+			.value("CONTROLLER_TYPE_EXTERNAL", scenarioengine::Controller::CONTROLLER_TYPE_EXTERNAL)
+			.value("CONTROLLER_TYPE_FOLLOW_GHOST", scenarioengine::Controller::CONTROLLER_TYPE_FOLLOW_GHOST)
+			.value("CONTROLLER_TYPE_INTERACTIVE", scenarioengine::Controller::CONTROLLER_TYPE_INTERACTIVE)
+			.value("CONTROLLER_TYPE_SLOPPY_DRIVER", scenarioengine::Controller::CONTROLLER_TYPE_SLOPPY_DRIVER)
+			.value("CONTROLLER_TYPE_SUMO", scenarioengine::Controller::CONTROLLER_TYPE_SUMO)
+			.value("CONTROLLER_TYPE_REL2ABS", scenarioengine::Controller::CONTROLLER_TYPE_REL2ABS)
+			.value("CONTROLLER_TYPE_ACC", scenarioengine::Controller::CONTROLLER_TYPE_ACC)
+			.value("N_CONTROLLER_TYPES", scenarioengine::Controller::N_CONTROLLER_TYPES)
+			.value("GHOST_RESERVED_TYPE", scenarioengine::Controller::GHOST_RESERVED_TYPE)
+			.value("USER_CONTROLLER_TYPE_BASE", scenarioengine::Controller::USER_CONTROLLER_TYPE_BASE)
+			.export_values();
+
+		cl.def_static("GetTypeNameStatic", (const char * (*)()) &scenarioengine::Controller::GetTypeNameStatic, "C++: scenarioengine::Controller::GetTypeNameStatic() --> const char *", pybind11::return_value_policy::automatic);
+		cl.def("GetTypeName", (const char * (scenarioengine::Controller::*)()) &scenarioengine::Controller::GetTypeName, "C++: scenarioengine::Controller::GetTypeName() --> const char *", pybind11::return_value_policy::automatic);
+		cl.def_static("GetTypeStatic", (const int (*)()) &scenarioengine::Controller::GetTypeStatic, "C++: scenarioengine::Controller::GetTypeStatic() --> const int");
+		cl.def("GetType", (int (scenarioengine::Controller::*)()) &scenarioengine::Controller::GetType, "C++: scenarioengine::Controller::GetType() --> int");
+		cl.def("Assign", (void (scenarioengine::Controller::*)(class scenarioengine::Object *)) &scenarioengine::Controller::Assign, "C++: scenarioengine::Controller::Assign(class scenarioengine::Object *) --> void", pybind11::arg("object"));
+		cl.def("Activate", (void (scenarioengine::Controller::*)(enum ControlDomains)) &scenarioengine::Controller::Activate, "C++: scenarioengine::Controller::Activate(enum ControlDomains) --> void", pybind11::arg("domainMask"));
+		cl.def("Deactivate", (void (scenarioengine::Controller::*)()) &scenarioengine::Controller::Deactivate, "C++: scenarioengine::Controller::Deactivate() --> void");
+		cl.def("Init", (void (scenarioengine::Controller::*)()) &scenarioengine::Controller::Init, "C++: scenarioengine::Controller::Init() --> void");
+		cl.def("ReportKeyEvent", (void (scenarioengine::Controller::*)(int, bool)) &scenarioengine::Controller::ReportKeyEvent, "C++: scenarioengine::Controller::ReportKeyEvent(int, bool) --> void", pybind11::arg("key"), pybind11::arg("down"));
+		cl.def("Step", (void (scenarioengine::Controller::*)(double)) &scenarioengine::Controller::Step, "C++: scenarioengine::Controller::Step(double) --> void", pybind11::arg("timeStep"));
+		cl.def("Active", (bool (scenarioengine::Controller::*)()) &scenarioengine::Controller::Active, "C++: scenarioengine::Controller::Active() --> bool");
+		cl.def("GetDomain", (enum ControlDomains (scenarioengine::Controller::*)()) &scenarioengine::Controller::GetDomain, "C++: scenarioengine::Controller::GetDomain() --> enum ControlDomains");
+		cl.def("GetMode", (int (scenarioengine::Controller::*)()) &scenarioengine::Controller::GetMode, "C++: scenarioengine::Controller::GetMode() --> int");
+		cl.def("GetObject", (class scenarioengine::Object * (scenarioengine::Controller::*)()) &scenarioengine::Controller::GetObject, "C++: scenarioengine::Controller::GetObject() --> class scenarioengine::Object *", pybind11::return_value_policy::automatic);
+		cl.def("IsActiveOnDomains", (bool (scenarioengine::Controller::*)(enum ControlDomains)) &scenarioengine::Controller::IsActiveOnDomains, "C++: scenarioengine::Controller::IsActiveOnDomains(enum ControlDomains) --> bool", pybind11::arg("domainMask"));
+		cl.def("IsActiveOnAnyOfDomains", (bool (scenarioengine::Controller::*)(enum ControlDomains)) &scenarioengine::Controller::IsActiveOnAnyOfDomains, "C++: scenarioengine::Controller::IsActiveOnAnyOfDomains(enum ControlDomains) --> bool", pybind11::arg("domainMask"));
+		cl.def("IsActive", (bool (scenarioengine::Controller::*)()) &scenarioengine::Controller::IsActive, "C++: scenarioengine::Controller::IsActive() --> bool");
+		cl.def("assign", (class scenarioengine::Controller & (scenarioengine::Controller::*)(const class scenarioengine::Controller &)) &scenarioengine::Controller::operator=, "C++: scenarioengine::Controller::operator=(const class scenarioengine::Controller &) --> class scenarioengine::Controller &", pybind11::return_value_policy::automatic, pybind11::arg(""));
+	}
 	std::cout << "B68_[class scenarioengine::Controller * scenarioengine::InstantiateController(void *)] ";
 	// scenarioengine::InstantiateController(void *) file: line:114
 	M("scenarioengine").def("InstantiateController", (class scenarioengine::Controller * (*)(void *)) &scenarioengine::InstantiateController, "C++: scenarioengine::InstantiateController(void *) --> class scenarioengine::Controller *", pybind11::return_value_policy::automatic, pybind11::arg("args"));
