@@ -53,8 +53,8 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
             argv[counter]  = NULL ;
 		    return new ScenarioPlayer(argc, argv);
 		} ) );
-		cl.def("GetODRManager", (void * (ScenarioPlayer::*)(int, double, double, double, double, double, double, double, int)) &ScenarioPlayer::AddObjectSensor, "C++: ScenarioPlayer::AddObjectSensor(int, double, double, double, double, double, double, double, int) --> void", pybind11::arg("object_index"), pybind11::arg("pos_x"), pybind11::arg("pos_y"), pybind11::arg("pos_z"), pybind11::arg("heading"), pybind11::arg("near"), pybind11::arg("far"), pybind11::arg("fovH"), pybind11::arg("maxObj"));
-
+		cl.def("GetODRManager",  &ScenarioPlayer::GetODRManager);
+        // (void * (ScenarioPlayer::*)(int, double, double, double, double, double, double, double, int))
 
 		cl.def_readwrite("sensor", &ScenarioPlayer::sensor);
 		cl.def_readonly("maxStepSize", &ScenarioPlayer::maxStepSize);
