@@ -30,12 +30,45 @@
 	PYBIND11_MAKE_OPAQUE(std::shared_ptr<void>)
 #endif
 
+struct Ptr {
+    Ptr(const void *v) : p(v) { }
+    void *p;
+};
+
+GetODRManager_wrapper()
+
 void bind_unknown_unknown(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
 	std::cout << "B0_[ScenarioPlayer] ";
 	{ // ScenarioPlayer file: line:35
+
+
+        pybind11::class_<Ptr>(m, "Ptr")
+            .def(py::init<const std::string &>())
+            .def("setName", &Pet::setName)
+            .def("getName", &Pet::getName);
+    }
+
 		pybind11::class_<ScenarioPlayer, std::shared_ptr<ScenarioPlayer>> cl(M(""), "ScenarioPlayer", "");
 		cl.def( pybind11::init( [](){ return new ScenarioPlayer(); } ) );
+		cl.def( pybind11::init( [](std::vector<std::string> vstr){
+		    int argc = vstr.size() ;
+            char * argv[ argc+1 ] ;
+            char * mem;
+            int counter = 0 ;
+		    for (std::string s : vstr) {
+		        mem = (char*) malloc (s.size() * sizeof(char) +1 ); //2 as it is either A or B
+                std::cout << counter << ":" << s << '\n';
+		        strcpy ( mem, s.c_str()) ;
+                argv[counter] = mem;
+		        counter ++ ;
+            }
+            argv[counter]  = NULL ;
+		    return new ScenarioPlayer(argc, argv);
+		} ) );
+		cl.def("GetODRManager", (void * (ScenarioPlayer::*)(int, double, double, double, double, double, double, double, int)) &ScenarioPlayer::AddObjectSensor, "C++: ScenarioPlayer::AddObjectSensor(int, double, double, double, double, double, double, double, int) --> void", pybind11::arg("object_index"), pybind11::arg("pos_x"), pybind11::arg("pos_y"), pybind11::arg("pos_z"), pybind11::arg("heading"), pybind11::arg("near"), pybind11::arg("far"), pybind11::arg("fovH"), pybind11::arg("maxObj"));
+
+
 		cl.def_readwrite("sensor", &ScenarioPlayer::sensor);
 		cl.def_readonly("maxStepSize", &ScenarioPlayer::maxStepSize);
 		cl.def_readonly("minStepSize", &ScenarioPlayer::minStepSize);

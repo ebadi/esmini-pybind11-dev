@@ -13,6 +13,7 @@
 #include <iostream>
 #include <string>
 #include <random>
+#include <list>
 
 #include "ScenarioEngine.hpp"
 #include "RoadManager.hpp"
@@ -36,7 +37,11 @@ static void log_callback(const char *str)
 	printf("%s\n", str);
 }
 
+ScenarioPlayer::ScenarioPlayer(int argc, std::list<std::string> argv) :
+	maxStepSize(0.1), minStepSize(0.01)
+{
 
+}
 ScenarioPlayer::ScenarioPlayer(): maxStepSize(0.1), minStepSize(0.01)
 {
 	int my_argc = 8;

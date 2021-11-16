@@ -60,6 +60,7 @@ public:
 		void *data;
 	} ObjCallback;
 	ScenarioPlayer();
+	ScenarioPlayer(int argc, std::list<std::string> argv) ;
 	ScenarioPlayer(int &argc, char *argv[]);
 	~ScenarioPlayer();
 	bool IsQuitRequested() { return quit_request; }
