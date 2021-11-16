@@ -54,7 +54,7 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 		    return new ScenarioPlayer(argc, argv);
 		} ) );
 		cl.def("GetODRManager",  &ScenarioPlayer::GetODRManager);
-        // (void * (ScenarioPlayer::*)(int, double, double, double, double, double, double, double, int))
+		cl.def_readwrite("scenarioEngine", &ScenarioPlayer::scenarioEngine);
 
 		cl.def_readwrite("sensor", &ScenarioPlayer::sensor);
 		cl.def_readonly("maxStepSize", &ScenarioPlayer::maxStepSize);

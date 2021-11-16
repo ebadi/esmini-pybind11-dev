@@ -100,37 +100,7 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 
 void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
-	std::cout << "B30_[roadmanager::CoordinateSystem] ";
-	// roadmanager::CoordinateSystem file: line:1377
-	pybind11::enum_<roadmanager::CoordinateSystem>(M("roadmanager"), "CoordinateSystem", "")
-		.value("CS_UNDEFINED", roadmanager::CoordinateSystem::CS_UNDEFINED)
-		.value("CS_ENTITY", roadmanager::CoordinateSystem::CS_ENTITY)
-		.value("CS_LANE", roadmanager::CoordinateSystem::CS_LANE)
-		.value("CS_ROAD", roadmanager::CoordinateSystem::CS_ROAD)
-		.value("CS_TRAJECTORY", roadmanager::CoordinateSystem::CS_TRAJECTORY);
 
-;
-
-	std::cout << "B31_[roadmanager::RelativeDistanceType] ";
-	// roadmanager::RelativeDistanceType file: line:1386
-	pybind11::enum_<roadmanager::RelativeDistanceType>(M("roadmanager"), "RelativeDistanceType", "")
-		.value("REL_DIST_UNDEFINED", roadmanager::RelativeDistanceType::REL_DIST_UNDEFINED)
-		.value("REL_DIST_LATERAL", roadmanager::RelativeDistanceType::REL_DIST_LATERAL)
-		.value("REL_DIST_LONGITUDINAL", roadmanager::RelativeDistanceType::REL_DIST_LONGITUDINAL)
-		.value("REL_DIST_CARTESIAN", roadmanager::RelativeDistanceType::REL_DIST_CARTESIAN)
-		.value("REL_DIST_EUCLIDIAN", roadmanager::RelativeDistanceType::REL_DIST_EUCLIDIAN);
-
-;
-
-	std::cout << "B32_[roadmanager::Position] ";
-	std::cout << "B33_[roadmanager::Route] ";
-	std::cout << "B34_[roadmanager::RoadPath] ";
-	std::cout << "B35_[roadmanager::PolyLineBase] ";
-	std::cout << "B36_[roadmanager::Shape] ";
-	std::cout << "B37_[roadmanager::PolyLineShape] ";
-	std::cout << "B38_[roadmanager::ClothoidShape] ";
-	std::cout << "B39_[roadmanager::NurbsShape] ";
-	std::cout << "B40_[roadmanager::RMTrajectory] ";
 }
 
 
