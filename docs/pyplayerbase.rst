@@ -1,8 +1,11 @@
 Player base
 ==================
 
-.. automodule:: pyplayerbase
+.. automodule:: pyplayerbase.ScenarioPlayer
     :members:
 
 -----------------
+
+.. autoclass:: pyplayerbase.ScenarioPlayer
+    :members:
 
