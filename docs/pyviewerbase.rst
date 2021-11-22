@@ -6,11 +6,6 @@ Viewer base
 
 -----------------
 
-.. autoclass:: pyviewerbase.viewer.AlphaFadingCallback
-    :members:
-
------------------
-
 .. autoclass:: pyviewerbase.viewer.CarModel
     :members:
 
@@ -21,27 +16,12 @@ Viewer base
 
 -----------------
 
-.. autoclass:: pyviewerbase.viewer.Line
-    :members:
-
------------------
-
 .. autoclass:: pyviewerbase.viewer.PointSensor
     :members:
 
 -----------------
 
 .. autoclass:: pyviewerbase.viewer.SensorViewFrustum
-    :members:
-
------------------
-
-.. autoclass:: pyviewerbase.viewer.Trail
-    :members:
-
------------------
-
-.. autoclass:: pyviewerbase.viewer.TrailDot
     :members:
 
 -----------------
@@ -57,4 +37,15 @@ Viewer base
 -----------------
 
 .. autoclass:: pyviewerbase.viewer.VisibilityCallback
+    :members:
+
+-----------------
+
+.. autoclass:: pyviewerbase.viewer.PolyLine
+    :members:
+
+-----------------
+
+
+.. autoclass:: pyviewerbase.viewer.Trajectory
     :members:
