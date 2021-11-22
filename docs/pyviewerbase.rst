@@ -38,14 +38,3 @@ Viewer base
 
 .. autoclass:: pyviewerbase.viewer.VisibilityCallback
     :members:
-
------------------
-
-.. autoclass:: pyviewerbase.viewer.PolyLine
-    :members:
-
------------------
-
-
-.. autoclass:: pyviewerbase.viewer.Trajectory
-    :members:

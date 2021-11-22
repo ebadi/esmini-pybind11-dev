@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
-
 import pyroadmanager
 import pyplayerbase
 import pyscenarioengine
@@ -14,6 +12,11 @@ odr = player.GetODRManager()
 se= player.scenarioEngine
 sg= player.scenarioGateway
 
+print("scenarioEngine", se)
+print("scenarioEngine", dir(se))
+
+exit()
+
 print("GetODRManager", odr)
 print("GetODRManager", dir(odr))
 road = odr.GetRoadById(0)
@@ -21,9 +24,6 @@ print("GetODRManager::", road)
 print("road.Print()::")
 road.Print()
 
-
-print("scenarioEngine", se)
-print("scenarioEngine", dir(se))
 
 print("scenarioGateway", sg)
 print("scenarioGateway", dir(sg))

@@ -15,3 +15,10 @@
 - Fix documentation 
 
 4 - Make sure all methods have bindings, find a solution otherwise
+
+
+
+
+5 - CommonMini: Is it important to be converted?
+6 - ScenarioEngine has tons of classes, are they are necessary? (Catalogs)
+

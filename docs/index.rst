@@ -28,15 +28,6 @@ Contents:
 
    pycontroller
 
-.. toctree::
-   :maxdepth: 10
-
-   pyesminilib
-
-.. toctree::
-   :maxdepth: 10
-
-   pyesminirmlib
 
 .. toctree::
    :maxdepth: 10

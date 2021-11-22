@@ -29,4 +29,3 @@ Controller
 .. autoclass:: pycontroller.scenarioengine.Parameters
     :members:
 
------------------
