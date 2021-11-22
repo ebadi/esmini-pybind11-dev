@@ -111,12 +111,42 @@ Road Manager
 
 -----------------
 
+.. autoclass:: pyroadmanager.roadmanager.RoadObject
+    :members:
+
+-----------------
+
 .. autoclass:: pyroadmanager.roadmanager.Signal
     :members:
 
 -----------------
 
-.. autoclass:: pyroadmanager.roadmanager.Object
+.. autoclass:: pyroadmanager.roadmanager.OutlineCorner
+    :members:
+
+-----------------
+
+.. autoclass:: pyroadmanager.roadmanager.OutlineCornerRoad
+    :members:
+
+-----------------
+
+.. autoclass:: pyroadmanager.roadmanager.OutlineCornerLocal
+    :members:
+
+-----------------
+
+.. autoclass:: pyroadmanager.roadmanager.Outline
+    :members:
+
+-----------------
+
+.. autoclass:: pyroadmanager.roadmanager.Repeat
+    :members:
+
+-----------------
+
+.. autoclass:: pyroadmanager.roadmanager.RMObject
     :members:
 
 -----------------
@@ -137,6 +167,11 @@ Road Manager
 -----------------
 
 .. autoclass:: pyroadmanager.roadmanager.Connection
+    :members:
+
+-----------------
+
+.. autoclass:: pyroadmanager.roadmanager.Controller
     :members:
 
 -----------------
@@ -166,26 +201,34 @@ Road Manager
 
 -----------------
 
+.. autoclass:: pyroadmanager.roadmanager.PolyLineBase
+    :members:
+
+-----------------
+
 .. autoclass:: pyroadmanager.roadmanager.Shape
     :members:
 
 -----------------
 
-.. autoclass:: pyroadmanager.roadmanager.PolyLine
+.. autoclass:: pyroadmanager.roadmanager.PolyLineShape
     :members:
 
 -----------------
 
-.. autoclass:: pyroadmanager.roadmanager.Clothoid
+.. autoclass:: pyroadmanager.roadmanager.ClothoidShape
     :members:
 
 -----------------
 
-.. autoclass:: pyroadmanager.roadmanager.Nurbs
+.. autoclass:: pyroadmanager.roadmanager.NurbsShape
     :members:
 
 -----------------
 
-.. autoclass:: pyroadmanager.roadmanager.Trajectory
+
+.. autoclass:: pyroadmanager.roadmanager.RMTrajectory
     :members:
+
+
 
