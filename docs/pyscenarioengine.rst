@@ -6,26 +6,6 @@ Scenario Engine
 
 -----------------
 
-.. autoclass:: pyscenarioengine.scenarioengine.ObjectTrail
-    :members:
-
------------------
-
-.. autoclass:: pyscenarioengine.scenarioengine.Center
-    :members:
-
------------------
-
-.. autoclass:: pyscenarioengine.scenarioengine.Dimensions
-    :members:
-
------------------
-
-.. autoclass:: pyscenarioengine.scenarioengine.OSCBoundingBox
-    :members:
-
------------------
-
 .. autoclass:: pyscenarioengine.scenarioengine.Object
     :members:
 
