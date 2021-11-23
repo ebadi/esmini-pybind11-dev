@@ -27,7 +27,7 @@ while not player.IsQuitRequested():
 odr = player.GetODRManager()
 print("GetODRManager", odr)
 print("GetODRManager", dir(odr))
-exit()
+
 road = odr.GetRoadById(0)
 print("road::", road)
 print("road.Print()::")
@@ -39,7 +39,7 @@ sg= player.scenarioGateway
 print("scenarioGateway", sg)
 print("scenarioGateway", dir(sg))
 
-
+exit()
 
 
 
