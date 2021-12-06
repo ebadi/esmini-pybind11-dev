@@ -34,28 +34,26 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 {
 	std::cout << "B0_[ScenarioPlayer] ";
 	{ // ScenarioPlayer file: line:35
-
-
 		pybind11::class_<ScenarioPlayer, std::shared_ptr<ScenarioPlayer>> cl(M(""), "ScenarioPlayer", "");
 		cl.def( pybind11::init( [](){ return new ScenarioPlayer(); } ) );
-		cl.def( pybind11::init( [](std::vector<std::string> vstr){
-		    int argc = vstr.size() ;
+        cl.def( pybind11::init( [](std::vector<std::string> vstr){
+            int argc = vstr.size() ;
             char * argv[ argc+1 ] ;
             char * mem;
             int counter = 0 ;
-		    for (std::string s : vstr) {
-		        mem = (char*) malloc (s.size() * sizeof(char) +1 ); //2 as it is either A or B
-                std::cout << counter << ":" << s << '\n';
-		        strcpy ( mem, s.c_str()) ;
-                argv[counter] = mem;
-		        counter ++ ;
+            for (std::string s : vstr) {
+            mem = (char*) malloc (s.size() * sizeof(char) +1 ); //2 as it is either A or B
+            std::cout << counter << ":" << s << '\n';
+            strcpy ( mem, s.c_str()) ;
+            argv[counter] = mem;
+            counter ++ ;
             }
-            argv[counter]  = NULL ;
-		    return new ScenarioPlayer(argc, argv);
-		} ) );
-		cl.def("GetODRManager",  &ScenarioPlayer::GetODRManager, pybind11::return_value_policy::reference);
-		cl.def_readonly("scenarioEngine", &ScenarioPlayer::scenarioEngine);
-		cl.def_readonly("scenarioGateway", &ScenarioPlayer::scenarioGateway);
+        argv[counter]  = NULL ;
+        return new ScenarioPlayer(argc, argv);
+        } ) );
+cl.def("GetODRManager",  &ScenarioPlayer::GetODRManager, pybind11::return_value_policy::reference);
+cl.def_readonly("scenarioEngine", &ScenarioPlayer::scenarioEngine);
+cl.def_readonly("scenarioGateway", &ScenarioPlayer::scenarioGateway);
 
 		cl.def_readwrite("sensor", &ScenarioPlayer::sensor);
 		cl.def_readonly("maxStepSize", &ScenarioPlayer::maxStepSize);
@@ -76,7 +74,7 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 		cl.def("GetOSIFreq", (int (ScenarioPlayer::*)()) &ScenarioPlayer::GetOSIFreq, "C++: ScenarioPlayer::GetOSIFreq() --> int");
 		cl.def("UpdateCSV_Log", (void (ScenarioPlayer::*)()) &ScenarioPlayer::UpdateCSV_Log, "C++: ScenarioPlayer::UpdateCSV_Log() --> void");
 		cl.def("GetNumberOfParameters", (int (ScenarioPlayer::*)()) &ScenarioPlayer::GetNumberOfParameters, "C++: ScenarioPlayer::GetNumberOfParameters() --> int");
-		cl.def("GetParameterName", (const char * (ScenarioPlayer::*)(int, enum scenarioengine::OSCParameterDeclarations::ParameterType *)) &ScenarioPlayer::GetParameterName, "C++: ScenarioPlayer::GetParameterName(int, enum scenarioengine::OSCParameterDeclarations::ParameterType *) --> const char *", pybind11::return_value_policy::automatic, pybind11::arg("index"), pybind11::arg("type"));
+		cl.def("GetParameterName", (const char * (ScenarioPlayer::*)(int, enum scenarioengine::OSCParameterDeclarations::ParameterType *)) &ScenarioPlayer::GetParameterName, "C++: ScenarioPlayer::GetParameterName(int, enum scenarioengine::OSCParameterDeclarations::ParameterType *) --> const char *", pybind11::return_value_policy::reference, pybind11::arg("index"), pybind11::arg("type"));
 		cl.def("SetParameterValue", (int (ScenarioPlayer::*)(const char *, const void *)) &ScenarioPlayer::SetParameterValue, "C++: ScenarioPlayer::SetParameterValue(const char *, const void *) --> int", pybind11::arg("name"), pybind11::arg("value"));
 		cl.def("GetParameterValue", (int (ScenarioPlayer::*)(const char *, void *)) &ScenarioPlayer::GetParameterValue, "C++: ScenarioPlayer::GetParameterValue(const char *, void *) --> int", pybind11::arg("name"), pybind11::arg("value"));
 		cl.def("GetParameterValueInt", (int (ScenarioPlayer::*)(const char *, int &)) &ScenarioPlayer::GetParameterValueInt, "C++: ScenarioPlayer::GetParameterValueInt(const char *, int &) --> int", pybind11::arg("name"), pybind11::arg("value"));
@@ -87,8 +85,8 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 		cl.def("SetParameterValue", (int (ScenarioPlayer::*)(const char *, const char *)) &ScenarioPlayer::SetParameterValue, "C++: ScenarioPlayer::SetParameterValue(const char *, const char *) --> int", pybind11::arg("name"), pybind11::arg("value"));
 		cl.def("SetParameterValue", (int (ScenarioPlayer::*)(const char *, bool)) &ScenarioPlayer::SetParameterValue, "C++: ScenarioPlayer::SetParameterValue(const char *, bool) --> int", pybind11::arg("name"), pybind11::arg("value"));
 		cl.def("GetNumberOfProperties", (int (ScenarioPlayer::*)(int)) &ScenarioPlayer::GetNumberOfProperties, "C++: ScenarioPlayer::GetNumberOfProperties(int) --> int", pybind11::arg("index"));
-		cl.def("GetPropertyName", (const char * (ScenarioPlayer::*)(int, int)) &ScenarioPlayer::GetPropertyName, "C++: ScenarioPlayer::GetPropertyName(int, int) --> const char *", pybind11::return_value_policy::automatic, pybind11::arg("index"), pybind11::arg("propertyIndex"));
-		cl.def("GetPropertyValue", (const char * (ScenarioPlayer::*)(int, int)) &ScenarioPlayer::GetPropertyValue, "C++: ScenarioPlayer::GetPropertyValue(int, int) --> const char *", pybind11::return_value_policy::automatic, pybind11::arg("index"), pybind11::arg("propertyIndex"));
+		cl.def("GetPropertyName", (const char * (ScenarioPlayer::*)(int, int)) &ScenarioPlayer::GetPropertyName, "C++: ScenarioPlayer::GetPropertyName(int, int) --> const char *", pybind11::return_value_policy::reference, pybind11::arg("index"), pybind11::arg("propertyIndex"));
+		cl.def("GetPropertyValue", (const char * (ScenarioPlayer::*)(int, int)) &ScenarioPlayer::GetPropertyValue, "C++: ScenarioPlayer::GetPropertyValue(int, int) --> const char *", pybind11::return_value_policy::reference, pybind11::arg("index"), pybind11::arg("propertyIndex"));
 	}
 }
 

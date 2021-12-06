@@ -416,7 +416,7 @@ void bind_unknown_unknown_3(std::function< pybind11::module &(std::string const 
 		cl.def("CreateRestorePoint", (void (scenarioengine::Parameters::*)()) &scenarioengine::Parameters::CreateRestorePoint, "C++: scenarioengine::Parameters::CreateRestorePoint() --> void");
 		cl.def("RestoreParameterDeclarations", (void (scenarioengine::Parameters::*)()) &scenarioengine::Parameters::RestoreParameterDeclarations, "C++: scenarioengine::Parameters::RestoreParameterDeclarations() --> void");
 		cl.def("GetNumberOfParameters", (int (scenarioengine::Parameters::*)()) &scenarioengine::Parameters::GetNumberOfParameters, "C++: scenarioengine::Parameters::GetNumberOfParameters() --> int");
-		cl.def("GetParameterName", (const char * (scenarioengine::Parameters::*)(int, enum scenarioengine::OSCParameterDeclarations::ParameterType *)) &scenarioengine::Parameters::GetParameterName, "C++: scenarioengine::Parameters::GetParameterName(int, enum scenarioengine::OSCParameterDeclarations::ParameterType *) --> const char *", pybind11::return_value_policy::automatic, pybind11::arg("index"), pybind11::arg("type"));
+		cl.def("GetParameterName", (const char * (scenarioengine::Parameters::*)(int, enum scenarioengine::OSCParameterDeclarations::ParameterType *)) &scenarioengine::Parameters::GetParameterName, "C++: scenarioengine::Parameters::GetParameterName(int, enum scenarioengine::OSCParameterDeclarations::ParameterType *) --> const char *", pybind11::return_value_policy::reference, pybind11::arg("index"), pybind11::arg("type"));
 	}
 	std::cout << "B33_[scenarioengine::Controller] ";
 	{ // scenarioengine::Controller file: line:31
@@ -440,7 +440,7 @@ void bind_unknown_unknown_3(std::function< pybind11::module &(std::string const 
 			.export_values();
 
 		cl.def_static("GetTypeNameStatic", (const char * (*)()) &scenarioengine::Controller::GetTypeNameStatic, "C++: scenarioengine::Controller::GetTypeNameStatic() --> const char *", pybind11::return_value_policy::automatic);
-		cl.def("GetTypeName", (const char * (scenarioengine::Controller::*)()) &scenarioengine::Controller::GetTypeName, "C++: scenarioengine::Controller::GetTypeName() --> const char *", pybind11::return_value_policy::automatic);
+		cl.def("GetTypeName", (const char * (scenarioengine::Controller::*)()) &scenarioengine::Controller::GetTypeName, "C++: scenarioengine::Controller::GetTypeName() --> const char *", pybind11::return_value_policy::reference);
 		cl.def_static("GetTypeStatic", (const int (*)()) &scenarioengine::Controller::GetTypeStatic, "C++: scenarioengine::Controller::GetTypeStatic() --> const int");
 		cl.def("GetType", (int (scenarioengine::Controller::*)()) &scenarioengine::Controller::GetType, "C++: scenarioengine::Controller::GetType() --> int");
 		cl.def("Activate", (void (scenarioengine::Controller::*)(enum ControlDomains)) &scenarioengine::Controller::Activate, "C++: scenarioengine::Controller::Activate(enum ControlDomains) --> void", pybind11::arg("domainMask"));

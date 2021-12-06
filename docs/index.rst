@@ -1,7 +1,10 @@
 PyEsmini Documentation
 ============================
 
-Contents:
+.. toctree::
+   :maxdepth: 10
+
+
 
 .. toctree::
    :maxdepth: 10
@@ -28,6 +31,3 @@ Contents:
 
    pycontroller
 
-
-.. toctree::
-   :maxdepth: 10
