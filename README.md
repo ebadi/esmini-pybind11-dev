@@ -24,3 +24,6 @@ rebuilding pybind11 bindings (for development only):
 ```
 ./dev-building-bindings.sh
 ```
+
+
+rm LOG_FILE ; pip3 install .  --log LOG_FILE 
