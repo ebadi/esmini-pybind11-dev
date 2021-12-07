@@ -44,3 +44,7 @@ Makefile
 *.a
 *.so
 .idea/
+out.xml
+log.txt
+LOG_FILE
+docs/_build/

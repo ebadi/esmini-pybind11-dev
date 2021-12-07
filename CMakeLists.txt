@@ -15,9 +15,6 @@ project (pyesmini)
 #)
 #FetchContent_MakeAvailable(pybind11)
 
-
-
-
 #include(ExternalProject)
 #ExternalProject_Add(googletest
 #  GIT_REPOSITORY    https://github.com/ebadi/esmini.git
@@ -26,10 +23,6 @@ project (pyesmini)
 #  BINARY_DIR        "${CMAKE_BINARY_DIR}/esmini-build"
 #  UPDATE_COMMAND
 #)
-
-
-
-
 
 set(esmini_SOURCE_DIR esmini)
 set(pybind11_SOURCE_DIR esmini)
@@ -40,12 +33,9 @@ set(CMAKE_BUILD_TYPE "Release") # https://github.com/microsoft/vcpkg/issues/2023
 
 add_subdirectory(pybind11)
 
-
-message(STATUS "HEREYYYYYYYYYYYYY")
-message(STATUS "${SCENARIOENGINE_INCLUDE_DIRS}")
-message(STATUS "${ROADMANAGER_INCLUDE_DIR}")
+message(STATUS "[[CMAKE_CURRENT_SOURCE_DIR]]")
 message(STATUS "${CMAKE_CURRENT_SOURCE_DIR}")
-message(STATUS "${OSG_LIBRARIES}")
+
 
 link_directories(${OSG_LIBRARIES_PATH} ${OSI_LIBRARIES_PATH} ${SUMO_LIBRARIES_PATH} ${GTEST_LIBRARIES_PATH} )
 add_definitions(-D_USE_OSG)
@@ -80,6 +70,5 @@ target_link_libraries(pyplayerbase PRIVATE
     ${TIME_LIB}
     ${SOCK_LIB}
 )
-
 
 target_compile_definitions(pyplayerbase PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
