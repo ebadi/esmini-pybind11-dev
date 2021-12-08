@@ -4,32 +4,39 @@ project (pyesmini)
 include(ExternalProject)
 include(FetchContent)
 
-set(pybind11_SOURCE_DIR esmini)
+#add_subdirectory(pybind11)
+#add_subdirectory(esmini)
+#if(FALSE) # fake a block comment
 
-
+############## esmini ##############
 FetchContent_Declare(
   esmini
-  GIT_REPOSITORY https://github.com/ebadi/esmini.git
-  GIT_TAG        master
+  GIT_REPOSITORY https://github.com/esmini/esmini.git
+  GIT_TAG        a0a7d1a24a716536abdcd353cb2ded448bb6cbbf
 )
 FetchContent_GetProperties(esmini)
 if(NOT esmini_POPULATED)
   FetchContent_Populate(esmini)
   add_subdirectory(${esmini_SOURCE_DIR})
-  message(STATUS "[[UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU]]")
+  message(STATUS "[[esmini]]")
 endif()
 
+############## pybind11 ##############
+FetchContent_Declare(
+  pybind11
+  GIT_REPOSITORY https://github.com/pybind/pybind11.git
+  GIT_TAG        70a58c577eaf067748c2ec31bfd0b0a614cffba6
+)
+FetchContent_GetProperties(pybind11)
+if(NOT pybind11_POPULATED)
+  FetchContent_Populate(pybind11)
+  add_subdirectory(${pybind11_SOURCE_DIR})
+  message(STATUS "[[pybind11]]")
+endif()
 
-#execute_process(
-#  COMMAND cat cmakepatch.txt >> ${esmini_SOURCE_DIR}/EnvironmentSimulator/CMakeLists.txt
-#  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-#  OUTPUT_VARIABLE PATCHUNT
-#  OUTPUT_STRIP_TRAILING_WHITESPACE
-#)
+#endif()
 
 set(CMAKE_BUILD_TYPE "Release") # https://github.com/microsoft/vcpkg/issues/20237?amp=1
-
-add_subdirectory(pybind11)
 
 message(STATUS "[[_______MESSAGE_______]]")
 message(STATUS "${esmini_SOURCE_DIR}")

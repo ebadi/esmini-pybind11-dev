@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 
 
+import pyroadmanager
 import pyplayerbase
+import pyscenarioengine
 import time
 
 print(dir(pyplayerbase.ScenarioPlayer))
 print("Python: running constructor")
-player = pyplayerbase.ScenarioPlayer()
+player = pyplayerbase.ScenarioPlayer(["filename", "--window",  "60", "60", "800", "400",  "--osc", "./esmini/resources/xosc/cut-in.xosc"])
 print("Python: after constructor")
 print("GetFixedTimestep", player.GetFixedTimestep())
 print("IsQuitRequested", player.IsQuitRequested())
