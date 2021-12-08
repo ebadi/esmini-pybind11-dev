@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-import pyroadmanager
 import pyplayerbase
-import pyscenarioengine
 import time
 
 print(dir(pyplayerbase.ScenarioPlayer))

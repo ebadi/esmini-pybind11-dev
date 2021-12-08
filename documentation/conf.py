@@ -52,7 +52,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'pyesmini'
+project = u'python-esmini'
 copyright = u'2021, Hamid Ebadi'
 author = u'Hamid Ebadi'
 
@@ -228,7 +228,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'pyesmini.tex', u'pyEsmini Documentation',
+    (master_doc, 'python-esmini.tex', u'python-esmini Documentation',
      u'Hamid Ebadi', 'manual'),
 ]
 
@@ -258,7 +258,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'pyesmini', u'pyEsmini Documentation',
+    (master_doc, 'python-esmini', u'python-esmini Documentation',
      [author], 1)
 ]
 
@@ -272,8 +272,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'pyesmini', u'pyEsmini Documentation',
-     author, 'pyesmini', 'One line description of project.',
+    (master_doc, 'python-esmini', u'python-esmini Documentation',
+     author, 'python-esmini', 'Python wrapper for Environment Simulator Minimalistic (esmini)',
      'Miscellaneous'),
 ]
 

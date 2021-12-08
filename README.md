@@ -1,33 +1,49 @@
 
 ### Install the package
 ```
-git clone https://github.com/ebadi/esmini-pybind11.git
-cd esmini-pybind11
+git clone https://github.com/ebadi/python-esmini.git
+cd python-esmini
 pip3 install .
 ```
-To test the python modules, download the esmini resources and run the following scripts:
+
+### Usage
+Example python code:
+```python
+import pyplayerbase
+import time
+
+player = pyplayerbase.ScenarioPlayer(["python-esmini", "--window",  "60", "60", "800", "400",  "--osc", "./esmini/resources/xosc/cut-in.xosc"])
+while not player.IsQuitRequested():
+    player.Frame(1)
+    time.sleep(1)
 ```
+
+![https://github.com/ebadi/python-esmini](documentation/screenshot.png)
+
+To test the python modules, download the esmini resources and run the following scripts:
+```shell
 python3 example/scenarioplayer.py
 python3 example/intermodule.py.py
 ```
 
+### Documentation
+To find the API documentation, follow these [https://ebadi.github.io/python-esmini](https://ebadi.github.io/python-esmini)
+
 To automatically extract the list of methods:
-```
+```shell
 ./test-python-package.sh
 python3 example/modlist.py
 ```
 
-### Documentation
-To find the API documentation, follow these [https://ebadi.github.io/esmini-pybind11](https://ebadi.github.io/esmini-pybind11)
 
 ### Development only 
 rebuilding pybind11 bindings (for development only): 
-```
+```shell
 ./dev-building-bindings.sh
-rm LOG_FILE ; pip3 install .  --log LOG_FILE
+rm LOG_FILE ; pip3 install .  --log LOG_FILE.txt
 ```
-Generating API documentation 
-```
+Generating API documentation:
+```shell
 cd documentation; 
 ./doc-build.sh
 ```
@@ -37,4 +53,4 @@ This work is done by [Infotiv AB](https://www.infotiv.se) under [VALU3S](https:/
 
 The ECSEL JU and the European Commission are not responsible for the content on this website or any use that may be made of the information it contains.
 
-[ScenarioGenerator](https://github.com/ebadi/ScenarioGenerator) project is started and is currently maintained by [Hamid Ebadi](https://github.com/ebadi).
+[python-esmini](https://github.com/ebadi/esmini-pybind11) project is started and is currently maintained by [Hamid Ebadi](https://github.com/ebadi).
