@@ -125,7 +125,7 @@ setup(
     version="0.0.1",
     author="Hamid Ebadi",
     author_email="hamid.ebadi@gmail.com",
-    description="Python wrapper for Environment Simulator Minimalistic (esmini),
+    description="Python wrapper for Environment Simulator Minimalistic (esmini)",
     long_description="",
     ext_modules=[CMakeExtension("python-esmini")],
     cmdclass={"build_ext": CMakeBuild},

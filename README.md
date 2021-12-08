@@ -1,4 +1,4 @@
-
+**python-esmini** is a python wrapper for [Environment Simulator Minimalistic (esmini)](https://github.com/esmini/esmini).
 ### Install the package
 ```
 git clone https://github.com/ebadi/python-esmini.git
