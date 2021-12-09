@@ -526,6 +526,7 @@ void bind_unknown_unknown_4(std::function< pybind11::module &(std::string const 
 		cl.def("Step", (void (scenarioengine::OSCAction::*)(double, double)) &scenarioengine::OSCAction::Step, "C++: scenarioengine::OSCAction::Step(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("assign", (class scenarioengine::OSCAction & (scenarioengine::OSCAction::*)(const class scenarioengine::OSCAction &)) &scenarioengine::OSCAction::operator=, "C++: scenarioengine::OSCAction::operator=(const class scenarioengine::OSCAction &) --> class scenarioengine::OSCAction &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
+
 	std::cout << "B52_[scenarioengine::OSCParameterDeclarations] ";
 	{ // scenarioengine::OSCParameterDeclarations file: line:26
 		pybind11::class_<scenarioengine::OSCParameterDeclarations, std::shared_ptr<scenarioengine::OSCParameterDeclarations>> cl(M("scenarioengine"), "OSCParameterDeclarations", "");
