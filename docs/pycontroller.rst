@@ -1,7 +1,8 @@
 Controller
 ==================
 
-.. automodule:: pycontroller.scenarioengine
+
+.. autoclass:: pycontroller.scenarioengine
     :members:
 
 -----------------
@@ -10,22 +11,4 @@ Controller
     :members:
 
 -----------------
-
-.. autoclass:: pycontroller.scenarioengine.InstantiateController
-    :members:
-
------------------
-
-.. autoclass:: pycontroller.scenarioengine.OSCParameterDeclarations
-    :members:
-
------------------
-
-.. autoclass:: pycontroller.scenarioengine.OSCProperties
-    :members:
-
------------------
-
-.. autoclass:: pycontroller.scenarioengine.Parameters
-    :members:
 

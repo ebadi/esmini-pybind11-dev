@@ -1,12 +1,9 @@
 ## TODO
 - Windows build
-- example code in README.txt
-- Fix documentation meta data (conf.py)
-- Fix documentation 
 - change repo name to python-esmini
 - Email to emil and request him to change the link
 - Make sure all methods have bindings, find a solution otherwise
 - CommonMini: Is it important to be converted?
-- ScenarioEngine has tons of classes, are they are necessary? (Catalogs)
+- ScenarioEngine has tons of classes, are they all necessary? (Catalogs)
 - Cleanup pypind unnecessary modules/includes
-- Resolve the namespace conflict between controoler and scnearioengine module
+- Resolve the namespace conflict between controller and scnearioengine module

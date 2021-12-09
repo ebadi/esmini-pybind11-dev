@@ -337,7 +337,7 @@ struct PyCallBack_scenarioengine_Controller : public scenarioengine::Controller 
 
 void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
-/*
+
 	std::cout << "B31_[scenarioengine::Controller] ";
 	{ // scenarioengine::Controller file: line:31
 		pybind11::class_<scenarioengine::Controller, std::shared_ptr<scenarioengine::Controller>, PyCallBack_scenarioengine_Controller> cl(M("scenarioengine"), "Controller", "");
@@ -379,7 +379,7 @@ void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const 
 	std::cout << "B32_[class scenarioengine::Controller * scenarioengine::InstantiateController(void *)] ";
 	// scenarioengine::InstantiateController(void *) file: line:114
 	M("scenarioengine").def("InstantiateController", (class scenarioengine::Controller * (*)(void *)) &scenarioengine::InstantiateController, "C++: scenarioengine::InstantiateController(void *) --> class scenarioengine::Controller *", pybind11::return_value_policy::automatic, pybind11::arg("args"));
-*/
+
 }
 
 
