@@ -53,8 +53,17 @@
 
 void bind_unknown_unknown(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
+/*
+	std::cout << "B0_[ControlDomains] ";
+	// ControlDomains file: line:79
+	pybind11::enum_<ControlDomains>(M(""), "ControlDomains", "")
+		.value("DOMAIN_NONE", ControlDomains::DOMAIN_NONE)
+		.value("DOMAIN_LONG", ControlDomains::DOMAIN_LONG)
+		.value("DOMAIN_LAT", ControlDomains::DOMAIN_LAT)
+		.value("DOMAIN_BOTH", ControlDomains::DOMAIN_BOTH);
 
-
+;
+*/
 	std::cout << "B1_[class std::__cxx11::basic_string<char> ControlDomain2Str(enum ControlDomains)] ";
 	std::cout << "B2_[bool FileExists(const char *)] ";
 	std::cout << "B3_[class std::__cxx11::basic_string<char> CombineDirectoryPathAndFilepath(std::string, std::string)] ";
@@ -177,81 +186,8 @@ void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const 
 
 // File: unknown/unknown_2.cpp
 #include <iostream> // --trace
-#include <sstream> // __str__
-
-#include <pybind11/pybind11.h>
-#include <functional>
-#include <string>
-#include <pybind11/stl.h>
-#include <pybind11/stl_bind.h>
-#include <pybind11/functional.h>
-#include <fstream>
-#include "viewer.hpp"
-#include <osgDB/ReadFile>
-#include <osg/ComputeBoundsVisitor>
-#include <osg/LineWidth>
-#include <osg/Point>
-#include <osg/BlendFunc>
-#include <osg/BlendColor>
-#include <osg/Geode>
-#include <osg/Group>
-#include <osg/ShapeDrawable>
-#include <osg/CullFace>
-#include <osgGA/StateSetManipulator>
-#include <osgGA/TrackballManipulator>
-#include <osgGA/KeySwitchMatrixManipulator>
-#include <osgGA/FlightManipulator>
-#include <osgGA/DriveManipulator>
-#include <osgGA/TerrainManipulator>
-#include <osgGA/SphericalManipulator>
-#include <osgViewer/ViewerEventHandlers>
-#include <osgDB/Registry>
-#include <osgShadow/StandardShadowMap>
-#include <osgShadow/ShadowMap>
-#include <osgShadow/ShadowedScene>
-#include <osgUtil/SmoothingVisitor>
-#include "CommonMini.hpp"
-#include "RubberbandManipulator.hpp"
-#include "IdealSensor.hpp"
-#include "RoadManager.hpp"
-#include "CommonMini.hpp"
-#include "roadgeom.hpp"
-
-
-#ifndef BINDER_PYBIND11_TYPE_CASTER
-	#define BINDER_PYBIND11_TYPE_CASTER
-	PYBIND11_DECLARE_HOLDER_TYPE(T, std::shared_ptr<T>)
-	PYBIND11_DECLARE_HOLDER_TYPE(T, T*)
-	PYBIND11_MAKE_OPAQUE(std::shared_ptr<void>)
-#endif
-
-void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const &namespace_) > &M)
-{
-/*
-	std::cout << "B31_[scenarioengine::OSCParameterDeclarations] ";
-	{ // scenarioengine::OSCParameterDeclarations file: line:26
-		pybind11::class_<scenarioengine::OSCParameterDeclarations, std::shared_ptr<scenarioengine::OSCParameterDeclarations>> cl(M("scenarioengine"), "OSCParameterDeclarations", "");
-		cl.def( pybind11::init( [](scenarioengine::OSCParameterDeclarations const &o){ return new scenarioengine::OSCParameterDeclarations(o); } ) );
-		cl.def( pybind11::init( [](){ return new scenarioengine::OSCParameterDeclarations(); } ) );
-
-		pybind11::enum_<scenarioengine::OSCParameterDeclarations::ParameterType>(cl, "ParameterType", "")
-			.value("PARAM_TYPE_INTEGER", scenarioengine::OSCParameterDeclarations::ParameterType::PARAM_TYPE_INTEGER)
-			.value("PARAM_TYPE_DOUBLE", scenarioengine::OSCParameterDeclarations::ParameterType::PARAM_TYPE_DOUBLE)
-			.value("PARAM_TYPE_STRING", scenarioengine::OSCParameterDeclarations::ParameterType::PARAM_TYPE_STRING)
-			.value("PARAM_TYPE_BOOL", scenarioengine::OSCParameterDeclarations::ParameterType::PARAM_TYPE_BOOL);
-
-		cl.def_readwrite("Parameter", &scenarioengine::OSCParameterDeclarations::Parameter);
-		cl.def("assign", (class scenarioengine::OSCParameterDeclarations & (scenarioengine::OSCParameterDeclarations::*)(const class scenarioengine::OSCParameterDeclarations &)) &scenarioengine::OSCParameterDeclarations::operator=, "C++: scenarioengine::OSCParameterDeclarations::operator=(const class scenarioengine::OSCParameterDeclarations &) --> class scenarioengine::OSCParameterDeclarations &", pybind11::return_value_policy::automatic, pybind11::arg(""));
-	}
-*/
-}
-
-
-// File: unknown/unknown_3.cpp
-#include <iostream> // --trace
 #include <iterator> // __gnu_cxx::__normal_iterator
 #include <memory> // std::allocator
-#include <ostream> // std::basic_ostream
 #include <sstream> // __str__
 #include <string> // std::basic_string
 #include <string> // std::char_traits
@@ -399,24 +335,10 @@ struct PyCallBack_scenarioengine_Controller : public scenarioengine::Controller 
 	}
 };
 
-void bind_unknown_unknown_3(std::function< pybind11::module &(std::string const &namespace_) > &M)
+void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
 /*
-	std::cout << "B32_[scenarioengine::Parameters] ";
-	{ // scenarioengine::Parameters file: line:25
-		pybind11::class_<scenarioengine::Parameters, std::shared_ptr<scenarioengine::Parameters>> cl(M("scenarioengine"), "Parameters", "");
-		cl.def( pybind11::init( [](){ return new scenarioengine::Parameters(); } ) );
-		cl.def( pybind11::init( [](scenarioengine::Parameters const &o){ return new scenarioengine::Parameters(o); } ) );
-		cl.def_readwrite("paramDeclarationsSize_", &scenarioengine::Parameters::paramDeclarationsSize_);
-		cl.def_readwrite("catalog_param_assignments", &scenarioengine::Parameters::catalog_param_assignments);
-		cl.def_readwrite("parameterDeclarations_", &scenarioengine::Parameters::parameterDeclarations_);
-		cl.def("CreateRestorePoint", (void (scenarioengine::Parameters::*)()) &scenarioengine::Parameters::CreateRestorePoint, "C++: scenarioengine::Parameters::CreateRestorePoint() --> void");
-		cl.def("RestoreParameterDeclarations", (void (scenarioengine::Parameters::*)()) &scenarioengine::Parameters::RestoreParameterDeclarations, "C++: scenarioengine::Parameters::RestoreParameterDeclarations() --> void");
-		cl.def("GetNumberOfParameters", (int (scenarioengine::Parameters::*)()) &scenarioengine::Parameters::GetNumberOfParameters, "C++: scenarioengine::Parameters::GetNumberOfParameters() --> int");
-		cl.def("GetParameterName", (const char * (scenarioengine::Parameters::*)(int, enum scenarioengine::OSCParameterDeclarations::ParameterType *)) &scenarioengine::Parameters::GetParameterName, "C++: scenarioengine::Parameters::GetParameterName(int, enum scenarioengine::OSCParameterDeclarations::ParameterType *) --> const char *", pybind11::return_value_policy::reference, pybind11::arg("index"), pybind11::arg("type"));
-	}
-
-	std::cout << "B33_[scenarioengine::Controller] ";
+	std::cout << "B31_[scenarioengine::Controller] ";
 	{ // scenarioengine::Controller file: line:31
 		pybind11::class_<scenarioengine::Controller, std::shared_ptr<scenarioengine::Controller>, PyCallBack_scenarioengine_Controller> cl(M("scenarioengine"), "Controller", "");
 		cl.def( pybind11::init( [](){ return new scenarioengine::Controller(); }, [](){ return new PyCallBack_scenarioengine_Controller(); } ) );
@@ -454,7 +376,7 @@ void bind_unknown_unknown_3(std::function< pybind11::module &(std::string const 
 		cl.def("IsActive", (bool (scenarioengine::Controller::*)()) &scenarioengine::Controller::IsActive, "C++: scenarioengine::Controller::IsActive() --> bool");
 		cl.def("assign", (class scenarioengine::Controller & (scenarioengine::Controller::*)(const class scenarioengine::Controller &)) &scenarioengine::Controller::operator=, "C++: scenarioengine::Controller::operator=(const class scenarioengine::Controller &) --> class scenarioengine::Controller &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
-	std::cout << "B34_[class scenarioengine::Controller * scenarioengine::InstantiateController(void *)] ";
+	std::cout << "B32_[class scenarioengine::Controller * scenarioengine::InstantiateController(void *)] ";
 	// scenarioengine::InstantiateController(void *) file: line:114
 	M("scenarioengine").def("InstantiateController", (class scenarioengine::Controller * (*)(void *)) &scenarioengine::InstantiateController, "C++: scenarioengine::InstantiateController(void *) --> class scenarioengine::Controller *", pybind11::return_value_policy::automatic, pybind11::arg("args"));
 */
@@ -474,7 +396,6 @@ typedef std::function< pybind11::module & (std::string const &) > ModuleGetter;
 void bind_unknown_unknown(std::function< pybind11::module &(std::string const &namespace_) > &M);
 void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const &namespace_) > &M);
 void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const &namespace_) > &M);
-void bind_unknown_unknown_3(std::function< pybind11::module &(std::string const &namespace_) > &M);
 
 
 PYBIND11_MODULE(pycontroller, root_module) {
@@ -499,16 +420,14 @@ PYBIND11_MODULE(pycontroller, root_module) {
 	bind_unknown_unknown(M);
 	bind_unknown_unknown_1(M);
 	bind_unknown_unknown_2(M);
-	bind_unknown_unknown_3(M);
 
 }
 
-// Source list file: /home/wave/repositories/esmini-pybind11-dev/esmini/EnvironmentSimulator/src/controller/pycontroller.sources
+// Source list file: /home/wave/repositories/python-esmini/src/controller/pycontroller.sources
 // pycontroller.cpp
 // unknown/unknown.cpp
 // unknown/unknown_1.cpp
 // unknown/unknown_2.cpp
-// unknown/unknown_3.cpp
 
-// Modules list file: /home/wave/repositories/esmini-pybind11-dev/esmini/EnvironmentSimulator/src/controller/pycontroller.modules
+// Modules list file: /home/wave/repositories/python-esmini/src/controller/pycontroller.modules
 // scenarioengine 

@@ -47,4 +47,6 @@ Makefile
 out.xml
 log.txt
 LOG_FILE
-
+*.doctree
+docs/_build
+docs/_build/doctrees

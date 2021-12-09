@@ -9,3 +9,4 @@
 - CommonMini: Is it important to be converted?
 - ScenarioEngine has tons of classes, are they are necessary? (Catalogs)
 - Cleanup pypind unnecessary modules/includes
+- Resolve the namespace conflict between controoler and scnearioengine module

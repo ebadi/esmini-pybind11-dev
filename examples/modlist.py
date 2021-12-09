@@ -33,8 +33,9 @@ def lst(arg):
     print("Done")
 
 
-lst("pycontroller")
+
 lst("pyviewerbase")
 lst("pyroadmanager")
 lst("pyscenarioengine")
 lst("pyplayerbase")
+lst("pycontroller")
