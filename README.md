@@ -18,7 +18,7 @@ while not player.IsQuitRequested():
     time.sleep(1)
 ```
 
-![https://github.com/ebadi/python-esmini](documentation/screenshot.png)
+![https://github.com/ebadi/python-esmini](docs/screenshot.png)
 
 To test the python modules, download the esmini resources and run the following scripts:
 ```shell
