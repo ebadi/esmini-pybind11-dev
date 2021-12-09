@@ -7,6 +7,8 @@ import sys
 from xml.dom.minidom import Document
 
 doc = Document()
+
+
 ## Taken from https://stackoverflow.com/questions/67816512/how-to-recursively-dir-an-object-in-python-3-9-5
 def treeobj(obj, path=''):
     fullname = f'{path}.{obj.__name__}'.lstrip('.')
@@ -26,12 +28,11 @@ def treeobj(obj, path=''):
 
 def lst(arg):
     doc = Document()
-    print("==========" , arg, "==========" )
+    print("==========", arg, "==========")
     obj = importlib.import_module(arg)
     doc.appendChild(treeobj(obj))
     print(doc.toprettyxml())
     print("Done")
-
 
 
 lst("pyviewerbase")
