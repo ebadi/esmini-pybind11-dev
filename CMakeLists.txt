@@ -4,23 +4,25 @@ project (pyesmini)
 include(ExternalProject)
 include(FetchContent)
 
-add_subdirectory(pybind11)
-add_subdirectory(esmini)
-
-if(FALSE) # fake a block comment
-
 ############## esmini ##############
-FetchContent_Declare(
-  esmini
-  GIT_REPOSITORY https://github.com/esmini/esmini.git
-  GIT_TAG        a0a7d1a24a716536abdcd353cb2ded448bb6cbbf
-)
-FetchContent_GetProperties(esmini)
-if(NOT esmini_POPULATED)
-  FetchContent_Populate(esmini)
-  add_subdirectory(${esmini_SOURCE_DIR})
-  message(STATUS "esmini-python: esmini")
+if(NOT EXISTS esmini)
+    FetchContent_Declare(
+      esmini
+      GIT_REPOSITORY https://github.com/ebadi/esmini.git
+      GIT_TAG        master
+    )
+    FetchContent_GetProperties(esmini)
+    if(NOT esmini_POPULATED)
+      FetchContent_Populate(esmini)
+    endif()
+    message(STATUS "esmini-python: esmini downloaded")
+    add_subdirectory(${esmini_SOURCE_DIR})
+else()
+    add_subdirectory(esmini)
 endif()
+
+
+
 
 ############## pybind11 ##############
 FetchContent_Declare(
@@ -35,12 +37,9 @@ if(NOT pybind11_POPULATED)
   message(STATUS "esmini-python: pybind11")
 endif()
 
-endif()
+
 
 set(CMAKE_BUILD_TYPE "Release") # https://github.com/microsoft/vcpkg/issues/20237?amp=1
-
-# message(STATUS "[[_______MESSAGE_______]]")
-message(STATUS "${esmini_SOURCE_DIR}")
 
 
 link_directories(${OSG_LIBRARIES_PATH} ${OSI_LIBRARIES_PATH} ${SUMO_LIBRARIES_PATH} ${GTEST_LIBRARIES_PATH} )
@@ -49,16 +48,16 @@ add_definitions(-D_USE_OSG)
 message(STATUS "esmini-python: pyplayerbase")
 pybind11_add_module(pyplayerbase "${CMAKE_CURRENT_SOURCE_DIR}/src/playerbase/pyplayerbase.cpp")
 include_directories(
-  ${SCENARIOENGINE_INCLUDE_DIRS}
-  ${ROADMANAGER_INCLUDE_DIR}
-  ${VIEWER_BASE_INCLUDE_DIR}
-  ${PLAYER_BASE_INCLUDE_DIR}
-  ${CONTROLLERS_INCLUDE_DIR}
-  ${OSG_INCLUDE_DIR}
-  ${SUMO_INCLUDE_DIR}
-  ${COMMON_MINI_INCLUDE_DIR}
-  ${OSI_INCLUDE_DIR}
-  ${PUGIXML_INCLUDE_DIR}
+    ${SCENARIOENGINE_INCLUDE_DIRS}
+    ${ROADMANAGER_INCLUDE_DIR}
+    ${VIEWER_BASE_INCLUDE_DIR}
+    ${PLAYER_BASE_INCLUDE_DIR}
+    ${CONTROLLERS_INCLUDE_DIR}
+    ${OSG_INCLUDE_DIR}
+    ${SUMO_INCLUDE_DIR}
+    ${COMMON_MINI_INCLUDE_DIR}
+    ${OSI_INCLUDE_DIR}
+    ${PUGIXML_INCLUDE_DIR}
 )
 # EXAMPLE_VERSION_INFO is defined by setup.py and passed into the C++ code as a
 # define (VERSION_INFO) here.
@@ -81,11 +80,29 @@ target_link_libraries(pyplayerbase PRIVATE
 target_compile_definitions(pyplayerbase PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
 
 
+message(STATUS "esmini-python: pybind11")
+message(STATUS "SCENARIOENGINE_DLL_INCLUDE_DIR: ${SCENARIOENGINE_DLL_INCLUDE_DIR}")
 
-message(STATUS "esmini-python: pyroadmanager")
-pybind11_add_module(pyroadmanager MODULE src/roadmanager/pyroadmanager.cpp ${SCENARIOENGINE_DLL_INCLUDE_DIR}/esminiLib.hpp ${ROADMANAGER_INCLUDE_DIR}/odrSpiral.cpp ${COMMON_MINI_INCLUDE_DIR}/CommonMini.cpp ${COMMON_MINI_INCLUDE_DIR}/buildnr.cpp ${COMMON_MINI_INCLUDE_DIR}/version.cpp ${PUGIXML_INCLUDE_DIR}/pugixml.cpp )
+pybind11_add_module(pyroadmanager MODULE
+    src/roadmanager/pyroadmanager.cpp
+    "${SCENARIOENGINE_DLL_INCLUDE_DIR}/esminiLib.hpp"
+    "${ROADMANAGER_INCLUDE_DIR}/odrSpiral.cpp"
+    "${COMMON_MINI_INCLUDE_DIR}/CommonMini.cpp"
+    "${COMMON_MINI_INCLUDE_DIR}/buildnr.cpp"
+    "${COMMON_MINI_INCLUDE_DIR}/version.cpp"
+    "${PUGIXML_INCLUDE_DIR}/pugixml.cpp" )
 
-include_directories(${PLAYER_BASE_INCLUDE_DIR} ${SCENARIOENGINE_INCLUDE_DIRS}  ${SCENARIOENGINE_DLL_INCLUDE_DIR} ${ROADMANAGER_DLL_INCLUDE_DIR} ${OSI_INCLUDE_DIR} ${OSG_INCLUDE_DIR} ${COMMON_MINI_INCLUDE_DIR} ${ROADMANAGER_INCLUDE_DIR} ${CONTROLLERS_INCLUDE_DIR} ${VIEWER_BASE_INCLUDE_DIR}   ${PUGIXML_INCLUDE_DIR})
+include_directories(${PLAYER_BASE_INCLUDE_DIR}
+    ${SCENARIOENGINE_DLL_INCLUDE_DIR}
+    ${ROADMANAGER_DLL_INCLUDE_DIR}
+    ${SCENARIOENGINE_INCLUDE_DIRS}
+    ${OSI_INCLUDE_DIR}
+    ${OSG_INCLUDE_DIR}
+    ${COMMON_MINI_INCLUDE_DIR}
+    ${ROADMANAGER_INCLUDE_DIR}
+    ${CONTROLLERS_INCLUDE_DIR}
+    ${VIEWER_BASE_INCLUDE_DIR}
+    ${PUGIXML_INCLUDE_DIR})
 target_link_libraries(pyroadmanager PRIVATE
     ViewerBase ${OSG_LIBRARIES}
     ${SUMO_LIBRARIES}
@@ -211,33 +228,15 @@ target_link_libraries(pyesminilib PRIVATE
     ${sumo_libs}
     ${TIME_LIB}
     ${SOCK_LIB}
-     esminiRMLib esminiLib
+    esminiRMLib
+    esminiLib
     )
 target_compile_definitions(pyesminilib PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
 
 
 
 
-message(STATUS "esmini-python: pyesminirmlib")
-pybind11_add_module(pyesminirmlib MODULE src/esminirmlib/pyesminirmlib.cpp   ${SCENARIOENGINE_DLL_INCLUDE_DIR}/esminiLib.hpp   ${ROADMANAGER_DLL_INCLUDE_DIR}/esminiRMLib.hpp )
-include_directories(${PLAYER_BASE_INCLUDE_DIR} ${SCENARIOENGINE_INCLUDE_DIRS}  ${SCENARIOENGINE_DLL_INCLUDE_DIR}  ${ROADMANAGER_DLL_INCLUDE_DIR} ${OSI_INCLUDE_DIR} ${OSG_INCLUDE_DIR} ${COMMON_MINI_INCLUDE_DIR} ${ROADMANAGER_INCLUDE_DIR} ${CONTROLLERS_INCLUDE_DIR} ${VIEWER_BASE_INCLUDE_DIR})
-target_link_libraries(pyesminirmlib PRIVATE
-    ViewerBase ${OSG_LIBRARIES}
-    ${SUMO_LIBRARIES}
-    ${OSI_LIBRARIES}
-    PlayerBase
-    ScenarioEngine
-    Controllers
-    RoadManager
-    CommonMini
-    ${viewer_libs}
-    ${osi_libs}
-    ${sumo_libs}
-    ${TIME_LIB}
-    ${SOCK_LIB}
-     esminiRMLib esminiLib
-    )
-target_compile_definitions(pyesminirmlib PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
+
 
 
 

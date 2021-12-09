@@ -39,8 +39,8 @@ python3 example/modlist.py
 ### Development only 
 rebuilding pybind11 bindings (for development only): 
 ```shell
-cmake . ; cmake --build . 
-./dev-building-bindings.sh
+cd esmini ; cmake . ; cmake --build . 
+cd ..; ./dev-build-bindings.sh
 rm LOG_FILE ; pip3 install .  --log LOG_FILE.txt
 ```
 

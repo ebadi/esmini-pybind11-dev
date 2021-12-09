@@ -53,9 +53,8 @@
 
 void bind_unknown_unknown(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
-/*
 	std::cout << "B0_[ControlDomains] ";
-	// ControlDomains file: line:79
+	// ControlDomains file: line:80
 	pybind11::enum_<ControlDomains>(M(""), "ControlDomains", "")
 		.value("DOMAIN_NONE", ControlDomains::DOMAIN_NONE)
 		.value("DOMAIN_LONG", ControlDomains::DOMAIN_LONG)
@@ -63,36 +62,39 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 		.value("DOMAIN_BOTH", ControlDomains::DOMAIN_BOTH);
 
 ;
-*/
-	std::cout << "B1_[class std::__cxx11::basic_string<char> ControlDomain2Str(enum ControlDomains)] ";
-	std::cout << "B2_[bool FileExists(const char *)] ";
-	std::cout << "B3_[class std::__cxx11::basic_string<char> CombineDirectoryPathAndFilepath(std::string, std::string)] ";
-	std::cout << "B4_[double GetAngleOfVector(double, double)] ";
-	std::cout << "B5_[double GetAbsAngleDifference(double, double)] ";
-	std::cout << "B6_[double GetAngleSum(double, double)] ";
-	std::cout << "B7_[double GetAngleInInterval2PI(double)] ";
-	std::cout << "B8_[double GetAngleDifference(double, double)] ";
-	std::cout << "B9_[bool IsAngleStraight(double)] ";
-	std::cout << "B10_[double GetCrossProduct2D(double, double, double, double)] ";
-	std::cout << "B11_[double GetDotProduct2D(double, double, double, double)] ";
-	std::cout << "B12_[int GetIntersectionOfTwoLineSegments(double, double, double, double, double, double, double, double, double &, double &)] ";
-	std::cout << "B13_[double PointDistance2D(double, double, double, double)] ";
-	std::cout << "B14_[double PointToLineDistance2DSigned(double, double, double, double, double, double)] ";
-	std::cout << "B15_[double PointSquareDistance2D(double, double, double, double)] ";
-	std::cout << "B16_[void ProjectPointOnVector2D(double, double, double, double, double, double, double &, double &)] ";
-	std::cout << "B17_[bool PointInBetweenVectorEndpoints(double, double, double, double, double, double, double &)] ";
-	std::cout << "B18_[double DistanceFromPointToEdge2D(double, double, double, double, double, double, double *, double *)] ";
-	std::cout << "B19_[int PointSideOfVec(double, double, double, double, double, double)] ";
-	std::cout << "B20_[double GetLengthOfLine2D(double, double, double, double)] ";
-	std::cout << "B21_[double GetLengthOfVector3D(double, double, double)] ";
-	std::cout << "B22_[void RotateVec2D(double, double, double, double &, double &)] ";
-	std::cout << "B23_[void Global2LocalCoordinates(double, double, double, double, double, double &, double &)] ";
-	std::cout << "B24_[void Local2GlobalCoordinates(double &, double &, double, double, double, double, double)] ";
-	std::cout << "B25_[void NormalizeVec2D(double, double, double &, double &)] ";
-	std::cout << "B26_[void OffsetVec2D(double, double, double, double, double, double &, double &, double &, double &)] ";
-	std::cout << "B27_[void ZYZ2EulerAngles(double, double, double, double &, double &, double &)] ";
-	std::cout << "B28_[void R0R12EulerAngles(double, double, double, double, double, double, double &, double &, double &)] ";
-	std::cout << "B29_[void SwapByteOrder(unsigned char *, int, int)] ";
+
+	std::cout << "B1_[EntityScaleMode] ";
+	std::cout << "B2_[class std::__cxx11::basic_string<char> ControlDomain2Str(enum ControlDomains)] ";
+	std::cout << "B3_[bool FileExists(const char *)] ";
+	std::cout << "B4_[class std::__cxx11::basic_string<char> CombineDirectoryPathAndFilepath(std::string, std::string)] ";
+	std::cout << "B5_[double GetAngleOfVector(double, double)] ";
+	std::cout << "B6_[double GetAbsAngleDifference(double, double)] ";
+	std::cout << "B7_[double GetAngleSum(double, double)] ";
+	std::cout << "B8_[double GetAngleInInterval2PI(double)] ";
+	std::cout << "B9_[double GetAngleInIntervalMinusPIPlusPI(double)] ";
+	std::cout << "B10_[double GetAngleDifference(double, double)] ";
+	std::cout << "B11_[bool IsAngleStraight(double)] ";
+	std::cout << "B12_[double GetCrossProduct2D(double, double, double, double)] ";
+	std::cout << "B13_[double GetDotProduct2D(double, double, double, double)] ";
+	std::cout << "B14_[int GetIntersectionOfTwoLineSegments(double, double, double, double, double, double, double, double, double &, double &)] ";
+	std::cout << "B15_[double PointDistance2D(double, double, double, double)] ";
+	std::cout << "B16_[double PointToLineDistance2DSigned(double, double, double, double, double, double)] ";
+	std::cout << "B17_[double PointSquareDistance2D(double, double, double, double)] ";
+	std::cout << "B18_[void ProjectPointOnVector2D(double, double, double, double, double, double, double &, double &)] ";
+	std::cout << "B19_[bool PointInBetweenVectorEndpoints(double, double, double, double, double, double, double &)] ";
+	std::cout << "B20_[double DistanceFromPointToEdge2D(double, double, double, double, double, double, double *, double *)] ";
+	std::cout << "B21_[double DistanceFromPointToLine2D(double, double, double, double, double, double, double *, double *)] ";
+	std::cout << "B22_[int PointSideOfVec(double, double, double, double, double, double)] ";
+	std::cout << "B23_[double GetLengthOfLine2D(double, double, double, double)] ";
+	std::cout << "B24_[double GetLengthOfVector3D(double, double, double)] ";
+	std::cout << "B25_[void RotateVec2D(double, double, double, double &, double &)] ";
+	std::cout << "B26_[void Global2LocalCoordinates(double, double, double, double, double, double &, double &)] ";
+	std::cout << "B27_[void Local2GlobalCoordinates(double &, double &, double, double, double, double, double)] ";
+	std::cout << "B28_[void NormalizeVec2D(double, double, double &, double &)] ";
+	std::cout << "B29_[void OffsetVec2D(double, double, double, double, double, double &, double &, double &, double &)] ";
+	std::cout << "B30_[void ZYZ2EulerAngles(double, double, double, double &, double &, double &)] ";
+	std::cout << "B31_[void R0R12EulerAngles(double, double, double, double, double, double, double &, double &, double &)] ";
+	std::cout << "B32_[void SwapByteOrder(unsigned char *, int, int)] ";
 }
 
 
@@ -152,8 +154,7 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 
 void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
-/*
-	std::cout << "B30_[scenarioengine::OSCProperties] ";
+	std::cout << "B33_[scenarioengine::OSCProperties] ";
 	{ // scenarioengine::OSCProperties file: line:21
 		pybind11::class_<scenarioengine::OSCProperties, std::shared_ptr<scenarioengine::OSCProperties>> cl(M("scenarioengine"), "OSCProperties", "");
 		cl.def( pybind11::init( [](){ return new scenarioengine::OSCProperties(); } ) );
@@ -180,7 +181,6 @@ void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const 
 		}
 
 	}
-*/
 }
 
 
@@ -337,8 +337,7 @@ struct PyCallBack_scenarioengine_Controller : public scenarioengine::Controller 
 
 void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
-
-	std::cout << "B31_[scenarioengine::Controller] ";
+	std::cout << "B34_[scenarioengine::Controller] ";
 	{ // scenarioengine::Controller file: line:31
 		pybind11::class_<scenarioengine::Controller, std::shared_ptr<scenarioengine::Controller>, PyCallBack_scenarioengine_Controller> cl(M("scenarioengine"), "Controller", "");
 		cl.def( pybind11::init( [](){ return new scenarioengine::Controller(); }, [](){ return new PyCallBack_scenarioengine_Controller(); } ) );
@@ -354,6 +353,9 @@ void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const 
 			.value("CONTROLLER_TYPE_SUMO", scenarioengine::Controller::CONTROLLER_TYPE_SUMO)
 			.value("CONTROLLER_TYPE_REL2ABS", scenarioengine::Controller::CONTROLLER_TYPE_REL2ABS)
 			.value("CONTROLLER_TYPE_ACC", scenarioengine::Controller::CONTROLLER_TYPE_ACC)
+			.value("CONTROLLER_TYPE_ALKS", scenarioengine::Controller::CONTROLLER_TYPE_ALKS)
+			.value("CONTROLLER_TYPE_UDP_DRIVER", scenarioengine::Controller::CONTROLLER_TYPE_UDP_DRIVER)
+			.value("CONTROLLER_TYPE_ECE_ALKS_REF_DRIVER", scenarioengine::Controller::CONTROLLER_TYPE_ECE_ALKS_REF_DRIVER)
 			.value("N_CONTROLLER_TYPES", scenarioengine::Controller::N_CONTROLLER_TYPES)
 			.value("GHOST_RESERVED_TYPE", scenarioengine::Controller::GHOST_RESERVED_TYPE)
 			.value("USER_CONTROLLER_TYPE_BASE", scenarioengine::Controller::USER_CONTROLLER_TYPE_BASE)
@@ -376,8 +378,8 @@ void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const 
 		cl.def("IsActive", (bool (scenarioengine::Controller::*)()) &scenarioengine::Controller::IsActive, "C++: scenarioengine::Controller::IsActive() --> bool");
 		cl.def("assign", (class scenarioengine::Controller & (scenarioengine::Controller::*)(const class scenarioengine::Controller &)) &scenarioengine::Controller::operator=, "C++: scenarioengine::Controller::operator=(const class scenarioengine::Controller &) --> class scenarioengine::Controller &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
-	std::cout << "B32_[class scenarioengine::Controller * scenarioengine::InstantiateController(void *)] ";
-	// scenarioengine::InstantiateController(void *) file: line:114
+	std::cout << "B35_[class scenarioengine::Controller * scenarioengine::InstantiateController(void *)] ";
+	// scenarioengine::InstantiateController(void *) file: line:117
 	M("scenarioengine").def("InstantiateController", (class scenarioengine::Controller * (*)(void *)) &scenarioengine::InstantiateController, "C++: scenarioengine::InstantiateController(void *) --> class scenarioengine::Controller *", pybind11::return_value_policy::automatic, pybind11::arg("args"));
 
 }
@@ -423,11 +425,11 @@ PYBIND11_MODULE(pycontroller, root_module) {
 
 }
 
-// Source list file: /home/wave/repositories/python-esmini/src/controller/pycontroller.sources
+// Source list file: /home/wave/repositories/python-esmini-bak/src/controller/pycontroller.sources
 // pycontroller.cpp
 // unknown/unknown.cpp
 // unknown/unknown_1.cpp
 // unknown/unknown_2.cpp
 
-// Modules list file: /home/wave/repositories/python-esmini/src/controller/pycontroller.modules
+// Modules list file: /home/wave/repositories/python-esmini-bak/src/controller/pycontroller.modules
 // scenarioengine 
