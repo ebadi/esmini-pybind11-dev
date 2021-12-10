@@ -302,7 +302,7 @@ target_compile_definitions(pyesminilib PRIVATE VERSION_INFO=${EXAMPLE_VERSION_IN
 
 
 message(STATUS "esmini-python: pyesminirmlib")
-pybind11_add_module(pyesminirmlib MODULE src/esminirmlib/esminirmlib.cpp )
+pybind11_add_module(pyesminirmlib MODULE src/esminirmlib/pyesminirmlib.cpp )
 include_directories(
     ${SCENARIOENGINE_DLL_INCLUDE_DIR}
     ${ROADMANAGER_DLL_INCLUDE_DIR}
