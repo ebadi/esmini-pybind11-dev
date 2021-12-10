@@ -425,11 +425,11 @@ PYBIND11_MODULE(pycontroller, root_module) {
 
 }
 
-// Source list file: /home/wave/repositories/python-esmini-bak/src/controller/pycontroller.sources
+// Source list file: /home/wave/repositories/python-esmini/src/controller/pycontroller.sources
 // pycontroller.cpp
 // unknown/unknown.cpp
 // unknown/unknown_1.cpp
 // unknown/unknown_2.cpp
 
-// Modules list file: /home/wave/repositories/python-esmini-bak/src/controller/pycontroller.modules
+// Modules list file: /home/wave/repositories/python-esmini/src/controller/pycontroller.modules
 // scenarioengine 

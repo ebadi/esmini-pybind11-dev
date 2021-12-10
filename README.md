@@ -37,7 +37,7 @@ python3 example/modlist.py
 
 
 ### Development only 
-rebuilding pybind11 bindings (for development only): 
+Install [binder](https://github.com/RosettaCommons/binder) and rebuild pybind11 bindings: 
 ```shell
 git clone https://github.com/esmini/esmini.git
 cd esmini ; cmake . ; cmake --build . 

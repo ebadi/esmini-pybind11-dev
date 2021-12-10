@@ -24,7 +24,7 @@
 	PYBIND11_MAKE_OPAQUE(std::shared_ptr<void>)
 #endif
 
-// roadmanager::Geometry file: line:90
+// roadmanager::Geometry file: line:91
 struct PyCallBack_roadmanager_Geometry : public roadmanager::Geometry {
 	using roadmanager::Geometry::Geometry;
 
@@ -108,7 +108,7 @@ struct PyCallBack_roadmanager_Geometry : public roadmanager::Geometry {
 	}
 };
 
-// roadmanager::Line file: line:131
+// roadmanager::Line file: line:132
 struct PyCallBack_roadmanager_Line : public roadmanager::Line {
 	using roadmanager::Line::Line;
 
@@ -192,7 +192,7 @@ struct PyCallBack_roadmanager_Line : public roadmanager::Line {
 	}
 };
 
-// roadmanager::Arc file: line:145
+// roadmanager::Arc file: line:146
 struct PyCallBack_roadmanager_Arc : public roadmanager::Arc {
 	using roadmanager::Arc::Arc;
 
@@ -276,7 +276,7 @@ struct PyCallBack_roadmanager_Arc : public roadmanager::Arc {
 	}
 };
 
-// roadmanager::Spiral file: line:164
+// roadmanager::Spiral file: line:165
 struct PyCallBack_roadmanager_Spiral : public roadmanager::Spiral {
 	using roadmanager::Spiral::Spiral;
 
@@ -363,15 +363,15 @@ struct PyCallBack_roadmanager_Spiral : public roadmanager::Spiral {
 void bind_unknown_unknown(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
 	std::cout << "B0_[int roadmanager::GetNewGlobalLaneId()] ";
-	// roadmanager::GetNewGlobalLaneId() file: line:27
+	// roadmanager::GetNewGlobalLaneId() file: line:28
 	M("roadmanager").def("GetNewGlobalLaneId", (int (*)()) &roadmanager::GetNewGlobalLaneId, "C++: roadmanager::GetNewGlobalLaneId() --> int");
 
 	std::cout << "B1_[int roadmanager::GetNewGlobalLaneBoundaryId()] ";
-	// roadmanager::GetNewGlobalLaneBoundaryId() file: line:28
+	// roadmanager::GetNewGlobalLaneBoundaryId() file: line:29
 	M("roadmanager").def("GetNewGlobalLaneBoundaryId", (int (*)()) &roadmanager::GetNewGlobalLaneBoundaryId, "C++: roadmanager::GetNewGlobalLaneBoundaryId() --> int");
 
 	std::cout << "B2_[roadmanager::Polynomial] ";
-	{ // roadmanager::Polynomial file: line:31
+	{ // roadmanager::Polynomial file: line:32
 		pybind11::class_<roadmanager::Polynomial, std::shared_ptr<roadmanager::Polynomial>> cl(M("roadmanager"), "Polynomial", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::Polynomial(); } ) );
 		cl.def( pybind11::init( [](double const & a0, double const & a1, double const & a2, double const & a3){ return new roadmanager::Polynomial(a0, a1, a2, a3); } ), "doc" , pybind11::arg("a"), pybind11::arg("b"), pybind11::arg("c"), pybind11::arg("d"));
@@ -395,7 +395,7 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 		cl.def("assign", (class roadmanager::Polynomial & (roadmanager::Polynomial::*)(const class roadmanager::Polynomial &)) &roadmanager::Polynomial::operator=, "C++: roadmanager::Polynomial::operator=(const class roadmanager::Polynomial &) --> class roadmanager::Polynomial &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
 	std::cout << "B3_[roadmanager::OSIPoints] ";
-	{ // roadmanager::OSIPoints file: line:67
+	{ // roadmanager::OSIPoints file: line:68
 		pybind11::class_<roadmanager::OSIPoints, std::shared_ptr<roadmanager::OSIPoints>> cl(M("roadmanager"), "OSIPoints", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::OSIPoints(); } ) );
 		cl.def( pybind11::init( [](roadmanager::OSIPoints const &o){ return new roadmanager::OSIPoints(o); } ) );
@@ -406,11 +406,11 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 		cl.def("GetLength", (double (roadmanager::OSIPoints::*)()) &roadmanager::OSIPoints::GetLength, "C++: roadmanager::OSIPoints::GetLength() --> double");
 	}
 	std::cout << "B4_[int roadmanager::CheckOverlapingOSIPoints(class roadmanager::OSIPoints *, class roadmanager::OSIPoints *, double)] ";
-	// roadmanager::CheckOverlapingOSIPoints(class roadmanager::OSIPoints *, class roadmanager::OSIPoints *, double) file: line:88
+	// roadmanager::CheckOverlapingOSIPoints(class roadmanager::OSIPoints *, class roadmanager::OSIPoints *, double) file: line:89
 	M("roadmanager").def("CheckOverlapingOSIPoints", (int (*)(class roadmanager::OSIPoints *, class roadmanager::OSIPoints *, double)) &roadmanager::CheckOverlapingOSIPoints, "		function that checks if two sets of osi points has the same start/end\n		\n\n the number of points that are within tolerance (0,1 or 2)\n\nC++: roadmanager::CheckOverlapingOSIPoints(class roadmanager::OSIPoints *, class roadmanager::OSIPoints *, double) --> int", pybind11::arg("first_set"), pybind11::arg("second_set"), pybind11::arg("tolerance"));
 
 	std::cout << "B5_[roadmanager::Geometry] ";
-	{ // roadmanager::Geometry file: line:90
+	{ // roadmanager::Geometry file: line:91
 		pybind11::class_<roadmanager::Geometry, std::shared_ptr<roadmanager::Geometry>, PyCallBack_roadmanager_Geometry> cl(M("roadmanager"), "Geometry", "");
 		cl.def( pybind11::init( [](){ return new PyCallBack_roadmanager_Geometry(); } ) );
 		cl.def( pybind11::init<double, double, double, double, double, roadmanager::Geometry::GeometryType>(), pybind11::arg("s"), pybind11::arg("x"), pybind11::arg("y"), pybind11::arg("hdg"), pybind11::arg("length"), pybind11::arg("type") );
@@ -431,7 +431,7 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 		cl.def("assign", (class roadmanager::Geometry & (roadmanager::Geometry::*)(const class roadmanager::Geometry &)) &roadmanager::Geometry::operator=, "C++: roadmanager::Geometry::operator=(const class roadmanager::Geometry &) --> class roadmanager::Geometry &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
 	std::cout << "B6_[roadmanager::Line] ";
-	{ // roadmanager::Line file: line:131
+	{ // roadmanager::Line file: line:132
 		pybind11::class_<roadmanager::Line, std::shared_ptr<roadmanager::Line>, PyCallBack_roadmanager_Line, roadmanager::Geometry> cl(M("roadmanager"), "Line", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::Line(); }, [](){ return new PyCallBack_roadmanager_Line(); } ) );
 		cl.def( pybind11::init<double, double, double, double, double>(), pybind11::arg("s"), pybind11::arg("x"), pybind11::arg("y"), pybind11::arg("hdg"), pybind11::arg("length") );
@@ -444,7 +444,7 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 		cl.def("assign", (class roadmanager::Line & (roadmanager::Line::*)(const class roadmanager::Line &)) &roadmanager::Line::operator=, "C++: roadmanager::Line::operator=(const class roadmanager::Line &) --> class roadmanager::Line &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
 	std::cout << "B7_[roadmanager::Arc] ";
-	{ // roadmanager::Arc file: line:145
+	{ // roadmanager::Arc file: line:146
 		pybind11::class_<roadmanager::Arc, std::shared_ptr<roadmanager::Arc>, PyCallBack_roadmanager_Arc, roadmanager::Geometry> cl(M("roadmanager"), "Arc", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::Arc(); }, [](){ return new PyCallBack_roadmanager_Arc(); } ) );
 		cl.def( pybind11::init<double, double, double, double, double, double>(), pybind11::arg("s"), pybind11::arg("x"), pybind11::arg("y"), pybind11::arg("hdg"), pybind11::arg("length"), pybind11::arg("curvature") );
@@ -459,7 +459,7 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 		cl.def("assign", (class roadmanager::Arc & (roadmanager::Arc::*)(const class roadmanager::Arc &)) &roadmanager::Arc::operator=, "C++: roadmanager::Arc::operator=(const class roadmanager::Arc &) --> class roadmanager::Arc &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
 	std::cout << "B8_[roadmanager::Spiral] ";
-	{ // roadmanager::Spiral file: line:164
+	{ // roadmanager::Spiral file: line:165
 		pybind11::class_<roadmanager::Spiral, std::shared_ptr<roadmanager::Spiral>, PyCallBack_roadmanager_Spiral, roadmanager::Geometry> cl(M("roadmanager"), "Spiral", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::Spiral(); }, [](){ return new PyCallBack_roadmanager_Spiral(); } ) );
 		cl.def( pybind11::init<double, double, double, double, double, double, double>(), pybind11::arg("s"), pybind11::arg("x"), pybind11::arg("y"), pybind11::arg("hdg"), pybind11::arg("length"), pybind11::arg("curv_start"), pybind11::arg("curv_end") );
@@ -512,7 +512,7 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 	PYBIND11_MAKE_OPAQUE(std::shared_ptr<void>)
 #endif
 
-// roadmanager::Poly3 file: line:205
+// roadmanager::Poly3 file: line:206
 struct PyCallBack_roadmanager_Poly3 : public roadmanager::Poly3 {
 	using roadmanager::Poly3::Poly3;
 
@@ -596,7 +596,7 @@ struct PyCallBack_roadmanager_Poly3 : public roadmanager::Poly3 {
 	}
 };
 
-// roadmanager::ParamPoly3 file: line:227
+// roadmanager::ParamPoly3 file: line:228
 struct PyCallBack_roadmanager_ParamPoly3 : public roadmanager::ParamPoly3 {
 	using roadmanager::ParamPoly3::ParamPoly3;
 
@@ -683,7 +683,7 @@ struct PyCallBack_roadmanager_ParamPoly3 : public roadmanager::ParamPoly3 {
 void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
 	std::cout << "B9_[roadmanager::Poly3] ";
-	{ // roadmanager::Poly3 file: line:205
+	{ // roadmanager::Poly3 file: line:206
 		pybind11::class_<roadmanager::Poly3, std::shared_ptr<roadmanager::Poly3>, PyCallBack_roadmanager_Poly3, roadmanager::Geometry> cl(M("roadmanager"), "Poly3", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::Poly3(); }, [](){ return new PyCallBack_roadmanager_Poly3(); } ) );
 		cl.def( pybind11::init<double, double, double, double, double, double, double, double, double>(), pybind11::arg("s"), pybind11::arg("x"), pybind11::arg("y"), pybind11::arg("hdg"), pybind11::arg("length"), pybind11::arg("a"), pybind11::arg("b"), pybind11::arg("c"), pybind11::arg("d") );
@@ -700,7 +700,7 @@ void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const 
 		cl.def("assign", (class roadmanager::Poly3 & (roadmanager::Poly3::*)(const class roadmanager::Poly3 &)) &roadmanager::Poly3::operator=, "C++: roadmanager::Poly3::operator=(const class roadmanager::Poly3 &) --> class roadmanager::Poly3 &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
 	std::cout << "B10_[roadmanager::ParamPoly3] ";
-	{ // roadmanager::ParamPoly3 file: line:227
+	{ // roadmanager::ParamPoly3 file: line:228
 		pybind11::class_<roadmanager::ParamPoly3, std::shared_ptr<roadmanager::ParamPoly3>, PyCallBack_roadmanager_ParamPoly3, roadmanager::Geometry> cl(M("roadmanager"), "ParamPoly3", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::ParamPoly3(); }, [](){ return new PyCallBack_roadmanager_ParamPoly3(); } ) );
 		cl.def( pybind11::init<double, double, double, double, double, double, double, double, double, double, double, double, double, enum roadmanager::ParamPoly3::PRangeType>(), pybind11::arg("s"), pybind11::arg("x"), pybind11::arg("y"), pybind11::arg("hdg"), pybind11::arg("length"), pybind11::arg("aU"), pybind11::arg("bU"), pybind11::arg("cU"), pybind11::arg("dU"), pybind11::arg("aV"), pybind11::arg("bV"), pybind11::arg("cV"), pybind11::arg("dV"), pybind11::arg("p_range") );
@@ -726,7 +726,7 @@ void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const 
 		cl.def("assign", (class roadmanager::ParamPoly3 & (roadmanager::ParamPoly3::*)(const class roadmanager::ParamPoly3 &)) &roadmanager::ParamPoly3::operator=, "C++: roadmanager::ParamPoly3::operator=(const class roadmanager::ParamPoly3 &) --> class roadmanager::ParamPoly3 &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
 	std::cout << "B11_[roadmanager::Elevation] ";
-	{ // roadmanager::Elevation file: line:263
+	{ // roadmanager::Elevation file: line:264
 		pybind11::class_<roadmanager::Elevation, std::shared_ptr<roadmanager::Elevation>> cl(M("roadmanager"), "Elevation", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::Elevation(); } ) );
 		cl.def( pybind11::init<double, double, double, double, double>(), pybind11::arg("s"), pybind11::arg("a"), pybind11::arg("b"), pybind11::arg("c"), pybind11::arg("d") );
@@ -771,7 +771,7 @@ void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const 
 void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
 	std::cout << "B12_[roadmanager::LaneLink] ";
-	{ // roadmanager::LaneLink file: line:294
+	{ // roadmanager::LaneLink file: line:295
 		pybind11::class_<roadmanager::LaneLink, std::shared_ptr<roadmanager::LaneLink>> cl(M("roadmanager"), "LaneLink", "");
 		cl.def( pybind11::init<roadmanager::LinkType, int>(), pybind11::arg("type"), pybind11::arg("id") );
 
@@ -780,7 +780,7 @@ void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const 
 		cl.def("Print", (void (roadmanager::LaneLink::*)()) &roadmanager::LaneLink::Print, "C++: roadmanager::LaneLink::Print() --> void");
 	}
 	std::cout << "B13_[roadmanager::LaneWidth] ";
-	{ // roadmanager::LaneWidth file: line:308
+	{ // roadmanager::LaneWidth file: line:309
 		pybind11::class_<roadmanager::LaneWidth, std::shared_ptr<roadmanager::LaneWidth>> cl(M("roadmanager"), "LaneWidth", "");
 		cl.def( pybind11::init<double, double, double, double, double>(), pybind11::arg("s_offset"), pybind11::arg("a"), pybind11::arg("b"), pybind11::arg("c"), pybind11::arg("d") );
 
@@ -789,7 +789,7 @@ void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const 
 		cl.def("Print", (void (roadmanager::LaneWidth::*)()) &roadmanager::LaneWidth::Print, "C++: roadmanager::LaneWidth::Print() --> void");
 	}
 	std::cout << "B14_[roadmanager::LaneBoundaryOSI] ";
-	{ // roadmanager::LaneBoundaryOSI file: line:325
+	{ // roadmanager::LaneBoundaryOSI file: line:326
 		pybind11::class_<roadmanager::LaneBoundaryOSI, std::shared_ptr<roadmanager::LaneBoundaryOSI>> cl(M("roadmanager"), "LaneBoundaryOSI", "");
 		cl.def( pybind11::init<int>(), pybind11::arg("gbid") );
 
@@ -799,14 +799,14 @@ void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const 
 		cl.def("GetOSIPoints", (class roadmanager::OSIPoints * (roadmanager::LaneBoundaryOSI::*)()) &roadmanager::LaneBoundaryOSI::GetOSIPoints, "C++: roadmanager::LaneBoundaryOSI::GetOSIPoints() --> class roadmanager::OSIPoints *", pybind11::return_value_policy::reference);
 	}
 	std::cout << "B15_[roadmanager::RoadMarkInfo] ";
-	{ // roadmanager::RoadMarkInfo file: line:338
+	{ // roadmanager::RoadMarkInfo file: line:339
 		pybind11::class_<roadmanager::RoadMarkInfo, std::shared_ptr<roadmanager::RoadMarkInfo>> cl(M("roadmanager"), "RoadMarkInfo", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::RoadMarkInfo(); } ) );
 		cl.def_readwrite("roadmark_idx_", &roadmanager::RoadMarkInfo::roadmark_idx_);
 		cl.def_readwrite("roadmarkline_idx_", &roadmanager::RoadMarkInfo::roadmarkline_idx_);
 	}
 	std::cout << "B16_[roadmanager::LaneRoadMarkTypeLine] ";
-	{ // roadmanager::LaneRoadMarkTypeLine file: line:344
+	{ // roadmanager::LaneRoadMarkTypeLine file: line:345
 		pybind11::class_<roadmanager::LaneRoadMarkTypeLine, std::shared_ptr<roadmanager::LaneRoadMarkTypeLine>> cl(M("roadmanager"), "LaneRoadMarkTypeLine", "");
 		cl.def( pybind11::init<double, double, double, double, enum roadmanager::LaneRoadMarkTypeLine::RoadMarkTypeLineRule, double>(), pybind11::arg("length"), pybind11::arg("space"), pybind11::arg("t_offset"), pybind11::arg("s_offset"), pybind11::arg("rule"), pybind11::arg("width") );
 
@@ -828,7 +828,7 @@ void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const 
 		cl.def("GetGlobalId", (int (roadmanager::LaneRoadMarkTypeLine::*)()) &roadmanager::LaneRoadMarkTypeLine::GetGlobalId, "C++: roadmanager::LaneRoadMarkTypeLine::GetGlobalId() --> int");
 	}
 	std::cout << "B17_[roadmanager::LaneRoadMarkType] ";
-	{ // roadmanager::LaneRoadMarkType file: line:377
+	{ // roadmanager::LaneRoadMarkType file: line:378
 		pybind11::class_<roadmanager::LaneRoadMarkType, std::shared_ptr<roadmanager::LaneRoadMarkType>> cl(M("roadmanager"), "LaneRoadMarkType", "");
 		cl.def( pybind11::init( [](roadmanager::LaneRoadMarkType const &o){ return new roadmanager::LaneRoadMarkType(o); } ) );
 		cl.def("AddLine", (void (roadmanager::LaneRoadMarkType::*)(class roadmanager::LaneRoadMarkTypeLine *)) &roadmanager::LaneRoadMarkType::AddLine, "C++: roadmanager::LaneRoadMarkType::AddLine(class roadmanager::LaneRoadMarkTypeLine *) --> void", pybind11::arg("lane_roadMarkTypeLine"));
@@ -837,7 +837,7 @@ void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const 
 		cl.def("GetNumberOfRoadMarkTypeLines", (int (roadmanager::LaneRoadMarkType::*)()) &roadmanager::LaneRoadMarkType::GetNumberOfRoadMarkTypeLines, "C++: roadmanager::LaneRoadMarkType::GetNumberOfRoadMarkTypeLines() --> int");
 	}
 	std::cout << "B18_[roadmanager::LaneRoadMark] ";
-	{ // roadmanager::LaneRoadMark file: line:394
+	{ // roadmanager::LaneRoadMark file: line:395
 		pybind11::class_<roadmanager::LaneRoadMark, std::shared_ptr<roadmanager::LaneRoadMark>> cl(M("roadmanager"), "LaneRoadMark", "");
 		cl.def( pybind11::init<double, enum roadmanager::LaneRoadMark::RoadMarkType, enum roadmanager::LaneRoadMark::RoadMarkWeight, enum roadmanager::LaneRoadMark::RoadMarkColor, enum roadmanager::LaneRoadMark::RoadMarkMaterial, enum roadmanager::LaneRoadMark::RoadMarkLaneChange, double, double>(), pybind11::arg("s_offset"), pybind11::arg("type"), pybind11::arg("weight"), pybind11::arg("color"), pybind11::arg("material"), pybind11::arg("lane_change"), pybind11::arg("width"), pybind11::arg("height") );
 
@@ -898,7 +898,7 @@ void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const 
 		cl.def("GetLaneRoadMarkTypeByIdx", (class roadmanager::LaneRoadMarkType * (roadmanager::LaneRoadMark::*)(int)) &roadmanager::LaneRoadMark::GetLaneRoadMarkTypeByIdx, "C++: roadmanager::LaneRoadMark::GetLaneRoadMarkTypeByIdx(int) --> class roadmanager::LaneRoadMarkType *", pybind11::return_value_policy::reference, pybind11::arg("idx"));
 	}
 	std::cout << "B19_[roadmanager::LaneOffset] ";
-	{ // roadmanager::LaneOffset file: line:471
+	{ // roadmanager::LaneOffset file: line:472
 		pybind11::class_<roadmanager::LaneOffset, std::shared_ptr<roadmanager::LaneOffset>> cl(M("roadmanager"), "LaneOffset", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::LaneOffset(); } ) );
 		cl.def( pybind11::init<double, double, double, double, double>(), pybind11::arg("s"), pybind11::arg("a"), pybind11::arg("b"), pybind11::arg("c"), pybind11::arg("d") );
@@ -913,7 +913,7 @@ void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const 
 		cl.def("Print", (void (roadmanager::LaneOffset::*)()) &roadmanager::LaneOffset::Print, "C++: roadmanager::LaneOffset::Print() --> void");
 	}
 	std::cout << "B20_[roadmanager::Lane] ";
-	{ // roadmanager::Lane file: line:500
+	{ // roadmanager::Lane file: line:501
 		pybind11::class_<roadmanager::Lane, std::shared_ptr<roadmanager::Lane>> cl(M("roadmanager"), "Lane", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::Lane(); } ) );
 		cl.def( pybind11::init<int, roadmanager::Lane::LaneType>(), pybind11::arg("id"), pybind11::arg("type") );
@@ -987,74 +987,10 @@ void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const 
 	PYBIND11_MAKE_OPAQUE(std::shared_ptr<void>)
 #endif
 
-// roadmanager::OutlineCorner file: line:802
-struct PyCallBack_roadmanager_OutlineCorner : public roadmanager::OutlineCorner {
-	using roadmanager::OutlineCorner::OutlineCorner;
-
-	void GetPos(double & a0, double & a1, double & a2) override {
-		pybind11::gil_scoped_acquire gil;
-		pybind11::function overload = pybind11::get_overload(static_cast<const roadmanager::OutlineCorner *>(this), "GetPos");
-		if (overload) {
-			auto o = overload.operator()<pybind11::return_value_policy::reference>(a0, a1, a2);
-			if (pybind11::detail::cast_is_temporary_value_reference<void>::value) {
-				static pybind11::detail::override_caster_t<void> caster;
-				return pybind11::detail::cast_ref<void>(std::move(o), caster);
-			}
-			else return pybind11::detail::cast_safe<void>(std::move(o));
-		}
-		pybind11::pybind11_fail("Tried to call pure virtual function \"OutlineCorner::GetPos\"");
-	}
-	double GetHeight() override {
-		pybind11::gil_scoped_acquire gil;
-		pybind11::function overload = pybind11::get_overload(static_cast<const roadmanager::OutlineCorner *>(this), "GetHeight");
-		if (overload) {
-			auto o = overload.operator()<pybind11::return_value_policy::reference>();
-			if (pybind11::detail::cast_is_temporary_value_reference<double>::value) {
-				static pybind11::detail::override_caster_t<double> caster;
-				return pybind11::detail::cast_ref<double>(std::move(o), caster);
-			}
-			else return pybind11::detail::cast_safe<double>(std::move(o));
-		}
-		pybind11::pybind11_fail("Tried to call pure virtual function \"OutlineCorner::GetHeight\"");
-	}
-};
-
-// roadmanager::OutlineCornerRoad file: line:810
-struct PyCallBack_roadmanager_OutlineCornerRoad : public roadmanager::OutlineCornerRoad {
-	using roadmanager::OutlineCornerRoad::OutlineCornerRoad;
-
-	void GetPos(double & a0, double & a1, double & a2) override {
-		pybind11::gil_scoped_acquire gil;
-		pybind11::function overload = pybind11::get_overload(static_cast<const roadmanager::OutlineCornerRoad *>(this), "GetPos");
-		if (overload) {
-			auto o = overload.operator()<pybind11::return_value_policy::reference>(a0, a1, a2);
-			if (pybind11::detail::cast_is_temporary_value_reference<void>::value) {
-				static pybind11::detail::override_caster_t<void> caster;
-				return pybind11::detail::cast_ref<void>(std::move(o), caster);
-			}
-			else return pybind11::detail::cast_safe<void>(std::move(o));
-		}
-		return OutlineCornerRoad::GetPos(a0, a1, a2);
-	}
-	double GetHeight() override {
-		pybind11::gil_scoped_acquire gil;
-		pybind11::function overload = pybind11::get_overload(static_cast<const roadmanager::OutlineCornerRoad *>(this), "GetHeight");
-		if (overload) {
-			auto o = overload.operator()<pybind11::return_value_policy::reference>();
-			if (pybind11::detail::cast_is_temporary_value_reference<double>::value) {
-				static pybind11::detail::override_caster_t<double> caster;
-				return pybind11::detail::cast_ref<double>(std::move(o), caster);
-			}
-			else return pybind11::detail::cast_safe<double>(std::move(o));
-		}
-		return OutlineCornerRoad::GetHeight();
-	}
-};
-
 void bind_unknown_unknown_3(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
 	std::cout << "B21_[roadmanager::LaneSection] ";
-	{ // roadmanager::LaneSection file: line:605
+	{ // roadmanager::LaneSection file: line:606
 		pybind11::class_<roadmanager::LaneSection, std::shared_ptr<roadmanager::LaneSection>> cl(M("roadmanager"), "LaneSection", "");
 		cl.def( pybind11::init<double>(), pybind11::arg("s") );
 
@@ -1088,7 +1024,7 @@ void bind_unknown_unknown_3(std::function< pybind11::module &(std::string const 
 		cl.def("Print", (void (roadmanager::LaneSection::*)()) &roadmanager::LaneSection::Print, "C++: roadmanager::LaneSection::Print() --> void");
 	}
 	std::cout << "B22_[roadmanager::ContactPointType] ";
-	// roadmanager::ContactPointType file: line:650
+	// roadmanager::ContactPointType file: line:651
 	pybind11::enum_<roadmanager::ContactPointType>(M("roadmanager"), "ContactPointType", pybind11::arithmetic(), "")
 		.value("CONTACT_POINT_UNKNOWN", roadmanager::CONTACT_POINT_UNKNOWN)
 		.value("CONTACT_POINT_START", roadmanager::CONTACT_POINT_START)
@@ -1099,7 +1035,7 @@ void bind_unknown_unknown_3(std::function< pybind11::module &(std::string const 
 ;
 
 	std::cout << "B23_[roadmanager::RoadLink] ";
-	{ // roadmanager::RoadLink file: line:658
+	{ // roadmanager::RoadLink file: line:659
 		pybind11::class_<roadmanager::RoadLink, std::shared_ptr<roadmanager::RoadLink>> cl(M("roadmanager"), "RoadLink", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::RoadLink(); } ) );
 		cl.def( pybind11::init<roadmanager::LinkType, roadmanager::RoadLink::ElementType, int, enum roadmanager::ContactPointType>(), pybind11::arg("type"), pybind11::arg("element_type"), pybind11::arg("element_id"), pybind11::arg("contact_point_type") );
@@ -1111,14 +1047,14 @@ void bind_unknown_unknown_3(std::function< pybind11::module &(std::string const 
 		cl.def("Print", (void (roadmanager::RoadLink::*)()) &roadmanager::RoadLink::Print, "C++: roadmanager::RoadLink::Print() --> void");
 	}
 	std::cout << "B24_[roadmanager::LaneInfo] ";
-	{ // roadmanager::LaneInfo file: line:687
+	{ // roadmanager::LaneInfo file: line:688
 		pybind11::class_<roadmanager::LaneInfo, std::shared_ptr<roadmanager::LaneInfo>> cl(M("roadmanager"), "LaneInfo", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::LaneInfo(); } ) );
 		cl.def_readwrite("lane_section_idx_", &roadmanager::LaneInfo::lane_section_idx_);
 		cl.def_readwrite("lane_id_", &roadmanager::LaneInfo::lane_id_);
 	}
 	std::cout << "B25_[roadmanager::RoadObject] ";
-	{ // roadmanager::RoadObject file: line:699
+	{ // roadmanager::RoadObject file: line:700
 		pybind11::class_<roadmanager::RoadObject, std::shared_ptr<roadmanager::RoadObject>> cl(M("roadmanager"), "RoadObject", "");
 		cl.def( pybind11::init( [](roadmanager::RoadObject const &o){ return new roadmanager::RoadObject(o); } ) );
 		cl.def( pybind11::init( [](){ return new roadmanager::RoadObject(); } ) );
@@ -1133,45 +1069,254 @@ void bind_unknown_unknown_3(std::function< pybind11::module &(std::string const 
 		cl.def("assign", (class roadmanager::RoadObject & (roadmanager::RoadObject::*)(const class roadmanager::RoadObject &)) &roadmanager::RoadObject::operator=, "C++: roadmanager::RoadObject::operator=(const class roadmanager::RoadObject &) --> class roadmanager::RoadObject &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
 	std::cout << "B26_[roadmanager::Signal] ";
-	{ // roadmanager::Signal file: line:712
+	{ // roadmanager::Signal file: line:713
 		pybind11::class_<roadmanager::Signal, std::shared_ptr<roadmanager::Signal>, roadmanager::RoadObject> cl(M("roadmanager"), "Signal", "");
 		cl.def( pybind11::init( [](roadmanager::Signal const &o){ return new roadmanager::Signal(o); } ) );
 
 		pybind11::enum_<roadmanager::Signal::Type>(cl, "Type", pybind11::arithmetic(), "")
-			.value("NONETYPE", roadmanager::Signal::NONETYPE)
-			.value("T1000001", roadmanager::Signal::T1000001)
-			.value("T1000002", roadmanager::Signal::T1000002)
-			.value("T1000003", roadmanager::Signal::T1000003)
-			.value("T1000004", roadmanager::Signal::T1000004)
-			.value("T1000007", roadmanager::Signal::T1000007)
-			.value("T1000008", roadmanager::Signal::T1000008)
-			.value("T1000009", roadmanager::Signal::T1000009)
-			.value("T1000010", roadmanager::Signal::T1000010)
-			.value("T1000011", roadmanager::Signal::T1000011)
-			.value("T1000012", roadmanager::Signal::T1000012)
-			.value("T1000013", roadmanager::Signal::T1000013)
-			.value("T1000014", roadmanager::Signal::T1000014)
-			.value("T1000015", roadmanager::Signal::T1000015)
-			.value("T1000016", roadmanager::Signal::T1000016)
-			.value("T1000017", roadmanager::Signal::T1000017)
-			.value("T1000018", roadmanager::Signal::T1000018)
-			.value("T1000019", roadmanager::Signal::T1000019)
-			.value("T1000020", roadmanager::Signal::T1000020)
-			.export_values();
-
-
-		pybind11::enum_<roadmanager::Signal::SubType>(cl, "SubType", pybind11::arithmetic(), "")
-			.value("NONESUBTYPE", roadmanager::Signal::NONESUBTYPE)
-			.value("SUBT10", roadmanager::Signal::SUBT10)
-			.value("SUBT20", roadmanager::Signal::SUBT20)
-			.value("SUBT30", roadmanager::Signal::SUBT30)
-			.value("SUBT40", roadmanager::Signal::SUBT40)
-			.value("SUBT50", roadmanager::Signal::SUBT50)
-			.value("SUBT60", roadmanager::Signal::SUBT60)
-			.value("SUBT70", roadmanager::Signal::SUBT70)
-			.value("SUBT80", roadmanager::Signal::SUBT80)
-			.value("SUBT90", roadmanager::Signal::SUBT90)
-			.value("SUBT100", roadmanager::Signal::SUBT100)
+			.value("TYPE_UNKNOWN", roadmanager::Signal::TYPE_UNKNOWN)
+			.value("TYPE_OTHER", roadmanager::Signal::TYPE_OTHER)
+			.value("TYPE_DANGER_SPOT", roadmanager::Signal::TYPE_DANGER_SPOT)
+			.value("TYPE_ZEBRA_CROSSING", roadmanager::Signal::TYPE_ZEBRA_CROSSING)
+			.value("TYPE_FLIGHT", roadmanager::Signal::TYPE_FLIGHT)
+			.value("TYPE_CATTLE", roadmanager::Signal::TYPE_CATTLE)
+			.value("TYPE_HORSE_RIDERS", roadmanager::Signal::TYPE_HORSE_RIDERS)
+			.value("TYPE_AMPHIBIANS", roadmanager::Signal::TYPE_AMPHIBIANS)
+			.value("TYPE_FALLING_ROCKS", roadmanager::Signal::TYPE_FALLING_ROCKS)
+			.value("TYPE_SNOW_OR_ICE", roadmanager::Signal::TYPE_SNOW_OR_ICE)
+			.value("TYPE_LOOSE_GRAVEL", roadmanager::Signal::TYPE_LOOSE_GRAVEL)
+			.value("TYPE_WATERSIDE", roadmanager::Signal::TYPE_WATERSIDE)
+			.value("TYPE_CLEARANCE", roadmanager::Signal::TYPE_CLEARANCE)
+			.value("TYPE_MOVABLE_BRIDGE", roadmanager::Signal::TYPE_MOVABLE_BRIDGE)
+			.value("TYPE_RIGHT_BEFORE_LEFT_NEXT_INTERSECTION", roadmanager::Signal::TYPE_RIGHT_BEFORE_LEFT_NEXT_INTERSECTION)
+			.value("TYPE_TURN_LEFT", roadmanager::Signal::TYPE_TURN_LEFT)
+			.value("TYPE_TURN_RIGHT", roadmanager::Signal::TYPE_TURN_RIGHT)
+			.value("TYPE_DOUBLE_TURN_LEFT", roadmanager::Signal::TYPE_DOUBLE_TURN_LEFT)
+			.value("TYPE_DOUBLE_TURN_RIGHT", roadmanager::Signal::TYPE_DOUBLE_TURN_RIGHT)
+			.value("TYPE_HILL_DOWNWARDS", roadmanager::Signal::TYPE_HILL_DOWNWARDS)
+			.value("TYPE_HILL_UPWARDS", roadmanager::Signal::TYPE_HILL_UPWARDS)
+			.value("TYPE_UNEVEN_ROAD", roadmanager::Signal::TYPE_UNEVEN_ROAD)
+			.value("TYPE_ROAD_SLIPPERY_WET_OR_DIRTY", roadmanager::Signal::TYPE_ROAD_SLIPPERY_WET_OR_DIRTY)
+			.value("TYPE_SIDE_WINDS", roadmanager::Signal::TYPE_SIDE_WINDS)
+			.value("TYPE_ROAD_NARROWING", roadmanager::Signal::TYPE_ROAD_NARROWING)
+			.value("TYPE_ROAD_NARROWING_RIGHT", roadmanager::Signal::TYPE_ROAD_NARROWING_RIGHT)
+			.value("TYPE_ROAD_NARROWING_LEFT", roadmanager::Signal::TYPE_ROAD_NARROWING_LEFT)
+			.value("TYPE_ROAD_WORKS", roadmanager::Signal::TYPE_ROAD_WORKS)
+			.value("TYPE_TRAFFIC_QUEUES", roadmanager::Signal::TYPE_TRAFFIC_QUEUES)
+			.value("TYPE_TWO_WAY_TRAFFIC", roadmanager::Signal::TYPE_TWO_WAY_TRAFFIC)
+			.value("TYPE_ATTENTION_TRAFFIC_LIGHT", roadmanager::Signal::TYPE_ATTENTION_TRAFFIC_LIGHT)
+			.value("TYPE_PEDESTRIANS", roadmanager::Signal::TYPE_PEDESTRIANS)
+			.value("TYPE_CHILDREN_CROSSING", roadmanager::Signal::TYPE_CHILDREN_CROSSING)
+			.value("TYPE_CYCLE_ROUTE", roadmanager::Signal::TYPE_CYCLE_ROUTE)
+			.value("TYPE_DEER_CROSSING", roadmanager::Signal::TYPE_DEER_CROSSING)
+			.value("TYPE_UNGATED_LEVEL_CROSSING", roadmanager::Signal::TYPE_UNGATED_LEVEL_CROSSING)
+			.value("TYPE_LEVEL_CROSSING_MARKER", roadmanager::Signal::TYPE_LEVEL_CROSSING_MARKER)
+			.value("TYPE_RAILWAY_TRAFFIC_PRIORITY", roadmanager::Signal::TYPE_RAILWAY_TRAFFIC_PRIORITY)
+			.value("TYPE_GIVE_WAY", roadmanager::Signal::TYPE_GIVE_WAY)
+			.value("TYPE_STOP", roadmanager::Signal::TYPE_STOP)
+			.value("TYPE_PRIORITY_TO_OPPOSITE_DIRECTION", roadmanager::Signal::TYPE_PRIORITY_TO_OPPOSITE_DIRECTION)
+			.value("TYPE_PRIORITY_TO_OPPOSITE_DIRECTION_UPSIDE_DOWN", roadmanager::Signal::TYPE_PRIORITY_TO_OPPOSITE_DIRECTION_UPSIDE_DOWN)
+			.value("TYPE_PRESCRIBED_LEFT_TURN", roadmanager::Signal::TYPE_PRESCRIBED_LEFT_TURN)
+			.value("TYPE_PRESCRIBED_RIGHT_TURN", roadmanager::Signal::TYPE_PRESCRIBED_RIGHT_TURN)
+			.value("TYPE_PRESCRIBED_STRAIGHT", roadmanager::Signal::TYPE_PRESCRIBED_STRAIGHT)
+			.value("TYPE_PRESCRIBED_RIGHT_WAY", roadmanager::Signal::TYPE_PRESCRIBED_RIGHT_WAY)
+			.value("TYPE_PRESCRIBED_LEFT_WAY", roadmanager::Signal::TYPE_PRESCRIBED_LEFT_WAY)
+			.value("TYPE_PRESCRIBED_RIGHT_TURN_AND_STRAIGHT", roadmanager::Signal::TYPE_PRESCRIBED_RIGHT_TURN_AND_STRAIGHT)
+			.value("TYPE_PRESCRIBED_LEFT_TURN_AND_STRAIGHT", roadmanager::Signal::TYPE_PRESCRIBED_LEFT_TURN_AND_STRAIGHT)
+			.value("TYPE_PRESCRIBED_LEFT_TURN_AND_RIGHT_TURN", roadmanager::Signal::TYPE_PRESCRIBED_LEFT_TURN_AND_RIGHT_TURN)
+			.value("TYPE_PRESCRIBED_LEFT_TURN_RIGHT_TURN_AND_STRAIGHT", roadmanager::Signal::TYPE_PRESCRIBED_LEFT_TURN_RIGHT_TURN_AND_STRAIGHT)
+			.value("TYPE_ROUNDABOUT", roadmanager::Signal::TYPE_ROUNDABOUT)
+			.value("TYPE_ONEWAY_LEFT", roadmanager::Signal::TYPE_ONEWAY_LEFT)
+			.value("TYPE_ONEWAY_RIGHT", roadmanager::Signal::TYPE_ONEWAY_RIGHT)
+			.value("TYPE_PASS_LEFT", roadmanager::Signal::TYPE_PASS_LEFT)
+			.value("TYPE_PASS_RIGHT", roadmanager::Signal::TYPE_PASS_RIGHT)
+			.value("TYPE_SIDE_LANE_OPEN_FOR_TRAFFIC", roadmanager::Signal::TYPE_SIDE_LANE_OPEN_FOR_TRAFFIC)
+			.value("TYPE_SIDE_LANE_CLOSED_FOR_TRAFFIC", roadmanager::Signal::TYPE_SIDE_LANE_CLOSED_FOR_TRAFFIC)
+			.value("TYPE_SIDE_LANE_CLOSING_FOR_TRAFFIC", roadmanager::Signal::TYPE_SIDE_LANE_CLOSING_FOR_TRAFFIC)
+			.value("TYPE_BUS_STOP", roadmanager::Signal::TYPE_BUS_STOP)
+			.value("TYPE_TAXI_STAND", roadmanager::Signal::TYPE_TAXI_STAND)
+			.value("TYPE_BICYCLES_ONLY", roadmanager::Signal::TYPE_BICYCLES_ONLY)
+			.value("TYPE_HORSE_RIDERS_ONLY", roadmanager::Signal::TYPE_HORSE_RIDERS_ONLY)
+			.value("TYPE_PEDESTRIANS_ONLY", roadmanager::Signal::TYPE_PEDESTRIANS_ONLY)
+			.value("TYPE_BICYCLES_PEDESTRIANS_SHARED_ONLY", roadmanager::Signal::TYPE_BICYCLES_PEDESTRIANS_SHARED_ONLY)
+			.value("TYPE_BICYCLES_PEDESTRIANS_SEPARATED_LEFT_ONLY", roadmanager::Signal::TYPE_BICYCLES_PEDESTRIANS_SEPARATED_LEFT_ONLY)
+			.value("TYPE_BICYCLES_PEDESTRIANS_SEPARATED_RIGHT_ONLY", roadmanager::Signal::TYPE_BICYCLES_PEDESTRIANS_SEPARATED_RIGHT_ONLY)
+			.value("TYPE_PEDESTRIAN_ZONE_BEGIN", roadmanager::Signal::TYPE_PEDESTRIAN_ZONE_BEGIN)
+			.value("TYPE_PEDESTRIAN_ZONE_END", roadmanager::Signal::TYPE_PEDESTRIAN_ZONE_END)
+			.value("TYPE_BICYCLE_ROAD_BEGIN", roadmanager::Signal::TYPE_BICYCLE_ROAD_BEGIN)
+			.value("TYPE_BICYCLE_ROAD_END", roadmanager::Signal::TYPE_BICYCLE_ROAD_END)
+			.value("TYPE_BUS_LANE", roadmanager::Signal::TYPE_BUS_LANE)
+			.value("TYPE_BUS_LANE_BEGIN", roadmanager::Signal::TYPE_BUS_LANE_BEGIN)
+			.value("TYPE_BUS_LANE_END", roadmanager::Signal::TYPE_BUS_LANE_END)
+			.value("TYPE_ALL_PROHIBITED", roadmanager::Signal::TYPE_ALL_PROHIBITED)
+			.value("TYPE_MOTORIZED_MULTITRACK_PROHIBITED", roadmanager::Signal::TYPE_MOTORIZED_MULTITRACK_PROHIBITED)
+			.value("TYPE_TRUCKS_PROHIBITED", roadmanager::Signal::TYPE_TRUCKS_PROHIBITED)
+			.value("TYPE_BICYCLES_PROHIBITED", roadmanager::Signal::TYPE_BICYCLES_PROHIBITED)
+			.value("TYPE_MOTORCYCLES_PROHIBITED", roadmanager::Signal::TYPE_MOTORCYCLES_PROHIBITED)
+			.value("TYPE_MOPEDS_PROHIBITED", roadmanager::Signal::TYPE_MOPEDS_PROHIBITED)
+			.value("TYPE_HORSE_RIDERS_PROHIBITED", roadmanager::Signal::TYPE_HORSE_RIDERS_PROHIBITED)
+			.value("TYPE_HORSE_CARRIAGES_PROHIBITED", roadmanager::Signal::TYPE_HORSE_CARRIAGES_PROHIBITED)
+			.value("TYPE_CATTLE_PROHIBITED", roadmanager::Signal::TYPE_CATTLE_PROHIBITED)
+			.value("TYPE_BUSES_PROHIBITED", roadmanager::Signal::TYPE_BUSES_PROHIBITED)
+			.value("TYPE_CARS_PROHIBITED", roadmanager::Signal::TYPE_CARS_PROHIBITED)
+			.value("TYPE_CARS_TRAILERS_PROHIBITED", roadmanager::Signal::TYPE_CARS_TRAILERS_PROHIBITED)
+			.value("TYPE_TRUCKS_TRAILERS_PROHIBITED", roadmanager::Signal::TYPE_TRUCKS_TRAILERS_PROHIBITED)
+			.value("TYPE_TRACTORS_PROHIBITED", roadmanager::Signal::TYPE_TRACTORS_PROHIBITED)
+			.value("TYPE_PEDESTRIANS_PROHIBITED", roadmanager::Signal::TYPE_PEDESTRIANS_PROHIBITED)
+			.value("TYPE_MOTOR_VEHICLES_PROHIBITED", roadmanager::Signal::TYPE_MOTOR_VEHICLES_PROHIBITED)
+			.value("TYPE_HAZARDOUS_GOODS_VEHICLES_PROHIBITED", roadmanager::Signal::TYPE_HAZARDOUS_GOODS_VEHICLES_PROHIBITED)
+			.value("TYPE_OVER_WEIGHT_VEHICLES_PROHIBITED", roadmanager::Signal::TYPE_OVER_WEIGHT_VEHICLES_PROHIBITED)
+			.value("TYPE_VEHICLES_AXLE_OVER_WEIGHT_PROHIBITED", roadmanager::Signal::TYPE_VEHICLES_AXLE_OVER_WEIGHT_PROHIBITED)
+			.value("TYPE_VEHICLES_EXCESS_WIDTH_PROHIBITED", roadmanager::Signal::TYPE_VEHICLES_EXCESS_WIDTH_PROHIBITED)
+			.value("TYPE_VEHICLES_EXCESS_HEIGHT_PROHIBITED", roadmanager::Signal::TYPE_VEHICLES_EXCESS_HEIGHT_PROHIBITED)
+			.value("TYPE_VEHICLES_EXCESS_LENGTH_PROHIBITED", roadmanager::Signal::TYPE_VEHICLES_EXCESS_LENGTH_PROHIBITED)
+			.value("TYPE_DO_NOT_ENTER", roadmanager::Signal::TYPE_DO_NOT_ENTER)
+			.value("TYPE_SNOW_CHAINS_REQUIRED", roadmanager::Signal::TYPE_SNOW_CHAINS_REQUIRED)
+			.value("TYPE_WATER_POLLUTANT_VEHICLES_PROHIBITED", roadmanager::Signal::TYPE_WATER_POLLUTANT_VEHICLES_PROHIBITED)
+			.value("TYPE_ENVIRONMENTAL_ZONE_BEGIN", roadmanager::Signal::TYPE_ENVIRONMENTAL_ZONE_BEGIN)
+			.value("TYPE_ENVIRONMENTAL_ZONE_END", roadmanager::Signal::TYPE_ENVIRONMENTAL_ZONE_END)
+			.value("TYPE_NO_U_TURN_LEFT", roadmanager::Signal::TYPE_NO_U_TURN_LEFT)
+			.value("TYPE_NO_U_TURN_RIGHT", roadmanager::Signal::TYPE_NO_U_TURN_RIGHT)
+			.value("TYPE_PRESCRIBED_U_TURN_LEFT", roadmanager::Signal::TYPE_PRESCRIBED_U_TURN_LEFT)
+			.value("TYPE_PRESCRIBED_U_TURN_RIGHT", roadmanager::Signal::TYPE_PRESCRIBED_U_TURN_RIGHT)
+			.value("TYPE_MINIMUM_DISTANCE_FOR_TRUCKS", roadmanager::Signal::TYPE_MINIMUM_DISTANCE_FOR_TRUCKS)
+			.value("TYPE_SPEED_LIMIT_BEGIN", roadmanager::Signal::TYPE_SPEED_LIMIT_BEGIN)
+			.value("TYPE_SPEED_LIMIT_ZONE_BEGIN", roadmanager::Signal::TYPE_SPEED_LIMIT_ZONE_BEGIN)
+			.value("TYPE_SPEED_LIMIT_ZONE_END", roadmanager::Signal::TYPE_SPEED_LIMIT_ZONE_END)
+			.value("TYPE_MINIMUM_SPEED_BEGIN", roadmanager::Signal::TYPE_MINIMUM_SPEED_BEGIN)
+			.value("TYPE_OVERTAKING_BAN_BEGIN", roadmanager::Signal::TYPE_OVERTAKING_BAN_BEGIN)
+			.value("TYPE_OVERTAKING_BAN_FOR_TRUCKS_BEGIN", roadmanager::Signal::TYPE_OVERTAKING_BAN_FOR_TRUCKS_BEGIN)
+			.value("TYPE_SPEED_LIMIT_END", roadmanager::Signal::TYPE_SPEED_LIMIT_END)
+			.value("TYPE_MINIMUM_SPEED_END", roadmanager::Signal::TYPE_MINIMUM_SPEED_END)
+			.value("TYPE_OVERTAKING_BAN_END", roadmanager::Signal::TYPE_OVERTAKING_BAN_END)
+			.value("TYPE_OVERTAKING_BAN_FOR_TRUCKS_END", roadmanager::Signal::TYPE_OVERTAKING_BAN_FOR_TRUCKS_END)
+			.value("TYPE_ALL_RESTRICTIONS_END", roadmanager::Signal::TYPE_ALL_RESTRICTIONS_END)
+			.value("TYPE_NO_STOPPING", roadmanager::Signal::TYPE_NO_STOPPING)
+			.value("TYPE_NO_PARKING", roadmanager::Signal::TYPE_NO_PARKING)
+			.value("TYPE_NO_PARKING_ZONE_BEGIN", roadmanager::Signal::TYPE_NO_PARKING_ZONE_BEGIN)
+			.value("TYPE_NO_PARKING_ZONE_END", roadmanager::Signal::TYPE_NO_PARKING_ZONE_END)
+			.value("TYPE_RIGHT_OF_WAY_NEXT_INTERSECTION", roadmanager::Signal::TYPE_RIGHT_OF_WAY_NEXT_INTERSECTION)
+			.value("TYPE_RIGHT_OF_WAY_BEGIN", roadmanager::Signal::TYPE_RIGHT_OF_WAY_BEGIN)
+			.value("TYPE_RIGHT_OF_WAY_END", roadmanager::Signal::TYPE_RIGHT_OF_WAY_END)
+			.value("TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION", roadmanager::Signal::TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION)
+			.value("TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION_UPSIDE_DOWN", roadmanager::Signal::TYPE_PRIORITY_OVER_OPPOSITE_DIRECTION_UPSIDE_DOWN)
+			.value("TYPE_TOWN_BEGIN", roadmanager::Signal::TYPE_TOWN_BEGIN)
+			.value("TYPE_TOWN_END", roadmanager::Signal::TYPE_TOWN_END)
+			.value("TYPE_CAR_PARKING", roadmanager::Signal::TYPE_CAR_PARKING)
+			.value("TYPE_CAR_PARKING_ZONE_BEGIN", roadmanager::Signal::TYPE_CAR_PARKING_ZONE_BEGIN)
+			.value("TYPE_CAR_PARKING_ZONE_END", roadmanager::Signal::TYPE_CAR_PARKING_ZONE_END)
+			.value("TYPE_SIDEWALK_HALF_PARKING_LEFT", roadmanager::Signal::TYPE_SIDEWALK_HALF_PARKING_LEFT)
+			.value("TYPE_SIDEWALK_HALF_PARKING_RIGHT", roadmanager::Signal::TYPE_SIDEWALK_HALF_PARKING_RIGHT)
+			.value("TYPE_SIDEWALK_PARKING_LEFT", roadmanager::Signal::TYPE_SIDEWALK_PARKING_LEFT)
+			.value("TYPE_SIDEWALK_PARKING_RIGHT", roadmanager::Signal::TYPE_SIDEWALK_PARKING_RIGHT)
+			.value("TYPE_SIDEWALK_PERPENDICULAR_HALF_PARKING_LEFT", roadmanager::Signal::TYPE_SIDEWALK_PERPENDICULAR_HALF_PARKING_LEFT)
+			.value("TYPE_SIDEWALK_PERPENDICULAR_HALF_PARKING_RIGHT", roadmanager::Signal::TYPE_SIDEWALK_PERPENDICULAR_HALF_PARKING_RIGHT)
+			.value("TYPE_SIDEWALK_PERPENDICULAR_PARKING_LEFT", roadmanager::Signal::TYPE_SIDEWALK_PERPENDICULAR_PARKING_LEFT)
+			.value("TYPE_SIDEWALK_PERPENDICULAR_PARKING_RIGHT", roadmanager::Signal::TYPE_SIDEWALK_PERPENDICULAR_PARKING_RIGHT)
+			.value("TYPE_LIVING_STREET_BEGIN", roadmanager::Signal::TYPE_LIVING_STREET_BEGIN)
+			.value("TYPE_LIVING_STREET_END", roadmanager::Signal::TYPE_LIVING_STREET_END)
+			.value("TYPE_TUNNEL", roadmanager::Signal::TYPE_TUNNEL)
+			.value("TYPE_EMERGENCY_STOPPING_LEFT", roadmanager::Signal::TYPE_EMERGENCY_STOPPING_LEFT)
+			.value("TYPE_EMERGENCY_STOPPING_RIGHT", roadmanager::Signal::TYPE_EMERGENCY_STOPPING_RIGHT)
+			.value("TYPE_HIGHWAY_BEGIN", roadmanager::Signal::TYPE_HIGHWAY_BEGIN)
+			.value("TYPE_HIGHWAY_END", roadmanager::Signal::TYPE_HIGHWAY_END)
+			.value("TYPE_EXPRESSWAY_BEGIN", roadmanager::Signal::TYPE_EXPRESSWAY_BEGIN)
+			.value("TYPE_EXPRESSWAY_END", roadmanager::Signal::TYPE_EXPRESSWAY_END)
+			.value("TYPE_NAMED_HIGHWAY_EXIT", roadmanager::Signal::TYPE_NAMED_HIGHWAY_EXIT)
+			.value("TYPE_NAMED_EXPRESSWAY_EXIT", roadmanager::Signal::TYPE_NAMED_EXPRESSWAY_EXIT)
+			.value("TYPE_NAMED_ROAD_EXIT", roadmanager::Signal::TYPE_NAMED_ROAD_EXIT)
+			.value("TYPE_HIGHWAY_EXIT", roadmanager::Signal::TYPE_HIGHWAY_EXIT)
+			.value("TYPE_EXPRESSWAY_EXIT", roadmanager::Signal::TYPE_EXPRESSWAY_EXIT)
+			.value("TYPE_ONEWAY_STREET", roadmanager::Signal::TYPE_ONEWAY_STREET)
+			.value("TYPE_CROSSING_GUARDS", roadmanager::Signal::TYPE_CROSSING_GUARDS)
+			.value("TYPE_DEADEND", roadmanager::Signal::TYPE_DEADEND)
+			.value("TYPE_DEADEND_EXCLUDING_DESIGNATED_ACTORS", roadmanager::Signal::TYPE_DEADEND_EXCLUDING_DESIGNATED_ACTORS)
+			.value("TYPE_FIRST_AID_STATION", roadmanager::Signal::TYPE_FIRST_AID_STATION)
+			.value("TYPE_POLICE_STATION", roadmanager::Signal::TYPE_POLICE_STATION)
+			.value("TYPE_TELEPHONE", roadmanager::Signal::TYPE_TELEPHONE)
+			.value("TYPE_FILLING_STATION", roadmanager::Signal::TYPE_FILLING_STATION)
+			.value("TYPE_HOTEL", roadmanager::Signal::TYPE_HOTEL)
+			.value("TYPE_INN", roadmanager::Signal::TYPE_INN)
+			.value("TYPE_KIOSK", roadmanager::Signal::TYPE_KIOSK)
+			.value("TYPE_TOILET", roadmanager::Signal::TYPE_TOILET)
+			.value("TYPE_CHAPEL", roadmanager::Signal::TYPE_CHAPEL)
+			.value("TYPE_TOURIST_INFO", roadmanager::Signal::TYPE_TOURIST_INFO)
+			.value("TYPE_REPAIR_SERVICE", roadmanager::Signal::TYPE_REPAIR_SERVICE)
+			.value("TYPE_PEDESTRIAN_UNDERPASS", roadmanager::Signal::TYPE_PEDESTRIAN_UNDERPASS)
+			.value("TYPE_PEDESTRIAN_BRIDGE", roadmanager::Signal::TYPE_PEDESTRIAN_BRIDGE)
+			.value("TYPE_CAMPER_PLACE", roadmanager::Signal::TYPE_CAMPER_PLACE)
+			.value("TYPE_ADVISORY_SPEED_LIMIT_BEGIN", roadmanager::Signal::TYPE_ADVISORY_SPEED_LIMIT_BEGIN)
+			.value("TYPE_ADVISORY_SPEED_LIMIT_END", roadmanager::Signal::TYPE_ADVISORY_SPEED_LIMIT_END)
+			.value("TYPE_PLACE_NAME", roadmanager::Signal::TYPE_PLACE_NAME)
+			.value("TYPE_TOURIST_ATTRACTION", roadmanager::Signal::TYPE_TOURIST_ATTRACTION)
+			.value("TYPE_TOURIST_ROUTE", roadmanager::Signal::TYPE_TOURIST_ROUTE)
+			.value("TYPE_TOURIST_AREA", roadmanager::Signal::TYPE_TOURIST_AREA)
+			.value("TYPE_SHOULDER_NOT_PASSABLE_MOTOR_VEHICLES", roadmanager::Signal::TYPE_SHOULDER_NOT_PASSABLE_MOTOR_VEHICLES)
+			.value("TYPE_SHOULDER_UNSAFE_TRUCKS_TRACTORS", roadmanager::Signal::TYPE_SHOULDER_UNSAFE_TRUCKS_TRACTORS)
+			.value("TYPE_TOLL_BEGIN", roadmanager::Signal::TYPE_TOLL_BEGIN)
+			.value("TYPE_TOLL_END", roadmanager::Signal::TYPE_TOLL_END)
+			.value("TYPE_TOLL_ROAD", roadmanager::Signal::TYPE_TOLL_ROAD)
+			.value("TYPE_CUSTOMS", roadmanager::Signal::TYPE_CUSTOMS)
+			.value("TYPE_INTERNATIONAL_BORDER_INFO", roadmanager::Signal::TYPE_INTERNATIONAL_BORDER_INFO)
+			.value("TYPE_STREETLIGHT_RED_BAND", roadmanager::Signal::TYPE_STREETLIGHT_RED_BAND)
+			.value("TYPE_FEDERAL_HIGHWAY_ROUTE_NUMBER", roadmanager::Signal::TYPE_FEDERAL_HIGHWAY_ROUTE_NUMBER)
+			.value("TYPE_HIGHWAY_ROUTE_NUMBER", roadmanager::Signal::TYPE_HIGHWAY_ROUTE_NUMBER)
+			.value("TYPE_HIGHWAY_INTERCHANGE_NUMBER", roadmanager::Signal::TYPE_HIGHWAY_INTERCHANGE_NUMBER)
+			.value("TYPE_EUROPEAN_ROUTE_NUMBER", roadmanager::Signal::TYPE_EUROPEAN_ROUTE_NUMBER)
+			.value("TYPE_FEDERAL_HIGHWAY_DIRECTION_LEFT", roadmanager::Signal::TYPE_FEDERAL_HIGHWAY_DIRECTION_LEFT)
+			.value("TYPE_FEDERAL_HIGHWAY_DIRECTION_RIGHT", roadmanager::Signal::TYPE_FEDERAL_HIGHWAY_DIRECTION_RIGHT)
+			.value("TYPE_PRIMARY_ROAD_DIRECTION_LEFT", roadmanager::Signal::TYPE_PRIMARY_ROAD_DIRECTION_LEFT)
+			.value("TYPE_PRIMARY_ROAD_DIRECTION_RIGHT", roadmanager::Signal::TYPE_PRIMARY_ROAD_DIRECTION_RIGHT)
+			.value("TYPE_SECONDARY_ROAD_DIRECTION_LEFT", roadmanager::Signal::TYPE_SECONDARY_ROAD_DIRECTION_LEFT)
+			.value("TYPE_SECONDARY_ROAD_DIRECTION_RIGHT", roadmanager::Signal::TYPE_SECONDARY_ROAD_DIRECTION_RIGHT)
+			.value("TYPE_DIRECTION_DESIGNATED_ACTORS_LEFT", roadmanager::Signal::TYPE_DIRECTION_DESIGNATED_ACTORS_LEFT)
+			.value("TYPE_DIRECTION_DESIGNATED_ACTORS_RIGHT", roadmanager::Signal::TYPE_DIRECTION_DESIGNATED_ACTORS_RIGHT)
+			.value("TYPE_ROUTING_DESIGNATED_ACTORS", roadmanager::Signal::TYPE_ROUTING_DESIGNATED_ACTORS)
+			.value("TYPE_DIRECTION_TO_HIGHWAY_LEFT", roadmanager::Signal::TYPE_DIRECTION_TO_HIGHWAY_LEFT)
+			.value("TYPE_DIRECTION_TO_HIGHWAY_RIGHT", roadmanager::Signal::TYPE_DIRECTION_TO_HIGHWAY_RIGHT)
+			.value("TYPE_DIRECTION_TO_LOCAL_DESTINATION_LEFT", roadmanager::Signal::TYPE_DIRECTION_TO_LOCAL_DESTINATION_LEFT)
+			.value("TYPE_DIRECTION_TO_LOCAL_DESTINATION_RIGHT", roadmanager::Signal::TYPE_DIRECTION_TO_LOCAL_DESTINATION_RIGHT)
+			.value("TYPE_CONSOLIDATED_DIRECTIONS", roadmanager::Signal::TYPE_CONSOLIDATED_DIRECTIONS)
+			.value("TYPE_STREET_NAME", roadmanager::Signal::TYPE_STREET_NAME)
+			.value("TYPE_DIRECTION_PREANNOUNCEMENT", roadmanager::Signal::TYPE_DIRECTION_PREANNOUNCEMENT)
+			.value("TYPE_DIRECTION_PREANNOUNCEMENT_LANE_CONFIG", roadmanager::Signal::TYPE_DIRECTION_PREANNOUNCEMENT_LANE_CONFIG)
+			.value("TYPE_DIRECTION_PREANNOUNCEMENT_HIGHWAY_ENTRIES", roadmanager::Signal::TYPE_DIRECTION_PREANNOUNCEMENT_HIGHWAY_ENTRIES)
+			.value("TYPE_HIGHWAY_ANNOUNCEMENT", roadmanager::Signal::TYPE_HIGHWAY_ANNOUNCEMENT)
+			.value("TYPE_OTHER_ROAD_ANNOUNCEMENT", roadmanager::Signal::TYPE_OTHER_ROAD_ANNOUNCEMENT)
+			.value("TYPE_HIGHWAY_ANNOUNCEMENT_TRUCK_STOP", roadmanager::Signal::TYPE_HIGHWAY_ANNOUNCEMENT_TRUCK_STOP)
+			.value("TYPE_HIGHWAY_PREANNOUNCEMENT_DIRECTIONS", roadmanager::Signal::TYPE_HIGHWAY_PREANNOUNCEMENT_DIRECTIONS)
+			.value("TYPE_POLE_EXIT", roadmanager::Signal::TYPE_POLE_EXIT)
+			.value("TYPE_HIGHWAY_DISTANCE_BOARD", roadmanager::Signal::TYPE_HIGHWAY_DISTANCE_BOARD)
+			.value("TYPE_DETOUR_LEFT", roadmanager::Signal::TYPE_DETOUR_LEFT)
+			.value("TYPE_DETOUR_RIGHT", roadmanager::Signal::TYPE_DETOUR_RIGHT)
+			.value("TYPE_NUMBERED_DETOUR", roadmanager::Signal::TYPE_NUMBERED_DETOUR)
+			.value("TYPE_DETOUR_BEGIN", roadmanager::Signal::TYPE_DETOUR_BEGIN)
+			.value("TYPE_DETOUR_END", roadmanager::Signal::TYPE_DETOUR_END)
+			.value("TYPE_DETOUR_ROUTING_BOARD", roadmanager::Signal::TYPE_DETOUR_ROUTING_BOARD)
+			.value("TYPE_OPTIONAL_DETOUR", roadmanager::Signal::TYPE_OPTIONAL_DETOUR)
+			.value("TYPE_OPTIONAL_DETOUR_ROUTING", roadmanager::Signal::TYPE_OPTIONAL_DETOUR_ROUTING)
+			.value("TYPE_ROUTE_RECOMMENDATION", roadmanager::Signal::TYPE_ROUTE_RECOMMENDATION)
+			.value("TYPE_ROUTE_RECOMMENDATION_END", roadmanager::Signal::TYPE_ROUTE_RECOMMENDATION_END)
+			.value("TYPE_ANNOUNCE_LANE_TRANSITION_LEFT", roadmanager::Signal::TYPE_ANNOUNCE_LANE_TRANSITION_LEFT)
+			.value("TYPE_ANNOUNCE_LANE_TRANSITION_RIGHT", roadmanager::Signal::TYPE_ANNOUNCE_LANE_TRANSITION_RIGHT)
+			.value("TYPE_ANNOUNCE_RIGHT_LANE_END", roadmanager::Signal::TYPE_ANNOUNCE_RIGHT_LANE_END)
+			.value("TYPE_ANNOUNCE_LEFT_LANE_END", roadmanager::Signal::TYPE_ANNOUNCE_LEFT_LANE_END)
+			.value("TYPE_ANNOUNCE_RIGHT_LANE_BEGIN", roadmanager::Signal::TYPE_ANNOUNCE_RIGHT_LANE_BEGIN)
+			.value("TYPE_ANNOUNCE_LEFT_LANE_BEGIN", roadmanager::Signal::TYPE_ANNOUNCE_LEFT_LANE_BEGIN)
+			.value("TYPE_ANNOUNCE_LANE_CONSOLIDATION", roadmanager::Signal::TYPE_ANNOUNCE_LANE_CONSOLIDATION)
+			.value("TYPE_DETOUR_CITY_BLOCK", roadmanager::Signal::TYPE_DETOUR_CITY_BLOCK)
+			.value("TYPE_GATE", roadmanager::Signal::TYPE_GATE)
+			.value("TYPE_POLE_WARNING", roadmanager::Signal::TYPE_POLE_WARNING)
+			.value("TYPE_TRAFFIC_CONE", roadmanager::Signal::TYPE_TRAFFIC_CONE)
+			.value("TYPE_MOBILE_LANE_CLOSURE", roadmanager::Signal::TYPE_MOBILE_LANE_CLOSURE)
+			.value("TYPE_REFLECTOR_POST", roadmanager::Signal::TYPE_REFLECTOR_POST)
+			.value("TYPE_DIRECTIONAL_BOARD_WARNING", roadmanager::Signal::TYPE_DIRECTIONAL_BOARD_WARNING)
+			.value("TYPE_GUIDING_PLATE", roadmanager::Signal::TYPE_GUIDING_PLATE)
+			.value("TYPE_GUIDING_PLATE_WEDGES", roadmanager::Signal::TYPE_GUIDING_PLATE_WEDGES)
+			.value("TYPE_PARKING_HAZARD", roadmanager::Signal::TYPE_PARKING_HAZARD)
+			.value("TYPE_TRAFFIC_LIGHT_GREEN_ARROW", roadmanager::Signal::TYPE_TRAFFIC_LIGHT_GREEN_ARROW)
+			.value("TrafficSign_MainSign_Classification_Type_INT_MIN_SENTINEL_DO_NOT_USE_", roadmanager::Signal::TrafficSign_MainSign_Classification_Type_INT_MIN_SENTINEL_DO_NOT_USE_)
+			.value("TrafficSign_MainSign_Classification_Type_INT_MAX_SENTINEL_DO_NOT_USE_", roadmanager::Signal::TrafficSign_MainSign_Classification_Type_INT_MAX_SENTINEL_DO_NOT_USE_)
 			.export_values();
 
 		cl.def("GetId", (int (roadmanager::Signal::*)()) &roadmanager::Signal::GetId, "C++: roadmanager::Signal::GetId() --> int");
@@ -1183,33 +1328,12 @@ void bind_unknown_unknown_3(std::function< pybind11::module &(std::string const 
 		cl.def("GetZOffset", (double (roadmanager::Signal::*)()) &roadmanager::Signal::GetZOffset, "C++: roadmanager::Signal::GetZOffset() --> double");
 		cl.def("GetOrientation", (enum roadmanager::RoadObject::Orientation (roadmanager::Signal::*)()) &roadmanager::Signal::GetOrientation, "C++: roadmanager::Signal::GetOrientation() --> enum roadmanager::RoadObject::Orientation");
 		cl.def("GetType", (int (roadmanager::Signal::*)()) &roadmanager::Signal::GetType, "C++: roadmanager::Signal::GetType() --> int");
-		cl.def("GetSubType", (int (roadmanager::Signal::*)()) &roadmanager::Signal::GetSubType, "C++: roadmanager::Signal::GetSubType() --> int");
 		cl.def("GetHeight", (double (roadmanager::Signal::*)()) &roadmanager::Signal::GetHeight, "C++: roadmanager::Signal::GetHeight() --> double");
 		cl.def("GetWidth", (double (roadmanager::Signal::*)()) &roadmanager::Signal::GetWidth, "C++: roadmanager::Signal::GetWidth() --> double");
 		cl.def("IsDynamic", (bool (roadmanager::Signal::*)()) &roadmanager::Signal::IsDynamic, "C++: roadmanager::Signal::IsDynamic() --> bool");
 		cl.def("GetPitch", (double (roadmanager::Signal::*)()) &roadmanager::Signal::GetPitch, "C++: roadmanager::Signal::GetPitch() --> double");
 		cl.def("GetRoll", (double (roadmanager::Signal::*)()) &roadmanager::Signal::GetRoll, "C++: roadmanager::Signal::GetRoll() --> double");
 		cl.def("GetValue", (double (roadmanager::Signal::*)()) &roadmanager::Signal::GetValue, "C++: roadmanager::Signal::GetValue() --> double");
-	}
-	std::cout << "B27_[roadmanager::OutlineCorner] ";
-	{ // roadmanager::OutlineCorner file: line:802
-		pybind11::class_<roadmanager::OutlineCorner, std::shared_ptr<roadmanager::OutlineCorner>, PyCallBack_roadmanager_OutlineCorner> cl(M("roadmanager"), "OutlineCorner", "");
-		cl.def( pybind11::init( [](){ return new PyCallBack_roadmanager_OutlineCorner(); } ) );
-		cl.def(pybind11::init<PyCallBack_roadmanager_OutlineCorner const &>());
-		cl.def("GetPos", (void (roadmanager::OutlineCorner::*)(double &, double &, double &)) &roadmanager::OutlineCorner::GetPos, "C++: roadmanager::OutlineCorner::GetPos(double &, double &, double &) --> void", pybind11::arg("x"), pybind11::arg("y"), pybind11::arg("z"));
-		cl.def("GetHeight", (double (roadmanager::OutlineCorner::*)()) &roadmanager::OutlineCorner::GetHeight, "C++: roadmanager::OutlineCorner::GetHeight() --> double");
-		cl.def("assign", (class roadmanager::OutlineCorner & (roadmanager::OutlineCorner::*)(const class roadmanager::OutlineCorner &)) &roadmanager::OutlineCorner::operator=, "C++: roadmanager::OutlineCorner::operator=(const class roadmanager::OutlineCorner &) --> class roadmanager::OutlineCorner &", pybind11::return_value_policy::automatic, pybind11::arg(""));
-	}
-	std::cout << "B28_[roadmanager::OutlineCornerRoad] ";
-	{ // roadmanager::OutlineCornerRoad file: line:810
-		pybind11::class_<roadmanager::OutlineCornerRoad, std::shared_ptr<roadmanager::OutlineCornerRoad>, PyCallBack_roadmanager_OutlineCornerRoad, roadmanager::OutlineCorner> cl(M("roadmanager"), "OutlineCornerRoad", "");
-		cl.def( pybind11::init<int, double, double, double, double>(), pybind11::arg("roadId"), pybind11::arg("s"), pybind11::arg("t"), pybind11::arg("dz"), pybind11::arg("height") );
-
-		cl.def( pybind11::init( [](PyCallBack_roadmanager_OutlineCornerRoad const &o){ return new PyCallBack_roadmanager_OutlineCornerRoad(o); } ) );
-		cl.def( pybind11::init( [](roadmanager::OutlineCornerRoad const &o){ return new roadmanager::OutlineCornerRoad(o); } ) );
-		cl.def("GetPos", (void (roadmanager::OutlineCornerRoad::*)(double &, double &, double &)) &roadmanager::OutlineCornerRoad::GetPos, "C++: roadmanager::OutlineCornerRoad::GetPos(double &, double &, double &) --> void", pybind11::arg("x"), pybind11::arg("y"), pybind11::arg("z"));
-		cl.def("GetHeight", (double (roadmanager::OutlineCornerRoad::*)()) &roadmanager::OutlineCornerRoad::GetHeight, "C++: roadmanager::OutlineCornerRoad::GetHeight() --> double");
-		cl.def("assign", (class roadmanager::OutlineCornerRoad & (roadmanager::OutlineCornerRoad::*)(const class roadmanager::OutlineCornerRoad &)) &roadmanager::OutlineCornerRoad::operator=, "C++: roadmanager::OutlineCornerRoad::operator=(const class roadmanager::OutlineCornerRoad &) --> class roadmanager::OutlineCornerRoad &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
 }
 
@@ -1241,7 +1365,71 @@ void bind_unknown_unknown_3(std::function< pybind11::module &(std::string const 
 	PYBIND11_MAKE_OPAQUE(std::shared_ptr<void>)
 #endif
 
-// roadmanager::OutlineCornerLocal file: line:822
+// roadmanager::OutlineCorner file: line:1011
+struct PyCallBack_roadmanager_OutlineCorner : public roadmanager::OutlineCorner {
+	using roadmanager::OutlineCorner::OutlineCorner;
+
+	void GetPos(double & a0, double & a1, double & a2) override {
+		pybind11::gil_scoped_acquire gil;
+		pybind11::function overload = pybind11::get_overload(static_cast<const roadmanager::OutlineCorner *>(this), "GetPos");
+		if (overload) {
+			auto o = overload.operator()<pybind11::return_value_policy::reference>(a0, a1, a2);
+			if (pybind11::detail::cast_is_temporary_value_reference<void>::value) {
+				static pybind11::detail::override_caster_t<void> caster;
+				return pybind11::detail::cast_ref<void>(std::move(o), caster);
+			}
+			else return pybind11::detail::cast_safe<void>(std::move(o));
+		}
+		pybind11::pybind11_fail("Tried to call pure virtual function \"OutlineCorner::GetPos\"");
+	}
+	double GetHeight() override {
+		pybind11::gil_scoped_acquire gil;
+		pybind11::function overload = pybind11::get_overload(static_cast<const roadmanager::OutlineCorner *>(this), "GetHeight");
+		if (overload) {
+			auto o = overload.operator()<pybind11::return_value_policy::reference>();
+			if (pybind11::detail::cast_is_temporary_value_reference<double>::value) {
+				static pybind11::detail::override_caster_t<double> caster;
+				return pybind11::detail::cast_ref<double>(std::move(o), caster);
+			}
+			else return pybind11::detail::cast_safe<double>(std::move(o));
+		}
+		pybind11::pybind11_fail("Tried to call pure virtual function \"OutlineCorner::GetHeight\"");
+	}
+};
+
+// roadmanager::OutlineCornerRoad file: line:1019
+struct PyCallBack_roadmanager_OutlineCornerRoad : public roadmanager::OutlineCornerRoad {
+	using roadmanager::OutlineCornerRoad::OutlineCornerRoad;
+
+	void GetPos(double & a0, double & a1, double & a2) override {
+		pybind11::gil_scoped_acquire gil;
+		pybind11::function overload = pybind11::get_overload(static_cast<const roadmanager::OutlineCornerRoad *>(this), "GetPos");
+		if (overload) {
+			auto o = overload.operator()<pybind11::return_value_policy::reference>(a0, a1, a2);
+			if (pybind11::detail::cast_is_temporary_value_reference<void>::value) {
+				static pybind11::detail::override_caster_t<void> caster;
+				return pybind11::detail::cast_ref<void>(std::move(o), caster);
+			}
+			else return pybind11::detail::cast_safe<void>(std::move(o));
+		}
+		return OutlineCornerRoad::GetPos(a0, a1, a2);
+	}
+	double GetHeight() override {
+		pybind11::gil_scoped_acquire gil;
+		pybind11::function overload = pybind11::get_overload(static_cast<const roadmanager::OutlineCornerRoad *>(this), "GetHeight");
+		if (overload) {
+			auto o = overload.operator()<pybind11::return_value_policy::reference>();
+			if (pybind11::detail::cast_is_temporary_value_reference<double>::value) {
+				static pybind11::detail::override_caster_t<double> caster;
+				return pybind11::detail::cast_ref<double>(std::move(o), caster);
+			}
+			else return pybind11::detail::cast_safe<double>(std::move(o));
+		}
+		return OutlineCornerRoad::GetHeight();
+	}
+};
+
+// roadmanager::OutlineCornerLocal file: line:1031
 struct PyCallBack_roadmanager_OutlineCornerLocal : public roadmanager::OutlineCornerLocal {
 	using roadmanager::OutlineCornerLocal::OutlineCornerLocal;
 
@@ -1275,8 +1463,28 @@ struct PyCallBack_roadmanager_OutlineCornerLocal : public roadmanager::OutlineCo
 
 void bind_unknown_unknown_4(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
+	std::cout << "B27_[roadmanager::OutlineCorner] ";
+	{ // roadmanager::OutlineCorner file: line:1011
+		pybind11::class_<roadmanager::OutlineCorner, std::shared_ptr<roadmanager::OutlineCorner>, PyCallBack_roadmanager_OutlineCorner> cl(M("roadmanager"), "OutlineCorner", "");
+		cl.def( pybind11::init( [](){ return new PyCallBack_roadmanager_OutlineCorner(); } ) );
+		cl.def(pybind11::init<PyCallBack_roadmanager_OutlineCorner const &>());
+		cl.def("GetPos", (void (roadmanager::OutlineCorner::*)(double &, double &, double &)) &roadmanager::OutlineCorner::GetPos, "C++: roadmanager::OutlineCorner::GetPos(double &, double &, double &) --> void", pybind11::arg("x"), pybind11::arg("y"), pybind11::arg("z"));
+		cl.def("GetHeight", (double (roadmanager::OutlineCorner::*)()) &roadmanager::OutlineCorner::GetHeight, "C++: roadmanager::OutlineCorner::GetHeight() --> double");
+		cl.def("assign", (class roadmanager::OutlineCorner & (roadmanager::OutlineCorner::*)(const class roadmanager::OutlineCorner &)) &roadmanager::OutlineCorner::operator=, "C++: roadmanager::OutlineCorner::operator=(const class roadmanager::OutlineCorner &) --> class roadmanager::OutlineCorner &", pybind11::return_value_policy::automatic, pybind11::arg(""));
+	}
+	std::cout << "B28_[roadmanager::OutlineCornerRoad] ";
+	{ // roadmanager::OutlineCornerRoad file: line:1019
+		pybind11::class_<roadmanager::OutlineCornerRoad, std::shared_ptr<roadmanager::OutlineCornerRoad>, PyCallBack_roadmanager_OutlineCornerRoad, roadmanager::OutlineCorner> cl(M("roadmanager"), "OutlineCornerRoad", "");
+		cl.def( pybind11::init<int, double, double, double, double>(), pybind11::arg("roadId"), pybind11::arg("s"), pybind11::arg("t"), pybind11::arg("dz"), pybind11::arg("height") );
+
+		cl.def( pybind11::init( [](PyCallBack_roadmanager_OutlineCornerRoad const &o){ return new PyCallBack_roadmanager_OutlineCornerRoad(o); } ) );
+		cl.def( pybind11::init( [](roadmanager::OutlineCornerRoad const &o){ return new roadmanager::OutlineCornerRoad(o); } ) );
+		cl.def("GetPos", (void (roadmanager::OutlineCornerRoad::*)(double &, double &, double &)) &roadmanager::OutlineCornerRoad::GetPos, "C++: roadmanager::OutlineCornerRoad::GetPos(double &, double &, double &) --> void", pybind11::arg("x"), pybind11::arg("y"), pybind11::arg("z"));
+		cl.def("GetHeight", (double (roadmanager::OutlineCornerRoad::*)()) &roadmanager::OutlineCornerRoad::GetHeight, "C++: roadmanager::OutlineCornerRoad::GetHeight() --> double");
+		cl.def("assign", (class roadmanager::OutlineCornerRoad & (roadmanager::OutlineCornerRoad::*)(const class roadmanager::OutlineCornerRoad &)) &roadmanager::OutlineCornerRoad::operator=, "C++: roadmanager::OutlineCornerRoad::operator=(const class roadmanager::OutlineCornerRoad &) --> class roadmanager::OutlineCornerRoad &", pybind11::return_value_policy::automatic, pybind11::arg(""));
+	}
 	std::cout << "B29_[roadmanager::OutlineCornerLocal] ";
-	{ // roadmanager::OutlineCornerLocal file: line:822
+	{ // roadmanager::OutlineCornerLocal file: line:1031
 		pybind11::class_<roadmanager::OutlineCornerLocal, std::shared_ptr<roadmanager::OutlineCornerLocal>, PyCallBack_roadmanager_OutlineCornerLocal, roadmanager::OutlineCorner> cl(M("roadmanager"), "OutlineCornerLocal", "");
 		cl.def( pybind11::init<int, double, double, double, double, double, double, double>(), pybind11::arg("roadId"), pybind11::arg("s"), pybind11::arg("t"), pybind11::arg("u"), pybind11::arg("v"), pybind11::arg("zLocal"), pybind11::arg("height"), pybind11::arg("heading") );
 
@@ -1287,7 +1495,7 @@ void bind_unknown_unknown_4(std::function< pybind11::module &(std::string const 
 		cl.def("assign", (class roadmanager::OutlineCornerLocal & (roadmanager::OutlineCornerLocal::*)(const class roadmanager::OutlineCornerLocal &)) &roadmanager::OutlineCornerLocal::operator=, "C++: roadmanager::OutlineCornerLocal::operator=(const class roadmanager::OutlineCornerLocal &) --> class roadmanager::OutlineCornerLocal &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
 	std::cout << "B30_[roadmanager::Outline] ";
-	{ // roadmanager::Outline file: line:834
+	{ // roadmanager::Outline file: line:1043
 		pybind11::class_<roadmanager::Outline, std::shared_ptr<roadmanager::Outline>> cl(M("roadmanager"), "Outline", "");
 		cl.def( pybind11::init<int, roadmanager::Outline::FillType, bool>(), pybind11::arg("id"), pybind11::arg("fillType"), pybind11::arg("closed") );
 
@@ -1299,7 +1507,7 @@ void bind_unknown_unknown_4(std::function< pybind11::module &(std::string const 
 		cl.def("AddCorner", (void (roadmanager::Outline::*)(class roadmanager::OutlineCorner *)) &roadmanager::Outline::AddCorner, "C++: roadmanager::Outline::AddCorner(class roadmanager::OutlineCorner *) --> void", pybind11::arg("outlineCorner"));
 	}
 	std::cout << "B31_[roadmanager::Repeat] ";
-	{ // roadmanager::Repeat file: line:866
+	{ // roadmanager::Repeat file: line:1075
 		pybind11::class_<roadmanager::Repeat, std::shared_ptr<roadmanager::Repeat>> cl(M("roadmanager"), "Repeat", "");
 		cl.def( pybind11::init<double, double, double, double, double, double, double, double, double>(), pybind11::arg("s"), pybind11::arg("length"), pybind11::arg("distance"), pybind11::arg("tStart"), pybind11::arg("tEnd"), pybind11::arg("heightStart"), pybind11::arg("heightEnd"), pybind11::arg("zOffsetStart"), pybind11::arg("zOffsetEnd") );
 
@@ -1341,7 +1549,7 @@ void bind_unknown_unknown_4(std::function< pybind11::module &(std::string const 
 		cl.def("GetRadiusEnd", (double (roadmanager::Repeat::*)()) &roadmanager::Repeat::GetRadiusEnd, "C++: roadmanager::Repeat::GetRadiusEnd() --> double");
 	}
 	std::cout << "B32_[roadmanager::RMObject] ";
-	{ // roadmanager::RMObject file: line:924
+	{ // roadmanager::RMObject file: line:1133
 		pybind11::class_<roadmanager::RMObject, std::shared_ptr<roadmanager::RMObject>, roadmanager::RoadObject> cl(M("roadmanager"), "RMObject", "");
 		cl.def( pybind11::init( [](roadmanager::RMObject const &o){ return new roadmanager::RMObject(o); } ) );
 		cl.def("GetId", (int (roadmanager::RMObject::*)()) &roadmanager::RMObject::GetId, "C++: roadmanager::RMObject::GetId() --> int");
@@ -1362,7 +1570,7 @@ void bind_unknown_unknown_4(std::function< pybind11::module &(std::string const 
 		cl.def("GetOutline", (class roadmanager::Outline * (roadmanager::RMObject::*)(int)) &roadmanager::RMObject::GetOutline, "C++: roadmanager::RMObject::GetOutline(int) --> class roadmanager::Outline *", pybind11::return_value_policy::reference, pybind11::arg("i"));
 	}
 	std::cout << "B33_[roadmanager::Road] ";
-	{ // roadmanager::Road file: line:976
+	{ // roadmanager::Road file: line:1185
 		pybind11::class_<roadmanager::Road, std::shared_ptr<roadmanager::Road>> cl(M("roadmanager"), "Road", "");
 		cl.def( pybind11::init( [](roadmanager::Road const &o){ return new roadmanager::Road(o); } ) );
 
@@ -1471,7 +1679,7 @@ void bind_unknown_unknown_4(std::function< pybind11::module &(std::string const 
 void bind_unknown_unknown_5(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
 	std::cout << "B34_[roadmanager::LaneRoadLaneConnection] ";
-	{ // roadmanager::LaneRoadLaneConnection file: line:1118
+	{ // roadmanager::LaneRoadLaneConnection file: line:1327
 		pybind11::class_<roadmanager::LaneRoadLaneConnection, std::shared_ptr<roadmanager::LaneRoadLaneConnection>> cl(M("roadmanager"), "LaneRoadLaneConnection", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::LaneRoadLaneConnection(); } ) );
 		cl.def( pybind11::init<int, int, int>(), pybind11::arg("lane_id"), pybind11::arg("connecting_road_id"), pybind11::arg("connecting_lane_id") );
@@ -1485,7 +1693,7 @@ void bind_unknown_unknown_5(std::function< pybind11::module &(std::string const 
 		cl.def("GetConnectinglaneId", (int (roadmanager::LaneRoadLaneConnection::*)()) &roadmanager::LaneRoadLaneConnection::GetConnectinglaneId, "C++: roadmanager::LaneRoadLaneConnection::GetConnectinglaneId() --> int");
 	}
 	std::cout << "B35_[roadmanager::JunctionLaneLink] ";
-	{ // roadmanager::JunctionLaneLink file: line:1139
+	{ // roadmanager::JunctionLaneLink file: line:1348
 		pybind11::class_<roadmanager::JunctionLaneLink, std::shared_ptr<roadmanager::JunctionLaneLink>> cl(M("roadmanager"), "JunctionLaneLink", "");
 		cl.def( pybind11::init<int, int>(), pybind11::arg("from"), pybind11::arg("to") );
 
@@ -1494,7 +1702,7 @@ void bind_unknown_unknown_5(std::function< pybind11::module &(std::string const 
 		cl.def("Print", (void (roadmanager::JunctionLaneLink::*)()) &roadmanager::JunctionLaneLink::Print, "C++: roadmanager::JunctionLaneLink::Print() --> void");
 	}
 	std::cout << "B36_[roadmanager::Connection] ";
-	{ // roadmanager::Connection file: line:1148
+	{ // roadmanager::Connection file: line:1357
 		pybind11::class_<roadmanager::Connection, std::shared_ptr<roadmanager::Connection>> cl(M("roadmanager"), "Connection", "");
 		cl.def( pybind11::init<class roadmanager::Road *, class roadmanager::Road *, enum roadmanager::ContactPointType>(), pybind11::arg("incoming_road"), pybind11::arg("connecting_road"), pybind11::arg("contact_point") );
 
@@ -1509,7 +1717,7 @@ void bind_unknown_unknown_5(std::function< pybind11::module &(std::string const 
 		cl.def("Print", (void (roadmanager::Connection::*)()) &roadmanager::Connection::Print, "C++: roadmanager::Connection::Print() --> void");
 	}
 	std::cout << "B37_[roadmanager::Controller] ";
-	{ // roadmanager::Controller file: line:1175
+	{ // roadmanager::Controller file: line:1384
 		pybind11::class_<roadmanager::Controller, std::shared_ptr<roadmanager::Controller>> cl(M("roadmanager"), "Controller", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::Controller(); } ) );
 		cl.def( pybind11::init( [](roadmanager::Controller const &o){ return new roadmanager::Controller(o); } ) );
@@ -1519,7 +1727,7 @@ void bind_unknown_unknown_5(std::function< pybind11::module &(std::string const 
 		cl.def("assign", (class roadmanager::Controller & (roadmanager::Controller::*)(const class roadmanager::Controller &)) &roadmanager::Controller::operator=, "C++: roadmanager::Controller::operator=(const class roadmanager::Controller &) --> class roadmanager::Controller &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
 	std::cout << "B38_[roadmanager::Junction] ";
-	{ // roadmanager::Junction file: line:1203
+	{ // roadmanager::Junction file: line:1412
 		pybind11::class_<roadmanager::Junction, std::shared_ptr<roadmanager::Junction>> cl(M("roadmanager"), "Junction", "");
 		cl.def( pybind11::init( [](roadmanager::Junction const &o){ return new roadmanager::Junction(o); } ) );
 		cl.def("GetId", (int (roadmanager::Junction::*)()) &roadmanager::Junction::GetId, "C++: roadmanager::Junction::GetId() --> int");
@@ -1538,7 +1746,7 @@ void bind_unknown_unknown_5(std::function< pybind11::module &(std::string const 
 		cl.def("GetNumberOfControllers", (int (roadmanager::Junction::*)()) &roadmanager::Junction::GetNumberOfControllers, "C++: roadmanager::Junction::GetNumberOfControllers() --> int");
 	}
 	std::cout << "B39_[roadmanager::OpenDrive] ";
-	{ // roadmanager::OpenDrive file: line:1241
+	{ // roadmanager::OpenDrive file: line:1474
 		pybind11::class_<roadmanager::OpenDrive, std::shared_ptr<roadmanager::OpenDrive>> cl(M("roadmanager"), "OpenDrive", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::OpenDrive(); } ) );
 		cl.def( pybind11::init<const char *>(), pybind11::arg("filename") );
@@ -1604,7 +1812,7 @@ void bind_unknown_unknown_5(std::function< pybind11::module &(std::string const 
 void bind_unknown_unknown_6(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
 	std::cout << "B40_[roadmanager::CoordinateSystem] ";
-	// roadmanager::CoordinateSystem file: line:1377
+	// roadmanager::CoordinateSystem file: line:1618
 	pybind11::enum_<roadmanager::CoordinateSystem>(M("roadmanager"), "CoordinateSystem", "")
 		.value("CS_UNDEFINED", roadmanager::CoordinateSystem::CS_UNDEFINED)
 		.value("CS_ENTITY", roadmanager::CoordinateSystem::CS_ENTITY)
@@ -1615,7 +1823,7 @@ void bind_unknown_unknown_6(std::function< pybind11::module &(std::string const 
 ;
 
 	std::cout << "B41_[roadmanager::RelativeDistanceType] ";
-	// roadmanager::RelativeDistanceType file: line:1386
+	// roadmanager::RelativeDistanceType file: line:1627
 	pybind11::enum_<roadmanager::RelativeDistanceType>(M("roadmanager"), "RelativeDistanceType", "")
 		.value("REL_DIST_UNDEFINED", roadmanager::RelativeDistanceType::REL_DIST_UNDEFINED)
 		.value("REL_DIST_LATERAL", roadmanager::RelativeDistanceType::REL_DIST_LATERAL)
@@ -1626,7 +1834,7 @@ void bind_unknown_unknown_6(std::function< pybind11::module &(std::string const 
 ;
 
 	std::cout << "B42_[roadmanager::Position] ";
-	{ // roadmanager::Position file: line:1399
+	{ // roadmanager::Position file: line:1640
 		pybind11::class_<roadmanager::Position, std::shared_ptr<roadmanager::Position>> cl(M("roadmanager"), "Position", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::Position(); } ) );
 		cl.def( pybind11::init<int, double, double>(), pybind11::arg("track_id"), pybind11::arg("s"), pybind11::arg("t") );
@@ -1719,8 +1927,9 @@ void bind_unknown_unknown_6(std::function< pybind11::module &(std::string const 
 		cl.def("SetTrajectory", (void (roadmanager::Position::*)(class roadmanager::RMTrajectory *)) &roadmanager::Position::SetTrajectory, "C++: roadmanager::Position::SetTrajectory(class roadmanager::RMTrajectory *) --> void", pybind11::arg("trajectory"));
 		cl.def("SetRoutePosition", (int (roadmanager::Position::*)(class roadmanager::Position *)) &roadmanager::Position::SetRoutePosition, "		Set the current position along the route.\n		\n\n A regular position created with road, lane or world coordinates\n		\n\n Non zero return value indicates error of some kind\n\nC++: roadmanager::Position::SetRoutePosition(class roadmanager::Position *) --> int", pybind11::arg("position"));
 		cl.def("GetRouteS", (double (roadmanager::Position::*)()) &roadmanager::Position::GetRouteS, "		Retrieve the S-value of the current route position. Note: This is the S along the\n		complete route, not the actual individual roads.\n\nC++: roadmanager::Position::GetRouteS() --> double");
-		cl.def("MoveRouteDS", (enum roadmanager::Position::ErrorCode (roadmanager::Position::*)(double)) &roadmanager::Position::MoveRouteDS, "		Move current position forward, or backwards, ds meters along the route\n		\n\n Distance to move, negative will move backwards\n		\n\n Non zero return value indicates error of some kind, most likely End Of Route\n\nC++: roadmanager::Position::MoveRouteDS(double) --> enum roadmanager::Position::ErrorCode", pybind11::arg("ds"));
-		cl.def("SetRouteLanePosition", (int (roadmanager::Position::*)(class roadmanager::Route *, double, int, double)) &roadmanager::Position::SetRouteLanePosition, "		Move current position to specified S-value along the route\n		\n\n Distance to move, negative will move backwards\n		\n\n Explicit (not delta/offset) lane ID\n		\n\n Explicit (not delta/offset) lane offset value\n		\n\n Non zero return value indicates error of some kind\n\nC++: roadmanager::Position::SetRouteLanePosition(class roadmanager::Route *, double, int, double) --> int", pybind11::arg("route"), pybind11::arg("route_s"), pybind11::arg("laneId"), pybind11::arg("laneOffset"));
+		cl.def("MoveRouteDS", [](roadmanager::Position &o, double const & a0) -> roadmanager::Position::ErrorCode { return o.MoveRouteDS(a0); }, "", pybind11::arg("ds"));
+		cl.def("MoveRouteDS", (enum roadmanager::Position::ErrorCode (roadmanager::Position::*)(double, bool)) &roadmanager::Position::MoveRouteDS, "		Move current position forward, or backwards, ds meters along the route\n		\n\n Distance to move, negative will move backwards\n		\n\n Distance considering lateral offset and curvature (true/default) or along centerline (false)\n		\n\n Non zero return value indicates error of some kind, most likely End Of Route\n\nC++: roadmanager::Position::MoveRouteDS(double, bool) --> enum roadmanager::Position::ErrorCode", pybind11::arg("ds"), pybind11::arg("actualDistance"));
+		cl.def("SetRouteLanePosition", (int (roadmanager::Position::*)(class roadmanager::Route *, double, int, double)) &roadmanager::Position::SetRouteLanePosition, "		Move current position along the route\n		\n\n Distance to move, negative will move backwards\n		\n\n Non zero return value indicates error of some kind\n\nC++: roadmanager::Position::SetRouteLanePosition(class roadmanager::Route *, double, int, double) --> int", pybind11::arg("route"), pybind11::arg("route_s"), pybind11::arg("laneId"), pybind11::arg("laneOffset"));
 		cl.def("SetRouteS", (enum roadmanager::Position::ErrorCode (roadmanager::Position::*)(class roadmanager::Route *, double)) &roadmanager::Position::SetRouteS, "		Move current position to specified S-value along the route\n		\n\n Distance to move, negative will move backwards\n		\n\n Non zero return value indicates error of some kind, most likely End Of Route\n\nC++: roadmanager::Position::SetRouteS(class roadmanager::Route *, double) --> enum roadmanager::Position::ErrorCode", pybind11::arg("route"), pybind11::arg("route_s"));
 		cl.def("MoveTrajectoryDS", (int (roadmanager::Position::*)(double)) &roadmanager::Position::MoveTrajectoryDS, "		Move current position forward, or backwards, ds meters along the trajectory\n		\n\n Distance to move, negative will move backwards\n		\n\n Non zero return value indicates error of some kind\n\nC++: roadmanager::Position::MoveTrajectoryDS(double) --> int", pybind11::arg("ds"));
 		cl.def("SetTrajectoryS", (int (roadmanager::Position::*)(double)) &roadmanager::Position::SetTrajectoryS, "		Move current position to specified S-value along the trajectory\n		\n\n Distance from start of the trajectory\n		\n\n Non zero return value indicates error of some kind\n\nC++: roadmanager::Position::SetTrajectoryS(double) --> int", pybind11::arg("trajectory_s"));
@@ -1734,8 +1943,11 @@ void bind_unknown_unknown_6(std::function< pybind11::module &(std::string const 
 		cl.def("Distance", [](roadmanager::Position &o, double const & a0, double const & a1, enum roadmanager::CoordinateSystem const & a2, enum roadmanager::RelativeDistanceType const & a3, double & a4) -> int { return o.Distance(a0, a1, a2, a3, a4); }, "", pybind11::arg("x"), pybind11::arg("y"), pybind11::arg("cs"), pybind11::arg("relDistType"), pybind11::arg("dist"));
 		cl.def("Distance", (int (roadmanager::Position::*)(double, double, enum roadmanager::CoordinateSystem, enum roadmanager::RelativeDistanceType, double &, double)) &roadmanager::Position::Distance, "		Find out the distance, on specified system and type, to a world x, y position\n		\n\n X coordinate of position from which to subtract the current position (this position object)\n		\n\n Y coordinate of position from which to subtract the current position (this position object)\n		\n\n Distance (output parameter)\n		\n\n 0 if position found and parameter values are valid, else -1\n\nC++: roadmanager::Position::Distance(double, double, enum roadmanager::CoordinateSystem, enum roadmanager::RelativeDistanceType, double &, double) --> int", pybind11::arg("x"), pybind11::arg("y"), pybind11::arg("cs"), pybind11::arg("relDistType"), pybind11::arg("dist"), pybind11::arg("maxDist"));
 		cl.def("IsAheadOf", (bool (roadmanager::Position::*)(class roadmanager::Position)) &roadmanager::Position::IsAheadOf, "		Is the current position ahead of the one specified in argument\n		This method is more efficient than getRelativeDistance\n		\n\n The position to compare the current to.\n		\n\n true of false\n\nC++: roadmanager::Position::IsAheadOf(class roadmanager::Position) --> bool", pybind11::arg("target_position"));
-		cl.def("MoveAlongS", (enum roadmanager::Position::ErrorCode (roadmanager::Position::*)(double, double, double)) &roadmanager::Position::MoveAlongS, "		Move position along the road network, forward or backward, from the current position\n		It will automatically follow connecting lanes between connected roads\n		If reaching a junction, choose way according to specified junctionSelectorAngle\n		\n\n distance to move from current position\n		\n\n delta lane offset (adding to current position lane offset)\n		\n\n Desired direction [0:2pi] from incoming road direction (angle = 0), set -1 to randomize\n		\n\n 0 if successful, other codes see Position::ErrorCode\n\nC++: roadmanager::Position::MoveAlongS(double, double, double) --> enum roadmanager::Position::ErrorCode", pybind11::arg("ds"), pybind11::arg("dLaneOffset"), pybind11::arg("junctionSelectorAngle"));
-		cl.def("MoveAlongS", (enum roadmanager::Position::ErrorCode (roadmanager::Position::*)(double)) &roadmanager::Position::MoveAlongS, "		Move position along the road network, forward or backward, from the current position\n		It will automatically follow connecting lanes between connected roads\n		If multiple options (only possible in junctions) it will choose randomly\n		\n\n distance to move from current position\n		\n\n 0 if successful, other codes see Position::ErrorCode\n\nC++: roadmanager::Position::MoveAlongS(double) --> enum roadmanager::Position::ErrorCode", pybind11::arg("ds"));
+		cl.def("DsToDistance", (double (roadmanager::Position::*)(double)) &roadmanager::Position::DsToDistance, "C++: roadmanager::Position::DsToDistance(double) --> double", pybind11::arg("ds"));
+		cl.def("MoveAlongS", [](roadmanager::Position &o, double const & a0, double const & a1, double const & a2) -> roadmanager::Position::ErrorCode { return o.MoveAlongS(a0, a1, a2); }, "", pybind11::arg("ds"), pybind11::arg("dLaneOffset"), pybind11::arg("junctionSelectorAngle"));
+		cl.def("MoveAlongS", (enum roadmanager::Position::ErrorCode (roadmanager::Position::*)(double, double, double, bool)) &roadmanager::Position::MoveAlongS, "		Move position along the road network, forward or backward, from the current position\n		It will automatically follow connecting lanes between connected roads\n		If reaching a junction, choose way according to specified junctionSelectorAngle\n		\n\n distance to move from current position\n		\n\n delta lane offset (adding to current position lane offset)\n		\n\n Desired direction [0:2pi] from incoming road direction (angle = 0), set -1 to randomize\n		\n\n Distance considering lateral offset and curvature (true/default) or along centerline (false)\n		\n\n 0 if successful, other codes see Position::ErrorCode\n\nC++: roadmanager::Position::MoveAlongS(double, double, double, bool) --> enum roadmanager::Position::ErrorCode", pybind11::arg("ds"), pybind11::arg("dLaneOffset"), pybind11::arg("junctionSelectorAngle"), pybind11::arg("actualDistance"));
+		cl.def("MoveAlongS", [](roadmanager::Position &o, double const & a0) -> roadmanager::Position::ErrorCode { return o.MoveAlongS(a0); }, "", pybind11::arg("ds"));
+		cl.def("MoveAlongS", (enum roadmanager::Position::ErrorCode (roadmanager::Position::*)(double, bool)) &roadmanager::Position::MoveAlongS, "		Move position along the road network, forward or backward, from the current position\n		It will automatically follow connecting lanes between connected roads\n		If multiple options (only possible in junctions) it will choose randomly\n		\n\n distance to move from current position\n		\n\n 0 if successful, other codes see Position::ErrorCode\n\nC++: roadmanager::Position::MoveAlongS(double, bool) --> enum roadmanager::Position::ErrorCode", pybind11::arg("ds"), pybind11::arg("actualDistance"));
 		cl.def("GetTrackId", (int (roadmanager::Position::*)() const) &roadmanager::Position::GetTrackId, "		Retrieve the track/road ID from the position object\n		\n\n track/road ID\n\nC++: roadmanager::Position::GetTrackId() const --> int");
 		cl.def("GetJunctionId", (int (roadmanager::Position::*)() const) &roadmanager::Position::GetJunctionId, "		Retrieve the junction ID from the position object\n		\n\n junction ID, -1 if not in a junction\n\nC++: roadmanager::Position::GetJunctionId() const --> int");
 		cl.def("GetLaneId", (int (roadmanager::Position::*)() const) &roadmanager::Position::GetLaneId, "		Retrieve the lane ID from the position object\n		\n\n lane ID\n\nC++: roadmanager::Position::GetLaneId() const --> int");
@@ -1782,6 +1994,18 @@ void bind_unknown_unknown_6(std::function< pybind11::module &(std::string const 
 		cl.def("GetVelX", (double (roadmanager::Position::*)()) &roadmanager::Position::GetVelX, "C++: roadmanager::Position::GetVelX() --> double");
 		cl.def("GetVelY", (double (roadmanager::Position::*)()) &roadmanager::Position::GetVelY, "C++: roadmanager::Position::GetVelY() --> double");
 		cl.def("GetVelZ", (double (roadmanager::Position::*)()) &roadmanager::Position::GetVelZ, "C++: roadmanager::Position::GetVelZ() --> double");
+		cl.def("GetVelLat", (double (roadmanager::Position::*)()) &roadmanager::Position::GetVelLat, "		Get lateral component of velocity in vehicle local coordinate system\n\nC++: roadmanager::Position::GetVelLat() --> double");
+		cl.def("GetVelLong", (double (roadmanager::Position::*)()) &roadmanager::Position::GetVelLong, "		Get longitudinal component of velocity in vehicle local coordinate system\n\nC++: roadmanager::Position::GetVelLong() --> double");
+		cl.def("GetVelLatLong", (void (roadmanager::Position::*)(double &, double &)) &roadmanager::Position::GetVelLatLong, "		Get lateral and longitudinal component of velocity in vehicle local coordinate system\n		This is slightly more effecient than calling GetVelLat and GetVelLong separately\n		\n\n reference parameter returning lateral velocity\n		\n\n reference parameter returning longitudinal velocity\n		\n\n -\n\nC++: roadmanager::Position::GetVelLatLong(double &, double &) --> void", pybind11::arg("vlat"), pybind11::arg("vlong"));
+		cl.def("GetAccLat", (double (roadmanager::Position::*)()) &roadmanager::Position::GetAccLat, "		Get lateral component of acceleration in vehicle local coordinate system\n\nC++: roadmanager::Position::GetAccLat() --> double");
+		cl.def("GetAccLong", (double (roadmanager::Position::*)()) &roadmanager::Position::GetAccLong, "		Get longitudinal component of acceleration in vehicle local coordinate system\n\nC++: roadmanager::Position::GetAccLong() --> double");
+		cl.def("GetAccLatLong", (void (roadmanager::Position::*)(double &, double &)) &roadmanager::Position::GetAccLatLong, "		Get lateral and longitudinal component of acceleration in vehicle local coordinate system\n		This is slightly more effecient than calling GetAccLat and GetAccLong separately\n		\n\n reference parameter returning lateral acceleration\n		\n\n reference parameter returning longitudinal acceleration\n		\n\n -\n\nC++: roadmanager::Position::GetAccLatLong(double &, double &) --> void", pybind11::arg("alat"), pybind11::arg("along"));
+		cl.def("GetVelT", (double (roadmanager::Position::*)()) &roadmanager::Position::GetVelT, "		Get lateral component of velocity in road coordinate system\n\nC++: roadmanager::Position::GetVelT() --> double");
+		cl.def("GetVelS", (double (roadmanager::Position::*)()) &roadmanager::Position::GetVelS, "		Get longitudinal component of velocity in road coordinate system\n\nC++: roadmanager::Position::GetVelS() --> double");
+		cl.def("GetVelTS", (void (roadmanager::Position::*)(double &, double &)) &roadmanager::Position::GetVelTS, "		Get lateral and longitudinal component of velocity in road coordinate system\n		This is slightly more effecient than calling GetVelT and GetVelS separately\n		\n\n reference parameter returning lateral velocity\n		\n\n reference parameter returning longitudinal velocity\n		\n\n -\n\nC++: roadmanager::Position::GetVelTS(double &, double &) --> void", pybind11::arg("vt"), pybind11::arg("vs"));
+		cl.def("GetAccT", (double (roadmanager::Position::*)()) &roadmanager::Position::GetAccT, "		Get lateral component of acceleration in road coordinate system\n\nC++: roadmanager::Position::GetAccT() --> double");
+		cl.def("GetAccS", (double (roadmanager::Position::*)()) &roadmanager::Position::GetAccS, "		Get longitudinal component of acceleration in road coordinate system\n\nC++: roadmanager::Position::GetAccS() --> double");
+		cl.def("GetAccTS", (void (roadmanager::Position::*)(double &, double &)) &roadmanager::Position::GetAccTS, "		Get lateral and longitudinal component of acceleration in road coordinate system\n		This is slightly more effecient than calling GetAccT and GetAccS separately\n		\n\n reference parameter returning lateral acceleration\n		\n\n reference parameter returning longitudinal acceleration\n		\n\n -\n\nC++: roadmanager::Position::GetAccTS(double &, double &) --> void", pybind11::arg("at"), pybind11::arg("as"));
 		cl.def("GetAccX", (double (roadmanager::Position::*)()) &roadmanager::Position::GetAccX, "C++: roadmanager::Position::GetAccX() --> double");
 		cl.def("GetAccY", (double (roadmanager::Position::*)()) &roadmanager::Position::GetAccY, "C++: roadmanager::Position::GetAccY() --> double");
 		cl.def("GetAccZ", (double (roadmanager::Position::*)()) &roadmanager::Position::GetAccZ, "C++: roadmanager::Position::GetAccZ() --> double");
@@ -1793,6 +2017,7 @@ void bind_unknown_unknown_6(std::function< pybind11::module &(std::string const 
 		cl.def("GetRAcc", (double (roadmanager::Position::*)()) &roadmanager::Position::GetRAcc, "C++: roadmanager::Position::GetRAcc() --> double");
 		cl.def("GetStatusBitMask", (int (roadmanager::Position::*)()) &roadmanager::Position::GetStatusBitMask, "C++: roadmanager::Position::GetStatusBitMask() --> int");
 		cl.def("SetOrientationType", (void (roadmanager::Position::*)(enum roadmanager::Position::OrientationType)) &roadmanager::Position::SetOrientationType, "C++: roadmanager::Position::SetOrientationType(enum roadmanager::Position::OrientationType) --> void", pybind11::arg("type"));
+		cl.def("GetOrientationType", (enum roadmanager::Position::OrientationType (roadmanager::Position::*)()) &roadmanager::Position::GetOrientationType, "C++: roadmanager::Position::GetOrientationType() --> enum roadmanager::Position::OrientationType");
 		cl.def("SetAlignModeH", (void (roadmanager::Position::*)(roadmanager::Position::ALIGN_MODE)) &roadmanager::Position::SetAlignModeH, "C++: roadmanager::Position::SetAlignModeH(roadmanager::Position::ALIGN_MODE) --> void", pybind11::arg("mode"));
 		cl.def("SetAlignModeP", (void (roadmanager::Position::*)(roadmanager::Position::ALIGN_MODE)) &roadmanager::Position::SetAlignModeP, "C++: roadmanager::Position::SetAlignModeP(roadmanager::Position::ALIGN_MODE) --> void", pybind11::arg("mode"));
 		cl.def("SetAlignModeR", (void (roadmanager::Position::*)(roadmanager::Position::ALIGN_MODE)) &roadmanager::Position::SetAlignModeR, "C++: roadmanager::Position::SetAlignModeR(roadmanager::Position::ALIGN_MODE) --> void", pybind11::arg("mode"));
@@ -1842,7 +2067,7 @@ void bind_unknown_unknown_6(std::function< pybind11::module &(std::string const 
 	PYBIND11_MAKE_OPAQUE(std::shared_ptr<void>)
 #endif
 
-// roadmanager::Shape file: line:2148
+// roadmanager::Shape file: line:2474
 struct PyCallBack_roadmanager_Shape : public roadmanager::Shape {
 	using roadmanager::Shape::Shape;
 
@@ -1887,7 +2112,7 @@ struct PyCallBack_roadmanager_Shape : public roadmanager::Shape {
 	}
 };
 
-// roadmanager::PolyLineShape file: line:2177
+// roadmanager::PolyLineShape file: line:2503
 struct PyCallBack_roadmanager_PolyLineShape : public roadmanager::PolyLineShape {
 	using roadmanager::PolyLineShape::PolyLineShape;
 
@@ -1932,7 +2157,7 @@ struct PyCallBack_roadmanager_PolyLineShape : public roadmanager::PolyLineShape 
 	}
 };
 
-// roadmanager::ClothoidShape file: line:2197
+// roadmanager::ClothoidShape file: line:2523
 struct PyCallBack_roadmanager_ClothoidShape : public roadmanager::ClothoidShape {
 	using roadmanager::ClothoidShape::ClothoidShape;
 
@@ -1977,7 +2202,7 @@ struct PyCallBack_roadmanager_ClothoidShape : public roadmanager::ClothoidShape 
 	}
 };
 
-// roadmanager::NurbsShape file: line:2220
+// roadmanager::NurbsShape file: line:2546
 struct PyCallBack_roadmanager_NurbsShape : public roadmanager::NurbsShape {
 	using roadmanager::NurbsShape::NurbsShape;
 
@@ -2025,7 +2250,7 @@ struct PyCallBack_roadmanager_NurbsShape : public roadmanager::NurbsShape {
 void bind_unknown_unknown_7(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
 	std::cout << "B43_[roadmanager::Route] ";
-	{ // roadmanager::Route file: line:2019
+	{ // roadmanager::Route file: line:2345
 		pybind11::class_<roadmanager::Route, std::shared_ptr<roadmanager::Route>> cl(M("roadmanager"), "Route", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::Route(); } ) );
 		cl.def( pybind11::init( [](roadmanager::Route const &o){ return new roadmanager::Route(o); } ) );
@@ -2036,7 +2261,7 @@ void bind_unknown_unknown_7(std::function< pybind11::module &(std::string const 
 		cl.def("GetLength", (double (roadmanager::Route::*)()) &roadmanager::Route::GetLength, "C++: roadmanager::Route::GetLength() --> double");
 	}
 	std::cout << "B44_[roadmanager::RoadPath] ";
-	{ // roadmanager::RoadPath file: line:2043
+	{ // roadmanager::RoadPath file: line:2369
 		pybind11::class_<roadmanager::RoadPath, std::shared_ptr<roadmanager::RoadPath>> cl(M("roadmanager"), "RoadPath", "");
 		cl.def( pybind11::init<const class roadmanager::Position *, const class roadmanager::Position *>(), pybind11::arg("startPos"), pybind11::arg("targetPos") );
 
@@ -2048,7 +2273,7 @@ void bind_unknown_unknown_7(std::function< pybind11::module &(std::string const 
 		cl.def("Calculate", [](roadmanager::RoadPath &o, double & a0, bool const & a1) -> int { return o.Calculate(a0, a1); }, "", pybind11::arg("dist"), pybind11::arg("bothDirections"));
 		cl.def("Calculate", (int (roadmanager::RoadPath::*)(double &, bool, double)) &roadmanager::RoadPath::Calculate, "		Calculate shortest path between starting position and target position,\n		using Dijkstra's algorithm https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm\n		it also calculates the length of the path, or distance between the positions\n		positive distance means that the shortest path was found in forward direction\n		negative distance means that the shortest path goes in opposite direction from the heading of the starting position\n		\n\n A reference parameter into which the calculated path distance is stored\n		\n\n Set to true in order to search also backwards from object\n		\n\n If set the search along each path branch will terminate after reaching this distance\n		\n\n 0 on success, -1 on failure e.g. path not found\n\nC++: roadmanager::RoadPath::Calculate(double &, bool, double) --> int", pybind11::arg("dist"), pybind11::arg("bothDirections"), pybind11::arg("maxDist"));
 
-		{ // roadmanager::RoadPath::PathNode file: line:2047
+		{ // roadmanager::RoadPath::PathNode file: line:2373
 			auto & enclosing_class = cl;
 			pybind11::class_<roadmanager::RoadPath::PathNode, std::shared_ptr<roadmanager::RoadPath::PathNode>> cl(enclosing_class, "PathNode", "");
 			cl.def( pybind11::init( [](){ return new roadmanager::RoadPath::PathNode(); } ) );
@@ -2058,7 +2283,7 @@ void bind_unknown_unknown_7(std::function< pybind11::module &(std::string const 
 
 	}
 	std::cout << "B45_[roadmanager::PolyLineBase] ";
-	{ // roadmanager::PolyLineBase file: line:2095
+	{ // roadmanager::PolyLineBase file: line:2421
 		pybind11::class_<roadmanager::PolyLineBase, std::shared_ptr<roadmanager::PolyLineBase>> cl(M("roadmanager"), "PolyLineBase", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::PolyLineBase(); } ) );
 		cl.def( pybind11::init( [](roadmanager::PolyLineBase const &o){ return new roadmanager::PolyLineBase(o); } ) );
@@ -2073,7 +2298,7 @@ void bind_unknown_unknown_7(std::function< pybind11::module &(std::string const 
 		cl.def("assign", (class roadmanager::PolyLineBase & (roadmanager::PolyLineBase::*)(const class roadmanager::PolyLineBase &)) &roadmanager::PolyLineBase::operator=, "C++: roadmanager::PolyLineBase::operator=(const class roadmanager::PolyLineBase &) --> class roadmanager::PolyLineBase &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
 	std::cout << "B46_[roadmanager::Shape] ";
-	{ // roadmanager::Shape file: line:2148
+	{ // roadmanager::Shape file: line:2474
 		pybind11::class_<roadmanager::Shape, std::shared_ptr<roadmanager::Shape>, PyCallBack_roadmanager_Shape> cl(M("roadmanager"), "Shape", "");
 		cl.def( pybind11::init<roadmanager::Shape::ShapeType>(), pybind11::arg("type") );
 
@@ -2087,7 +2312,7 @@ void bind_unknown_unknown_7(std::function< pybind11::module &(std::string const 
 		cl.def("assign", (class roadmanager::Shape & (roadmanager::Shape::*)(const class roadmanager::Shape &)) &roadmanager::Shape::operator=, "C++: roadmanager::Shape::operator=(const class roadmanager::Shape &) --> class roadmanager::Shape &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
 	std::cout << "B47_[roadmanager::PolyLineShape] ";
-	{ // roadmanager::PolyLineShape file: line:2177
+	{ // roadmanager::PolyLineShape file: line:2503
 		pybind11::class_<roadmanager::PolyLineShape, std::shared_ptr<roadmanager::PolyLineShape>, PyCallBack_roadmanager_PolyLineShape, roadmanager::Shape> cl(M("roadmanager"), "PolyLineShape", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::PolyLineShape(); }, [](){ return new PyCallBack_roadmanager_PolyLineShape(); } ) );
 		cl.def( pybind11::init( [](PyCallBack_roadmanager_PolyLineShape const &o){ return new PyCallBack_roadmanager_PolyLineShape(o); } ) );
@@ -2099,7 +2324,7 @@ void bind_unknown_unknown_7(std::function< pybind11::module &(std::string const 
 		cl.def("GetDuration", (double (roadmanager::PolyLineShape::*)()) &roadmanager::PolyLineShape::GetDuration, "C++: roadmanager::PolyLineShape::GetDuration() --> double");
 		cl.def("assign", (class roadmanager::PolyLineShape & (roadmanager::PolyLineShape::*)(const class roadmanager::PolyLineShape &)) &roadmanager::PolyLineShape::operator=, "C++: roadmanager::PolyLineShape::operator=(const class roadmanager::PolyLineShape &) --> class roadmanager::PolyLineShape &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 
-		{ // roadmanager::PolyLineShape::Vertex file: line:2181
+		{ // roadmanager::PolyLineShape::Vertex file: line:2507
 			auto & enclosing_class = cl;
 			pybind11::class_<roadmanager::PolyLineShape::Vertex, std::shared_ptr<roadmanager::PolyLineShape::Vertex>> cl(enclosing_class, "Vertex", "");
 			cl.def( pybind11::init( [](){ return new roadmanager::PolyLineShape::Vertex(); } ) );
@@ -2109,7 +2334,7 @@ void bind_unknown_unknown_7(std::function< pybind11::module &(std::string const 
 
 	}
 	std::cout << "B48_[roadmanager::ClothoidShape] ";
-	{ // roadmanager::ClothoidShape file: line:2197
+	{ // roadmanager::ClothoidShape file: line:2523
 		pybind11::class_<roadmanager::ClothoidShape, std::shared_ptr<roadmanager::ClothoidShape>, PyCallBack_roadmanager_ClothoidShape, roadmanager::Shape> cl(M("roadmanager"), "ClothoidShape", "");
 		cl.def( pybind11::init<class roadmanager::Position, double, double, double, double, double>(), pybind11::arg("pos"), pybind11::arg("curv"), pybind11::arg("curvDot"), pybind11::arg("len"), pybind11::arg("tStart"), pybind11::arg("tEnd") );
 
@@ -2125,7 +2350,7 @@ void bind_unknown_unknown_7(std::function< pybind11::module &(std::string const 
 		cl.def("assign", (class roadmanager::ClothoidShape & (roadmanager::ClothoidShape::*)(const class roadmanager::ClothoidShape &)) &roadmanager::ClothoidShape::operator=, "C++: roadmanager::ClothoidShape::operator=(const class roadmanager::ClothoidShape &) --> class roadmanager::ClothoidShape &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
 	std::cout << "B49_[roadmanager::NurbsShape] ";
-	{ // roadmanager::NurbsShape file: line:2220
+	{ // roadmanager::NurbsShape file: line:2546
 		pybind11::class_<roadmanager::NurbsShape, std::shared_ptr<roadmanager::NurbsShape>, PyCallBack_roadmanager_NurbsShape, roadmanager::Shape> cl(M("roadmanager"), "NurbsShape", "		This nurbs implementation is strongly inspired by the \"Nurbs Curve Example\" at:\n		https://nccastaff.bournemouth.ac.uk/jmacey/OldWeb/RobTheBloke/www/opengl_programming.html");
 		cl.def( pybind11::init<int>(), pybind11::arg("order") );
 
@@ -2145,7 +2370,7 @@ void bind_unknown_unknown_7(std::function< pybind11::module &(std::string const 
 		cl.def("assign", (class roadmanager::NurbsShape & (roadmanager::NurbsShape::*)(const class roadmanager::NurbsShape &)) &roadmanager::NurbsShape::operator=, "C++: roadmanager::NurbsShape::operator=(const class roadmanager::NurbsShape &) --> class roadmanager::NurbsShape &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
 	std::cout << "B50_[roadmanager::RMTrajectory] ";
-	{ // roadmanager::RMTrajectory file: line:2264
+	{ // roadmanager::RMTrajectory file: line:2590
 		pybind11::class_<roadmanager::RMTrajectory, std::shared_ptr<roadmanager::RMTrajectory>> cl(M("roadmanager"), "RMTrajectory", "");
 		cl.def( pybind11::init( [](){ return new roadmanager::RMTrajectory(); } ) );
 		cl.def( pybind11::init( [](roadmanager::RMTrajectory const &o){ return new roadmanager::RMTrajectory(o); } ) );
@@ -2210,7 +2435,7 @@ PYBIND11_MODULE(pyroadmanager, root_module) {
 
 }
 
-// Source list file: /home/wave/repositories/esmini-pybind11-dev/esmini/EnvironmentSimulator/src/roadmanager/pyroadmanager.sources
+// Source list file: /home/wave/repositories/python-esmini/src/roadmanager/pyroadmanager.sources
 // pyroadmanager.cpp
 // unknown/unknown.cpp
 // unknown/unknown_1.cpp
@@ -2221,5 +2446,5 @@ PYBIND11_MODULE(pyroadmanager, root_module) {
 // unknown/unknown_6.cpp
 // unknown/unknown_7.cpp
 
-// Modules list file: /home/wave/repositories/esmini-pybind11-dev/esmini/EnvironmentSimulator/src/roadmanager/pyroadmanager.modules
+// Modules list file: /home/wave/repositories/python-esmini/src/roadmanager/pyroadmanager.modules
 // roadmanager 

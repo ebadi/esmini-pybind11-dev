@@ -68,6 +68,51 @@ endif()
 set(CMAKE_BUILD_TYPE "Release") # https://github.com/microsoft/vcpkg/issues/20237?amp=1
 
 
+
+
+
+include(CheckCXXCompilerFlag)
+
+  # Check for standard to use
+  check_cxx_compiler_flag(-std=c++14 HAVE_FLAG_STD_CXX14)
+  if(HAVE_FLAG_STD_CXX14)
+      SET(CXX_STD_FLAG "-std=c++14")
+  else()
+     check_cxx_compiler_flag(-std=c++1y HAVE_FLAG_STD_CXX1Y)
+     if(HAVE_FLAG_STD_CXX1Y)
+       SET(CXX_STD_FLAG "-std=c++1y")
+     else()
+       message ("Need compiler support for c++14 \(or 1y as the beta was called\)")
+     endif()
+  endif()
+
+  set (CMAKE_C_FLAGS "-std=c11 ${CMAKE_C_FLAGS}")
+
+  if(CMAKE_BUILD_TYPE STREQUAL "Release")
+    SET(CMAKE_CXX_FLAGS "${CXX_STD_FLAG} -pthread -fPIC -Wl,-strip-all")
+  elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    SET(CMAKE_CXX_FLAGS "${CXX_STD_FLAG} -march=native -O0 -pthread -fPIC")
+  else()
+    SET(CMAKE_CXX_FLAGS "${CXX_STD_FLAG} -pthread -fPIC -Wl,-strip-all")
+  endif()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 link_directories(${OSG_LIBRARIES_PATH} ${OSI_LIBRARIES_PATH} ${SUMO_LIBRARIES_PATH} ${GTEST_LIBRARIES_PATH} )
 
 
@@ -224,6 +269,14 @@ target_link_libraries(pyscenarioengine PRIVATE
 )
 target_compile_definitions(pyscenarioengine PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
 
+
+
+
+
+
+
+add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+add_definitions(-DOSG_LIBRARY_STATIC ) # -D_SCENARIO_VIEWER
 
 
 

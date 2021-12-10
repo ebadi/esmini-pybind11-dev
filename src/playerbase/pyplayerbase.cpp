@@ -35,33 +35,11 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 	std::cout << "B0_[ScenarioPlayer] ";
 	{ // ScenarioPlayer file: line:35
 		pybind11::class_<ScenarioPlayer, std::shared_ptr<ScenarioPlayer>> cl(M(""), "ScenarioPlayer", "");
-
-        cl.def( pybind11::init( [](std::vector<std::string> vstr){
-            int argc = vstr.size() ;
-            char * argv[ argc+1 ] ;
-            char * mem;
-            int counter = 0 ;
-            for (std::string s : vstr) {
-		    mem = (char*) malloc (s.size() * sizeof(char) +1 ); //2 as it is either A or B
-		    std::cout << counter << ":" << s << '\n';
-		    strcpy ( mem, s.c_str()) ;
-		    argv[counter] = mem;
-		    counter ++ ;
-		    }
-            argv[counter]  = NULL ;
-            return new ScenarioPlayer(argc, argv);
-            }
-         ) );
-
-cl.def("GetODRManager",  &ScenarioPlayer::GetODRManager, pybind11::return_value_policy::reference);
-cl.def_readonly("scenarioEngine", &ScenarioPlayer::scenarioEngine);
-cl.def_readonly("scenarioGateway", &ScenarioPlayer::scenarioGateway);
-
 		cl.def_readwrite("sensor", &ScenarioPlayer::sensor);
 		cl.def_readonly("maxStepSize", &ScenarioPlayer::maxStepSize);
 		cl.def_readonly("minStepSize", &ScenarioPlayer::minStepSize);
 		cl.def_readwrite("opt", &ScenarioPlayer::opt);
-		//cl.def_readwrite("callback", &ScenarioPlayer::callback);
+		cl.def_readwrite("objCallback", &ScenarioPlayer::objCallback);
 		cl.def_readwrite("exe_path_", &ScenarioPlayer::exe_path_);
 		cl.def("IsQuitRequested", (bool (ScenarioPlayer::*)()) &ScenarioPlayer::IsQuitRequested, "C++: ScenarioPlayer::IsQuitRequested() --> bool");
 		cl.def("SetOSIFileStatus", [](ScenarioPlayer &o, bool const & a0) -> void { return o.SetOSIFileStatus(a0); }, "", pybind11::arg("is_on"));
@@ -69,8 +47,10 @@ cl.def_readonly("scenarioGateway", &ScenarioPlayer::scenarioGateway);
 		cl.def("Frame", (void (ScenarioPlayer::*)()) &ScenarioPlayer::Frame, "C++: ScenarioPlayer::Frame() --> void");
 		cl.def("Frame", (void (ScenarioPlayer::*)(double)) &ScenarioPlayer::Frame, "C++: ScenarioPlayer::Frame(double) --> void", pybind11::arg("timestep_s"));
 		cl.def("ScenarioFrame", (void (ScenarioPlayer::*)(double)) &ScenarioPlayer::ScenarioFrame, "C++: ScenarioPlayer::ScenarioFrame(double) --> void", pybind11::arg("timestep_s"));
+		cl.def("ScenarioFramePart", (void (ScenarioPlayer::*)(double)) &ScenarioPlayer::ScenarioFramePart, "C++: ScenarioPlayer::ScenarioFramePart(double) --> void", pybind11::arg("timestep_s"));
 		cl.def("ShowObjectSensors", (void (ScenarioPlayer::*)(bool)) &ScenarioPlayer::ShowObjectSensors, "C++: ScenarioPlayer::ShowObjectSensors(bool) --> void", pybind11::arg("mode"));
 		cl.def("AddObjectSensor", (void (ScenarioPlayer::*)(int, double, double, double, double, double, double, double, int)) &ScenarioPlayer::AddObjectSensor, "C++: ScenarioPlayer::AddObjectSensor(int, double, double, double, double, double, double, double, int) --> void", pybind11::arg("object_index"), pybind11::arg("pos_x"), pybind11::arg("pos_y"), pybind11::arg("pos_z"), pybind11::arg("heading"), pybind11::arg("near"), pybind11::arg("far"), pybind11::arg("fovH"), pybind11::arg("maxObj"));
+		cl.def("AddOSIDetection", (void (ScenarioPlayer::*)(int)) &ScenarioPlayer::AddOSIDetection, "C++: ScenarioPlayer::AddOSIDetection(int) --> void", pybind11::arg("object_index"));
 		cl.def("SetFixedTimestep", (void (ScenarioPlayer::*)(double)) &ScenarioPlayer::SetFixedTimestep, "C++: ScenarioPlayer::SetFixedTimestep(double) --> void", pybind11::arg("timestep"));
 		cl.def("GetFixedTimestep", (double (ScenarioPlayer::*)()) &ScenarioPlayer::GetFixedTimestep, "C++: ScenarioPlayer::GetFixedTimestep() --> double");
 		cl.def("GetOSIFreq", (int (ScenarioPlayer::*)()) &ScenarioPlayer::GetOSIFreq, "C++: ScenarioPlayer::GetOSIFreq() --> int");
@@ -128,9 +108,9 @@ PYBIND11_MODULE(pyplayerbase, root_module) {
 
 }
 
-// Source list file: /home/wave/repositories/esmini-pybind11-dev/esmini/EnvironmentSimulator/src/playerbase/pyplayerbase.sources
+// Source list file: /home/wave/repositories/python-esmini/src/playerbase/pyplayerbase.sources
 // pyplayerbase.cpp
 // unknown/unknown.cpp
 
-// Modules list file: /home/wave/repositories/esmini-pybind11-dev/esmini/EnvironmentSimulator/src/playerbase/pyplayerbase.modules
+// Modules list file: /home/wave/repositories/python-esmini/src/playerbase/pyplayerbase.modules
 // 
