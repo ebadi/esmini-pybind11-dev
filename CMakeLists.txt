@@ -117,7 +117,7 @@ link_directories(${OSG_LIBRARIES_PATH} ${OSI_LIBRARIES_PATH} ${SUMO_LIBRARIES_PA
 
 
 message(STATUS "esmini-python: pyplayerbase")
-pybind11_add_module(pyplayerbase "${CMAKE_CURRENT_SOURCE_DIR}/src/playerbase/pyplayerbase.cpp")
+pybind11_add_module(pyplayerbase MODULE  "${CMAKE_CURRENT_SOURCE_DIR}/src/playerbase/pyplayerbase.cpp")
 include_directories(
     ${SCENARIOENGINE_INCLUDE_DIRS}
     ${ROADMANAGER_INCLUDE_DIR}
@@ -150,8 +150,7 @@ target_compile_definitions(pyplayerbase PRIVATE VERSION_INFO=${EXAMPLE_VERSION_I
 message(STATUS "esmini-python: pybind11")
 message(STATUS "SCENARIOENGINE_DLL_INCLUDE_DIR: ${SCENARIOENGINE_DLL_INCLUDE_DIR}")
 
-pybind11_add_module(pyroadmanager MODULE
-    src/roadmanager/pyroadmanager.cpp
+pybind11_add_module(pyroadmanager MODULE src/roadmanager/pyroadmanager.cpp
     "${SCENARIOENGINE_DLL_INCLUDE_DIR}/esminiLib.hpp"
     "${ROADMANAGER_INCLUDE_DIR}/odrSpiral.cpp"
     "${COMMON_MINI_INCLUDE_DIR}/CommonMini.cpp"
@@ -233,7 +232,7 @@ target_compile_definitions(pycontroller PRIVATE VERSION_INFO=${EXAMPLE_VERSION_I
 
 
 message(STATUS "esmini-python: pyscenarioengine")
-pybind11_add_module(pyscenarioengine src/scenarioengine/pyscenarioengine.cpp
+pybind11_add_module(pyscenarioengine MODULE src/scenarioengine/pyscenarioengine.cpp
 	${SCENARIO_SRCS}
 	${ROADMANAGER_INCLUDE_DIR}/RoadManager.cpp
 	${ROADMANAGER_INCLUDE_DIR}/odrSpiral.cpp
