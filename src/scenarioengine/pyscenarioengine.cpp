@@ -171,6 +171,7 @@ void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const 
 
 void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
+/*
 	std::cout << "B44_[scenarioengine::OSCProperties] ";
 	{ // scenarioengine::OSCProperties file: line:21
 		pybind11::class_<scenarioengine::OSCProperties, std::shared_ptr<scenarioengine::OSCProperties>> cl(M("scenarioengine"), "OSCProperties", "");
@@ -199,6 +200,7 @@ void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const 
 		}
 
 	}
+*/
 }
 
 
@@ -1430,6 +1432,7 @@ struct PyCallBack_scenarioengine_OSCPositionTrajectory : public scenarioengine::
 	}
 };
 
+/*
 // scenarioengine::Controller file: line:31
 struct PyCallBack_scenarioengine_Controller : public scenarioengine::Controller {
 	using scenarioengine::Controller::Controller;
@@ -1539,6 +1542,7 @@ struct PyCallBack_scenarioengine_Controller : public scenarioengine::Controller 
 		return Controller::Step(a0);
 	}
 };
+*/
 
 // scenarioengine::OSCPrivateAction file: line:32
 struct PyCallBack_scenarioengine_OSCPrivateAction : public scenarioengine::OSCPrivateAction {
