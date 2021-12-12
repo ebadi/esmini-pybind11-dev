@@ -27,6 +27,7 @@
 
 void bind_unknown_unknown(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
+/*
 	std::cout << "B0_[ControlDomains] ";
 	// ControlDomains file: line:80
 	pybind11::enum_<ControlDomains>(M(""), "ControlDomains", "")
@@ -69,6 +70,7 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 	std::cout << "B30_[void ZYZ2EulerAngles(double, double, double, double &, double &, double &)] ";
 	std::cout << "B31_[void R0R12EulerAngles(double, double, double, double, double, double, double &, double &, double &)] ";
 	std::cout << "B32_[void SwapByteOrder(unsigned char *, int, int)] ";
+*/
 }
 
 
@@ -103,6 +105,7 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 
 void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
+/*
 	std::cout << "B33_[roadmanager::CoordinateSystem] ";
 	// roadmanager::CoordinateSystem file: line:1618
 	pybind11::enum_<roadmanager::CoordinateSystem>(M("roadmanager"), "CoordinateSystem", "")
@@ -134,6 +137,7 @@ void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const 
 	std::cout << "B41_[roadmanager::ClothoidShape] ";
 	std::cout << "B42_[roadmanager::NurbsShape] ";
 	std::cout << "B43_[roadmanager::RMTrajectory] ";
+*/
 }
 
 
