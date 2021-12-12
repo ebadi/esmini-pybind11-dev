@@ -1,5 +1,5 @@
 #!/bin/bash
 
-rm _build
+rm -f _build
 make singlehtml
-mv _build/singlehtml/index.html .
+cp _build/singlehtml/index.html .
