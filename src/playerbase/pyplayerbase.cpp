@@ -35,6 +35,30 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 	std::cout << "B0_[ScenarioPlayer] ";
 	{ // ScenarioPlayer file: line:35
 		pybind11::class_<ScenarioPlayer, std::shared_ptr<ScenarioPlayer>> cl(M(""), "ScenarioPlayer", "");
+
+
+		// Hamid Ebadi
+        cl.def( pybind11::init( [](std::vector<std::string> vstr){
+            int argc = vstr.size() ;
+            char * argv[ argc+1 ] ;
+            char * mem;
+            int counter = 0 ;
+            for (std::string s : vstr) {
+		    mem = (char*) malloc (s.size() * sizeof(char) +1 ); //2 as it is either A or B
+		    std::cout << counter << ":" << s << '\n';
+		    strcpy ( mem, s.c_str()) ;
+		    argv[counter] = mem;
+		    counter ++ ;
+		    }
+            argv[counter]  = NULL ;
+            return new ScenarioPlayer(argc, argv);
+            }
+         ) );
+
+        cl.def("GetODRManager",  &ScenarioPlayer::GetODRManager, pybind11::return_value_policy::reference);
+        cl.def_readonly("scenarioEngine", &ScenarioPlayer::scenarioEngine);
+        cl.def_readonly("scenarioGateway", &ScenarioPlayer::scenarioGateway);
+        
 		cl.def_readwrite("sensor", &ScenarioPlayer::sensor);
 		cl.def_readonly("maxStepSize", &ScenarioPlayer::maxStepSize);
 		cl.def_readonly("minStepSize", &ScenarioPlayer::minStepSize);

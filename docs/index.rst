@@ -4,6 +4,9 @@ PyEsmini Documentation
 .. toctree::
    :maxdepth: 10
 
+.. image:: index.png
+  :width: 400
+  :alt: esmini classes
 
 
 .. toctree::
