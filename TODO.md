@@ -8,3 +8,6 @@
 - Cleanup pypind unnecessary modules/includes
 - Resolve the namespace conflict between controller and scenarioengine module
 - PyPi
+- License, Name
+- Auto build 
+- name space conflict in controller and scenarioengine
