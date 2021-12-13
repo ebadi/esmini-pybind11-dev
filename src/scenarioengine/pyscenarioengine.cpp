@@ -12,11 +12,6 @@
 #include <pybind11/stl_bind.h>
 #include <pybind11/functional.h>
 #include <fstream>
-#include "ScenarioEngine.hpp"
-#include "CommonMini.hpp"
-#include "ControllerFollowGhost.hpp"
-#include "ControllerExternal.hpp"
-#include <fstream>
 #include "viewer.hpp"
 #include <osgDB/ReadFile>
 #include <osg/ComputeBoundsVisitor>
@@ -41,11 +36,14 @@
 #include <osgShadow/ShadowMap>
 #include <osgShadow/ShadowedScene>
 #include <osgUtil/SmoothingVisitor>
-#include "CommonMini.hpp"
 #include "RubberbandManipulator.hpp"
 #include "IdealSensor.hpp"
 #include "RoadManager.hpp"
 #include "roadgeom.hpp"
+#include "ScenarioEngine.hpp"
+#include "CommonMini.hpp"
+#include "ControllerFollowGhost.hpp"
+#include "ControllerExternal.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -118,11 +116,6 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 #include <pybind11/stl_bind.h>
 #include <pybind11/functional.h>
 #include <fstream>
-#include "ScenarioEngine.hpp"
-#include "CommonMini.hpp"
-#include "ControllerFollowGhost.hpp"
-#include "ControllerExternal.hpp"
-#include <fstream>
 #include "viewer.hpp"
 #include <osgDB/ReadFile>
 #include <osg/ComputeBoundsVisitor>
@@ -147,11 +140,14 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 #include <osgShadow/ShadowMap>
 #include <osgShadow/ShadowedScene>
 #include <osgUtil/SmoothingVisitor>
-#include "CommonMini.hpp"
 #include "RubberbandManipulator.hpp"
 #include "IdealSensor.hpp"
 #include "RoadManager.hpp"
 #include "roadgeom.hpp"
+#include "ScenarioEngine.hpp"
+#include "CommonMini.hpp"
+#include "ControllerFollowGhost.hpp"
+#include "ControllerExternal.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -160,7 +156,6 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 	PYBIND11_DECLARE_HOLDER_TYPE(T, T*)
 	PYBIND11_MAKE_OPAQUE(std::shared_ptr<void>)
 #endif
-
 
 void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
@@ -215,11 +210,6 @@ void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const 
 #include <pybind11/stl_bind.h>
 #include <pybind11/functional.h>
 #include <fstream>
-#include "ScenarioEngine.hpp"
-#include "CommonMini.hpp"
-#include "ControllerFollowGhost.hpp"
-#include "ControllerExternal.hpp"
-#include <fstream>
 #include "viewer.hpp"
 #include <osgDB/ReadFile>
 #include <osg/ComputeBoundsVisitor>
@@ -244,11 +234,14 @@ void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const 
 #include <osgShadow/ShadowMap>
 #include <osgShadow/ShadowedScene>
 #include <osgUtil/SmoothingVisitor>
-#include "CommonMini.hpp"
 #include "RubberbandManipulator.hpp"
 #include "IdealSensor.hpp"
 #include "RoadManager.hpp"
 #include "roadgeom.hpp"
+#include "ScenarioEngine.hpp"
+#include "CommonMini.hpp"
+#include "ControllerFollowGhost.hpp"
+#include "ControllerExternal.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -307,11 +300,6 @@ void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const 
 #include <pybind11/stl_bind.h>
 #include <pybind11/functional.h>
 #include <fstream>
-#include "ScenarioEngine.hpp"
-#include "CommonMini.hpp"
-#include "ControllerFollowGhost.hpp"
-#include "ControllerExternal.hpp"
-#include <fstream>
 #include "viewer.hpp"
 #include <osgDB/ReadFile>
 #include <osg/ComputeBoundsVisitor>
@@ -336,11 +324,14 @@ void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const 
 #include <osgShadow/ShadowMap>
 #include <osgShadow/ShadowedScene>
 #include <osgUtil/SmoothingVisitor>
-#include "CommonMini.hpp"
 #include "RubberbandManipulator.hpp"
 #include "IdealSensor.hpp"
 #include "RoadManager.hpp"
 #include "roadgeom.hpp"
+#include "ScenarioEngine.hpp"
+#include "CommonMini.hpp"
+#include "ControllerFollowGhost.hpp"
+#include "ControllerExternal.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -425,7 +416,7 @@ void bind_unknown_unknown_3(std::function< pybind11::module &(std::string const 
 		cl.def("SetHeadstartTime", (void (scenarioengine::Object::*)(double)) &scenarioengine::Object::SetHeadstartTime, "C++: scenarioengine::Object::SetHeadstartTime(double) --> void", pybind11::arg("headstartTime"));
 		cl.def("GetHeadstartTime", (double (scenarioengine::Object::*)()) &scenarioengine::Object::GetHeadstartTime, "C++: scenarioengine::Object::GetHeadstartTime() --> double");
 		cl.def("SetGhost", (void (scenarioengine::Object::*)(class scenarioengine::Object *)) &scenarioengine::Object::SetGhost, "C++: scenarioengine::Object::SetGhost(class scenarioengine::Object *) --> void", pybind11::arg("ghost"));
-		cl.def("GetGhost", (class scenarioengine::Object * (scenarioengine::Object::*)()) &scenarioengine::Object::GetGhost, "C++: scenarioengine::Object::GetGhost() --> class scenarioengine::Object *", pybind11::return_value_policy::reference);
+		cl.def("GetGhost", (class scenarioengine::Object * (scenarioengine::Object::*)()) &scenarioengine::Object::GetGhost, "C++: scenarioengine::Object::GetGhost() --> class scenarioengine::Object *", pybind11::return_value_policy::automatic);
 		cl.def("SetVisibilityMask", (void (scenarioengine::Object::*)(int)) &scenarioengine::Object::SetVisibilityMask, "C++: scenarioengine::Object::SetVisibilityMask(int) --> void", pybind11::arg("mask"));
 		cl.def("IsGhost", (bool (scenarioengine::Object::*)()) &scenarioengine::Object::IsGhost, "C++: scenarioengine::Object::IsGhost() --> bool");
 		cl.def("SetVel", (void (scenarioengine::Object::*)(double, double, double)) &scenarioengine::Object::SetVel, "C++: scenarioengine::Object::SetVel(double, double, double) --> void", pybind11::arg("x_vel"), pybind11::arg("y_vel"), pybind11::arg("z_vel"));
@@ -472,11 +463,6 @@ void bind_unknown_unknown_3(std::function< pybind11::module &(std::string const 
 #include <pybind11/stl_bind.h>
 #include <pybind11/functional.h>
 #include <fstream>
-#include "ScenarioEngine.hpp"
-#include "CommonMini.hpp"
-#include "ControllerFollowGhost.hpp"
-#include "ControllerExternal.hpp"
-#include <fstream>
 #include "viewer.hpp"
 #include <osgDB/ReadFile>
 #include <osg/ComputeBoundsVisitor>
@@ -501,11 +487,14 @@ void bind_unknown_unknown_3(std::function< pybind11::module &(std::string const 
 #include <osgShadow/ShadowMap>
 #include <osgShadow/ShadowedScene>
 #include <osgUtil/SmoothingVisitor>
-#include "CommonMini.hpp"
 #include "RubberbandManipulator.hpp"
 #include "IdealSensor.hpp"
 #include "RoadManager.hpp"
 #include "roadgeom.hpp"
+#include "ScenarioEngine.hpp"
+#include "CommonMini.hpp"
+#include "ControllerFollowGhost.hpp"
+#include "ControllerExternal.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -652,7 +641,7 @@ void bind_unknown_unknown_4(std::function< pybind11::module &(std::string const 
 		cl.def("removeObject", (void (scenarioengine::Entities::*)(int)) &scenarioengine::Entities::removeObject, "C++: scenarioengine::Entities::removeObject(int) --> void", pybind11::arg("id"));
 		cl.def("getNewId", (int (scenarioengine::Entities::*)()) &scenarioengine::Entities::getNewId, "C++: scenarioengine::Entities::getNewId() --> int");
 		cl.def("indexExists", (bool (scenarioengine::Entities::*)(int)) &scenarioengine::Entities::indexExists, "C++: scenarioengine::Entities::indexExists(int) --> bool", pybind11::arg("id"));
-		cl.def("GetObjectById", (class scenarioengine::Object * (scenarioengine::Entities::*)(int)) &scenarioengine::Entities::GetObjectById, "C++: scenarioengine::Entities::GetObjectById(int) --> class scenarioengine::Object *", pybind11::return_value_policy::reference, pybind11::arg("id"));
+		cl.def("GetObjectById", (class scenarioengine::Object * (scenarioengine::Entities::*)(int)) &scenarioengine::Entities::GetObjectById, "C++: scenarioengine::Entities::GetObjectById(int) --> class scenarioengine::Object *", pybind11::return_value_policy::automatic, pybind11::arg("id"));
 		cl.def("assign", (class scenarioengine::Entities & (scenarioengine::Entities::*)(const class scenarioengine::Entities &)) &scenarioengine::Entities::operator=, "C++: scenarioengine::Entities::operator=(const class scenarioengine::Entities &) --> class scenarioengine::Entities &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
 	std::cout << "B50_[scenarioengine::Entry] ";
@@ -755,11 +744,6 @@ void bind_unknown_unknown_4(std::function< pybind11::module &(std::string const 
 #include <pybind11/stl_bind.h>
 #include <pybind11/functional.h>
 #include <fstream>
-#include "ScenarioEngine.hpp"
-#include "CommonMini.hpp"
-#include "ControllerFollowGhost.hpp"
-#include "ControllerExternal.hpp"
-#include <fstream>
 #include "viewer.hpp"
 #include <osgDB/ReadFile>
 #include <osg/ComputeBoundsVisitor>
@@ -784,11 +768,14 @@ void bind_unknown_unknown_4(std::function< pybind11::module &(std::string const 
 #include <osgShadow/ShadowMap>
 #include <osgShadow/ShadowedScene>
 #include <osgUtil/SmoothingVisitor>
-#include "CommonMini.hpp"
 #include "RubberbandManipulator.hpp"
 #include "IdealSensor.hpp"
 #include "RoadManager.hpp"
 #include "roadgeom.hpp"
+#include "ScenarioEngine.hpp"
+#include "CommonMini.hpp"
+#include "ControllerFollowGhost.hpp"
+#include "ControllerExternal.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -811,7 +798,7 @@ void bind_unknown_unknown_5(std::function< pybind11::module &(std::string const 
 		cl.def("CreateRestorePoint", (void (scenarioengine::Parameters::*)()) &scenarioengine::Parameters::CreateRestorePoint, "C++: scenarioengine::Parameters::CreateRestorePoint() --> void");
 		cl.def("RestoreParameterDeclarations", (void (scenarioengine::Parameters::*)()) &scenarioengine::Parameters::RestoreParameterDeclarations, "C++: scenarioengine::Parameters::RestoreParameterDeclarations() --> void");
 		cl.def("GetNumberOfParameters", (int (scenarioengine::Parameters::*)()) &scenarioengine::Parameters::GetNumberOfParameters, "C++: scenarioengine::Parameters::GetNumberOfParameters() --> int");
-		cl.def("GetParameterName", (const char * (scenarioengine::Parameters::*)(int, enum scenarioengine::OSCParameterDeclarations::ParameterType *)) &scenarioengine::Parameters::GetParameterName, "C++: scenarioengine::Parameters::GetParameterName(int, enum scenarioengine::OSCParameterDeclarations::ParameterType *) --> const char *", pybind11::return_value_policy::reference, pybind11::arg("index"), pybind11::arg("type"));
+		cl.def("GetParameterName", (const char * (scenarioengine::Parameters::*)(int, enum scenarioengine::OSCParameterDeclarations::ParameterType *)) &scenarioengine::Parameters::GetParameterName, "C++: scenarioengine::Parameters::GetParameterName(int, enum scenarioengine::OSCParameterDeclarations::ParameterType *) --> const char *", pybind11::return_value_policy::automatic, pybind11::arg("index"), pybind11::arg("type"));
 		cl.def("Clear", (void (scenarioengine::Parameters::*)()) &scenarioengine::Parameters::Clear, "C++: scenarioengine::Parameters::Clear() --> void");
 	}
 	std::cout << "B57_[scenarioengine::ObjectInfoStruct] ";
@@ -896,8 +883,8 @@ void bind_unknown_unknown_5(std::function< pybind11::module &(std::string const 
 		cl.def("removeObject", (void (scenarioengine::ScenarioGateway::*)(int)) &scenarioengine::ScenarioGateway::removeObject, "C++: scenarioengine::ScenarioGateway::removeObject(int) --> void", pybind11::arg("id"));
 		cl.def("getNumberOfObjects", (int (scenarioengine::ScenarioGateway::*)()) &scenarioengine::ScenarioGateway::getNumberOfObjects, "C++: scenarioengine::ScenarioGateway::getNumberOfObjects() --> int");
 		cl.def("getObjectStateByIdx", (class scenarioengine::ObjectState (scenarioengine::ScenarioGateway::*)(int)) &scenarioengine::ScenarioGateway::getObjectStateByIdx, "C++: scenarioengine::ScenarioGateway::getObjectStateByIdx(int) --> class scenarioengine::ObjectState", pybind11::arg("idx"));
-		cl.def("getObjectStatePtrByIdx", (class scenarioengine::ObjectState * (scenarioengine::ScenarioGateway::*)(int)) &scenarioengine::ScenarioGateway::getObjectStatePtrByIdx, "C++: scenarioengine::ScenarioGateway::getObjectStatePtrByIdx(int) --> class scenarioengine::ObjectState *", pybind11::return_value_policy::reference, pybind11::arg("idx"));
-		cl.def("getObjectStatePtrById", (class scenarioengine::ObjectState * (scenarioengine::ScenarioGateway::*)(int)) &scenarioengine::ScenarioGateway::getObjectStatePtrById, "C++: scenarioengine::ScenarioGateway::getObjectStatePtrById(int) --> class scenarioengine::ObjectState *", pybind11::return_value_policy::reference, pybind11::arg("id"));
+		cl.def("getObjectStatePtrByIdx", (class scenarioengine::ObjectState * (scenarioengine::ScenarioGateway::*)(int)) &scenarioengine::ScenarioGateway::getObjectStatePtrByIdx, "C++: scenarioengine::ScenarioGateway::getObjectStatePtrByIdx(int) --> class scenarioengine::ObjectState *", pybind11::return_value_policy::automatic, pybind11::arg("idx"));
+		cl.def("getObjectStatePtrById", (class scenarioengine::ObjectState * (scenarioengine::ScenarioGateway::*)(int)) &scenarioengine::ScenarioGateway::getObjectStatePtrById, "C++: scenarioengine::ScenarioGateway::getObjectStatePtrById(int) --> class scenarioengine::ObjectState *", pybind11::return_value_policy::automatic, pybind11::arg("id"));
 		cl.def("getObjectStateById", (int (scenarioengine::ScenarioGateway::*)(int, class scenarioengine::ObjectState &)) &scenarioengine::ScenarioGateway::getObjectStateById, "C++: scenarioengine::ScenarioGateway::getObjectStateById(int, class scenarioengine::ObjectState &) --> int", pybind11::arg("idx"), pybind11::arg("objState"));
 		cl.def("WriteStatesToFile", (void (scenarioengine::ScenarioGateway::*)()) &scenarioengine::ScenarioGateway::WriteStatesToFile, "C++: scenarioengine::ScenarioGateway::WriteStatesToFile() --> void");
 	}
@@ -920,11 +907,6 @@ void bind_unknown_unknown_5(std::function< pybind11::module &(std::string const 
 #include <pybind11/stl.h>
 #include <pybind11/stl_bind.h>
 #include <pybind11/functional.h>
-#include <fstream>
-#include "ScenarioEngine.hpp"
-#include "CommonMini.hpp"
-#include "ControllerFollowGhost.hpp"
-#include "ControllerExternal.hpp"
 #include <fstream>
 #include "viewer.hpp"
 #include <osgDB/ReadFile>
@@ -950,11 +932,14 @@ void bind_unknown_unknown_5(std::function< pybind11::module &(std::string const 
 #include <osgShadow/ShadowMap>
 #include <osgShadow/ShadowedScene>
 #include <osgUtil/SmoothingVisitor>
-#include "CommonMini.hpp"
 #include "RubberbandManipulator.hpp"
 #include "IdealSensor.hpp"
 #include "RoadManager.hpp"
 #include "roadgeom.hpp"
+#include "ScenarioEngine.hpp"
+#include "CommonMini.hpp"
+#include "ControllerFollowGhost.hpp"
+#include "ControllerExternal.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -1380,7 +1365,7 @@ void bind_unknown_unknown_6(std::function< pybind11::module &(std::string const 
 		cl.def(pybind11::init<PyCallBack_scenarioengine_OSCGlobalAction const &>());
 		cl.def_readwrite("type_", &scenarioengine::OSCGlobalAction::type_);
 		cl.def("print", (void (scenarioengine::OSCGlobalAction::*)()) &scenarioengine::OSCGlobalAction::print, "C++: scenarioengine::OSCGlobalAction::print() --> void");
-		cl.def("Copy", (class scenarioengine::OSCGlobalAction * (scenarioengine::OSCGlobalAction::*)()) &scenarioengine::OSCGlobalAction::Copy, "C++: scenarioengine::OSCGlobalAction::Copy() --> class scenarioengine::OSCGlobalAction *", pybind11::return_value_policy::reference);
+		cl.def("Copy", (class scenarioengine::OSCGlobalAction * (scenarioengine::OSCGlobalAction::*)()) &scenarioengine::OSCGlobalAction::Copy, "C++: scenarioengine::OSCGlobalAction::Copy() --> class scenarioengine::OSCGlobalAction *", pybind11::return_value_policy::automatic);
 		cl.def("assign", (class scenarioengine::OSCGlobalAction & (scenarioengine::OSCGlobalAction::*)(const class scenarioengine::OSCGlobalAction &)) &scenarioengine::OSCGlobalAction::operator=, "C++: scenarioengine::OSCGlobalAction::operator=(const class scenarioengine::OSCGlobalAction &) --> class scenarioengine::OSCGlobalAction &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
 	std::cout << "B64_[scenarioengine::ParameterSetAction] ";
@@ -1391,7 +1376,7 @@ void bind_unknown_unknown_6(std::function< pybind11::module &(std::string const 
 		cl.def( pybind11::init( [](scenarioengine::ParameterSetAction const &o){ return new scenarioengine::ParameterSetAction(o); } ) );
 		cl.def_readwrite("name_", &scenarioengine::ParameterSetAction::name_);
 		cl.def_readwrite("value_", &scenarioengine::ParameterSetAction::value_);
-		cl.def("Copy", (class scenarioengine::OSCGlobalAction * (scenarioengine::ParameterSetAction::*)()) &scenarioengine::ParameterSetAction::Copy, "C++: scenarioengine::ParameterSetAction::Copy() --> class scenarioengine::OSCGlobalAction *", pybind11::return_value_policy::reference);
+		cl.def("Copy", (class scenarioengine::OSCGlobalAction * (scenarioengine::ParameterSetAction::*)()) &scenarioengine::ParameterSetAction::Copy, "C++: scenarioengine::ParameterSetAction::Copy() --> class scenarioengine::OSCGlobalAction *", pybind11::return_value_policy::automatic);
 		cl.def("Start", (void (scenarioengine::ParameterSetAction::*)(double, double)) &scenarioengine::ParameterSetAction::Start, "C++: scenarioengine::ParameterSetAction::Start(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("Step", (void (scenarioengine::ParameterSetAction::*)(double, double)) &scenarioengine::ParameterSetAction::Step, "C++: scenarioengine::ParameterSetAction::Step(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("print", (void (scenarioengine::ParameterSetAction::*)()) &scenarioengine::ParameterSetAction::print, "C++: scenarioengine::ParameterSetAction::print() --> void");
@@ -1403,7 +1388,7 @@ void bind_unknown_unknown_6(std::function< pybind11::module &(std::string const 
 		cl.def( pybind11::init( [](){ return new scenarioengine::SwarmTrafficAction(); }, [](){ return new PyCallBack_scenarioengine_SwarmTrafficAction(); } ) );
 		cl.def( pybind11::init( [](PyCallBack_scenarioengine_SwarmTrafficAction const &o){ return new PyCallBack_scenarioengine_SwarmTrafficAction(o); } ) );
 		cl.def( pybind11::init( [](scenarioengine::SwarmTrafficAction const &o){ return new scenarioengine::SwarmTrafficAction(o); } ) );
-		cl.def("Copy", (class scenarioengine::OSCGlobalAction * (scenarioengine::SwarmTrafficAction::*)()) &scenarioengine::SwarmTrafficAction::Copy, "C++: scenarioengine::SwarmTrafficAction::Copy() --> class scenarioengine::OSCGlobalAction *", pybind11::return_value_policy::reference);
+		cl.def("Copy", (class scenarioengine::OSCGlobalAction * (scenarioengine::SwarmTrafficAction::*)()) &scenarioengine::SwarmTrafficAction::Copy, "C++: scenarioengine::SwarmTrafficAction::Copy() --> class scenarioengine::OSCGlobalAction *", pybind11::return_value_policy::automatic);
 		cl.def("Start", (void (scenarioengine::SwarmTrafficAction::*)(double, double)) &scenarioengine::SwarmTrafficAction::Start, "C++: scenarioengine::SwarmTrafficAction::Start(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("Step", (void (scenarioengine::SwarmTrafficAction::*)(double, double)) &scenarioengine::SwarmTrafficAction::Step, "C++: scenarioengine::SwarmTrafficAction::Step(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("print", (void (scenarioengine::SwarmTrafficAction::*)()) &scenarioengine::SwarmTrafficAction::print, "C++: scenarioengine::SwarmTrafficAction::print() --> void");
@@ -1512,11 +1497,6 @@ void bind_unknown_unknown_6(std::function< pybind11::module &(std::string const 
 #include <pybind11/stl_bind.h>
 #include <pybind11/functional.h>
 #include <fstream>
-#include "ScenarioEngine.hpp"
-#include "CommonMini.hpp"
-#include "ControllerFollowGhost.hpp"
-#include "ControllerExternal.hpp"
-#include <fstream>
 #include "viewer.hpp"
 #include <osgDB/ReadFile>
 #include <osg/ComputeBoundsVisitor>
@@ -1541,11 +1521,14 @@ void bind_unknown_unknown_6(std::function< pybind11::module &(std::string const 
 #include <osgShadow/ShadowMap>
 #include <osgShadow/ShadowedScene>
 #include <osgUtil/SmoothingVisitor>
-#include "CommonMini.hpp"
 #include "RubberbandManipulator.hpp"
 #include "IdealSensor.hpp"
 #include "RoadManager.hpp"
 #include "roadgeom.hpp"
+#include "ScenarioEngine.hpp"
+#include "CommonMini.hpp"
+#include "ControllerFollowGhost.hpp"
+#include "ControllerExternal.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -1964,7 +1947,7 @@ void bind_unknown_unknown_7(std::function< pybind11::module &(std::string const 
 			.export_values();
 
 		cl.def_static("GetTypeNameStatic", (const char * (*)()) &scenarioengine::Controller::GetTypeNameStatic, "C++: scenarioengine::Controller::GetTypeNameStatic() --> const char *", pybind11::return_value_policy::automatic);
-		cl.def("GetTypeName", (const char * (scenarioengine::Controller::*)()) &scenarioengine::Controller::GetTypeName, "C++: scenarioengine::Controller::GetTypeName() --> const char *", pybind11::return_value_policy::reference);
+		cl.def("GetTypeName", (const char * (scenarioengine::Controller::*)()) &scenarioengine::Controller::GetTypeName, "C++: scenarioengine::Controller::GetTypeName() --> const char *", pybind11::return_value_policy::automatic);
 		cl.def_static("GetTypeStatic", (const int (*)()) &scenarioengine::Controller::GetTypeStatic, "C++: scenarioengine::Controller::GetTypeStatic() --> const int");
 		cl.def("GetType", (int (scenarioengine::Controller::*)()) &scenarioengine::Controller::GetType, "C++: scenarioengine::Controller::GetType() --> int");
 		cl.def("Assign", (void (scenarioengine::Controller::*)(class scenarioengine::Object *)) &scenarioengine::Controller::Assign, "C++: scenarioengine::Controller::Assign(class scenarioengine::Object *) --> void", pybind11::arg("object"));
@@ -1976,7 +1959,7 @@ void bind_unknown_unknown_7(std::function< pybind11::module &(std::string const 
 		cl.def("Active", (bool (scenarioengine::Controller::*)()) &scenarioengine::Controller::Active, "C++: scenarioengine::Controller::Active() --> bool");
 		cl.def("GetDomain", (enum ControlDomains (scenarioengine::Controller::*)()) &scenarioengine::Controller::GetDomain, "C++: scenarioengine::Controller::GetDomain() --> enum ControlDomains");
 		cl.def("GetMode", (int (scenarioengine::Controller::*)()) &scenarioengine::Controller::GetMode, "C++: scenarioengine::Controller::GetMode() --> int");
-		cl.def("GetObject", (class scenarioengine::Object * (scenarioengine::Controller::*)()) &scenarioengine::Controller::GetObject, "C++: scenarioengine::Controller::GetObject() --> class scenarioengine::Object *", pybind11::return_value_policy::reference);
+		cl.def("GetObject", (class scenarioengine::Object * (scenarioengine::Controller::*)()) &scenarioengine::Controller::GetObject, "C++: scenarioengine::Controller::GetObject() --> class scenarioengine::Object *", pybind11::return_value_policy::automatic);
 		cl.def("IsActiveOnDomains", (bool (scenarioengine::Controller::*)(enum ControlDomains)) &scenarioengine::Controller::IsActiveOnDomains, "C++: scenarioengine::Controller::IsActiveOnDomains(enum ControlDomains) --> bool", pybind11::arg("domainMask"));
 		cl.def("IsActiveOnAnyOfDomains", (bool (scenarioengine::Controller::*)(enum ControlDomains)) &scenarioengine::Controller::IsActiveOnAnyOfDomains, "C++: scenarioengine::Controller::IsActiveOnAnyOfDomains(enum ControlDomains) --> bool", pybind11::arg("domainMask"));
 		cl.def("IsActive", (bool (scenarioengine::Controller::*)()) &scenarioengine::Controller::IsActive, "C++: scenarioengine::Controller::IsActive() --> bool");
@@ -2028,7 +2011,7 @@ void bind_unknown_unknown_7(std::function< pybind11::module &(std::string const 
 		cl.def_readwrite("type_", &scenarioengine::OSCPrivateAction::type_);
 		cl.def_readwrite("domain_", &scenarioengine::OSCPrivateAction::domain_);
 		cl.def("print", (void (scenarioengine::OSCPrivateAction::*)()) &scenarioengine::OSCPrivateAction::print, "C++: scenarioengine::OSCPrivateAction::print() --> void");
-		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::OSCPrivateAction::*)()) &scenarioengine::OSCPrivateAction::Copy, "C++: scenarioengine::OSCPrivateAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::reference);
+		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::OSCPrivateAction::*)()) &scenarioengine::OSCPrivateAction::Copy, "C++: scenarioengine::OSCPrivateAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::automatic);
 		cl.def("GetDomain", (enum ControlDomains (scenarioengine::OSCPrivateAction::*)()) &scenarioengine::OSCPrivateAction::GetDomain, "C++: scenarioengine::OSCPrivateAction::GetDomain() --> enum ControlDomains");
 		cl.def("ReplaceObjectRefs", (void (scenarioengine::OSCPrivateAction::*)(class scenarioengine::Object *, class scenarioengine::Object *)) &scenarioengine::OSCPrivateAction::ReplaceObjectRefs, "C++: scenarioengine::OSCPrivateAction::ReplaceObjectRefs(class scenarioengine::Object *, class scenarioengine::Object *) --> void", pybind11::arg(""), pybind11::arg(""));
 		cl.def("assign", (class scenarioengine::OSCPrivateAction & (scenarioengine::OSCPrivateAction::*)(const class scenarioengine::OSCPrivateAction &)) &scenarioengine::OSCPrivateAction::operator=, "C++: scenarioengine::OSCPrivateAction::operator=(const class scenarioengine::OSCPrivateAction &) --> class scenarioengine::OSCPrivateAction &", pybind11::return_value_policy::automatic, pybind11::arg(""));
@@ -2065,11 +2048,6 @@ void bind_unknown_unknown_7(std::function< pybind11::module &(std::string const 
 #include <pybind11/stl_bind.h>
 #include <pybind11/functional.h>
 #include <fstream>
-#include "ScenarioEngine.hpp"
-#include "CommonMini.hpp"
-#include "ControllerFollowGhost.hpp"
-#include "ControllerExternal.hpp"
-#include <fstream>
 #include "viewer.hpp"
 #include <osgDB/ReadFile>
 #include <osg/ComputeBoundsVisitor>
@@ -2094,11 +2072,14 @@ void bind_unknown_unknown_7(std::function< pybind11::module &(std::string const 
 #include <osgShadow/ShadowMap>
 #include <osgShadow/ShadowedScene>
 #include <osgUtil/SmoothingVisitor>
-#include "CommonMini.hpp"
 #include "RubberbandManipulator.hpp"
 #include "IdealSensor.hpp"
 #include "RoadManager.hpp"
 #include "roadgeom.hpp"
+#include "ScenarioEngine.hpp"
+#include "CommonMini.hpp"
+#include "ControllerFollowGhost.hpp"
+#include "ControllerExternal.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -2565,7 +2546,7 @@ void bind_unknown_unknown_8(std::function< pybind11::module &(std::string const 
 		cl.def_readwrite("start_speed_", &scenarioengine::LongSpeedAction::start_speed_);
 		cl.def_readwrite("elapsed_", &scenarioengine::LongSpeedAction::elapsed_);
 		cl.def_readwrite("sim_time_", &scenarioengine::LongSpeedAction::sim_time_);
-		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::LongSpeedAction::*)()) &scenarioengine::LongSpeedAction::Copy, "C++: scenarioengine::LongSpeedAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::reference);
+		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::LongSpeedAction::*)()) &scenarioengine::LongSpeedAction::Copy, "C++: scenarioengine::LongSpeedAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::automatic);
 		cl.def("Start", (void (scenarioengine::LongSpeedAction::*)(double, double)) &scenarioengine::LongSpeedAction::Start, "C++: scenarioengine::LongSpeedAction::Start(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("Step", (void (scenarioengine::LongSpeedAction::*)(double, double)) &scenarioengine::LongSpeedAction::Step, "C++: scenarioengine::LongSpeedAction::Step(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("print", (void (scenarioengine::LongSpeedAction::*)()) &scenarioengine::LongSpeedAction::print, "C++: scenarioengine::LongSpeedAction::print() --> void");
@@ -2624,7 +2605,7 @@ void bind_unknown_unknown_8(std::function< pybind11::module &(std::string const 
 		cl.def_readwrite("continuous_", &scenarioengine::LongDistanceAction::continuous_);
 		cl.def_readwrite("sim_time_", &scenarioengine::LongDistanceAction::sim_time_);
 		cl.def_readwrite("displacement_", &scenarioengine::LongDistanceAction::displacement_);
-		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::LongDistanceAction::*)()) &scenarioengine::LongDistanceAction::Copy, "C++: scenarioengine::LongDistanceAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::reference);
+		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::LongDistanceAction::*)()) &scenarioengine::LongDistanceAction::Copy, "C++: scenarioengine::LongDistanceAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::automatic);
 		cl.def("Start", (void (scenarioengine::LongDistanceAction::*)(double, double)) &scenarioengine::LongDistanceAction::Start, "C++: scenarioengine::LongDistanceAction::Start(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("Step", (void (scenarioengine::LongDistanceAction::*)(double, double)) &scenarioengine::LongDistanceAction::Step, "C++: scenarioengine::LongDistanceAction::Step(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("print", (void (scenarioengine::LongDistanceAction::*)()) &scenarioengine::LongDistanceAction::print, "C++: scenarioengine::LongDistanceAction::print() --> void");
@@ -2646,7 +2627,7 @@ void bind_unknown_unknown_8(std::function< pybind11::module &(std::string const 
 		cl.def_readwrite("target_lane_id_", &scenarioengine::LatLaneChangeAction::target_lane_id_);
 		cl.def_readwrite("elapsed_", &scenarioengine::LatLaneChangeAction::elapsed_);
 		cl.def_readwrite("sim_time_", &scenarioengine::LatLaneChangeAction::sim_time_);
-		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::LatLaneChangeAction::*)()) &scenarioengine::LatLaneChangeAction::Copy, "C++: scenarioengine::LatLaneChangeAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::reference);
+		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::LatLaneChangeAction::*)()) &scenarioengine::LatLaneChangeAction::Copy, "C++: scenarioengine::LatLaneChangeAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::automatic);
 		cl.def("Step", (void (scenarioengine::LatLaneChangeAction::*)(double, double)) &scenarioengine::LatLaneChangeAction::Step, "C++: scenarioengine::LatLaneChangeAction::Step(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("Start", (void (scenarioengine::LatLaneChangeAction::*)(double, double)) &scenarioengine::LatLaneChangeAction::Start, "C++: scenarioengine::LatLaneChangeAction::Start(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("ReplaceObjectRefs", (void (scenarioengine::LatLaneChangeAction::*)(class scenarioengine::Object *, class scenarioengine::Object *)) &scenarioengine::LatLaneChangeAction::ReplaceObjectRefs, "C++: scenarioengine::LatLaneChangeAction::ReplaceObjectRefs(class scenarioengine::Object *, class scenarioengine::Object *) --> void", pybind11::arg("obj1"), pybind11::arg("obj2"));
@@ -2690,7 +2671,7 @@ void bind_unknown_unknown_8(std::function< pybind11::module &(std::string const 
 		cl.def_readwrite("start_lane_offset_", &scenarioengine::LatLaneOffsetAction::start_lane_offset_);
 		cl.def_readwrite("target_lane_offset_", &scenarioengine::LatLaneOffsetAction::target_lane_offset_);
 		cl.def_readwrite("sim_time_", &scenarioengine::LatLaneOffsetAction::sim_time_);
-		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::LatLaneOffsetAction::*)()) &scenarioengine::LatLaneOffsetAction::Copy, "C++: scenarioengine::LatLaneOffsetAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::reference);
+		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::LatLaneOffsetAction::*)()) &scenarioengine::LatLaneOffsetAction::Copy, "C++: scenarioengine::LatLaneOffsetAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::automatic);
 		cl.def("Start", (void (scenarioengine::LatLaneOffsetAction::*)(double, double)) &scenarioengine::LatLaneOffsetAction::Start, "C++: scenarioengine::LatLaneOffsetAction::Start(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("Step", (void (scenarioengine::LatLaneOffsetAction::*)(double, double)) &scenarioengine::LatLaneOffsetAction::Step, "C++: scenarioengine::LatLaneOffsetAction::Step(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("ReplaceObjectRefs", (void (scenarioengine::LatLaneOffsetAction::*)(class scenarioengine::Object *, class scenarioengine::Object *)) &scenarioengine::LatLaneOffsetAction::ReplaceObjectRefs, "C++: scenarioengine::LatLaneOffsetAction::ReplaceObjectRefs(class scenarioengine::Object *, class scenarioengine::Object *) --> void", pybind11::arg("obj1"), pybind11::arg("obj2"));
@@ -2743,11 +2724,6 @@ void bind_unknown_unknown_8(std::function< pybind11::module &(std::string const 
 #include <pybind11/stl_bind.h>
 #include <pybind11/functional.h>
 #include <fstream>
-#include "ScenarioEngine.hpp"
-#include "CommonMini.hpp"
-#include "ControllerFollowGhost.hpp"
-#include "ControllerExternal.hpp"
-#include <fstream>
 #include "viewer.hpp"
 #include <osgDB/ReadFile>
 #include <osg/ComputeBoundsVisitor>
@@ -2772,11 +2748,14 @@ void bind_unknown_unknown_8(std::function< pybind11::module &(std::string const 
 #include <osgShadow/ShadowMap>
 #include <osgShadow/ShadowedScene>
 #include <osgUtil/SmoothingVisitor>
-#include "CommonMini.hpp"
 #include "RubberbandManipulator.hpp"
 #include "IdealSensor.hpp"
 #include "RoadManager.hpp"
 #include "roadgeom.hpp"
+#include "ScenarioEngine.hpp"
+#include "CommonMini.hpp"
+#include "ControllerFollowGhost.hpp"
+#include "ControllerExternal.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -3480,10 +3459,10 @@ void bind_unknown_unknown_9(std::function< pybind11::module &(std::string const 
 		cl.def_readwrite("sim_time_", &scenarioengine::SynchronizeAction::sim_time_);
 		cl.def_readwrite("lastDist_", &scenarioengine::SynchronizeAction::lastDist_);
 		cl.def_readwrite("lastMasterDist_", &scenarioengine::SynchronizeAction::lastMasterDist_);
-		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::SynchronizeAction::*)()) &scenarioengine::SynchronizeAction::Copy, "C++: scenarioengine::SynchronizeAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::reference);
+		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::SynchronizeAction::*)()) &scenarioengine::SynchronizeAction::Copy, "C++: scenarioengine::SynchronizeAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::automatic);
 		cl.def("Step", (void (scenarioengine::SynchronizeAction::*)(double, double)) &scenarioengine::SynchronizeAction::Step, "C++: scenarioengine::SynchronizeAction::Step(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("Start", (void (scenarioengine::SynchronizeAction::*)(double, double)) &scenarioengine::SynchronizeAction::Start, "C++: scenarioengine::SynchronizeAction::Start(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
-		cl.def("Mode2Str", (const char * (scenarioengine::SynchronizeAction::*)(scenarioengine::SynchronizeAction::SynchMode)) &scenarioengine::SynchronizeAction::Mode2Str, "C++: scenarioengine::SynchronizeAction::Mode2Str(scenarioengine::SynchronizeAction::SynchMode) --> const char *", pybind11::return_value_policy::reference, pybind11::arg("mode"));
+		cl.def("Mode2Str", (const char * (scenarioengine::SynchronizeAction::*)(scenarioengine::SynchronizeAction::SynchMode)) &scenarioengine::SynchronizeAction::Mode2Str, "C++: scenarioengine::SynchronizeAction::Mode2Str(scenarioengine::SynchronizeAction::SynchMode) --> const char *", pybind11::return_value_policy::automatic, pybind11::arg("mode"));
 		cl.def("assign", (class scenarioengine::SynchronizeAction & (scenarioengine::SynchronizeAction::*)(const class scenarioengine::SynchronizeAction &)) &scenarioengine::SynchronizeAction::operator=, "C++: scenarioengine::SynchronizeAction::operator=(const class scenarioengine::SynchronizeAction &) --> class scenarioengine::SynchronizeAction &", pybind11::return_value_policy::automatic, pybind11::arg(""));
 	}
 	std::cout << "B85_[scenarioengine::TeleportAction] ";
@@ -3492,7 +3471,7 @@ void bind_unknown_unknown_9(std::function< pybind11::module &(std::string const 
 		cl.def( pybind11::init( [](){ return new scenarioengine::TeleportAction(); }, [](){ return new PyCallBack_scenarioengine_TeleportAction(); } ) );
 		cl.def( pybind11::init( [](PyCallBack_scenarioengine_TeleportAction const &o){ return new PyCallBack_scenarioengine_TeleportAction(o); } ) );
 		cl.def( pybind11::init( [](scenarioengine::TeleportAction const &o){ return new scenarioengine::TeleportAction(o); } ) );
-		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::TeleportAction::*)()) &scenarioengine::TeleportAction::Copy, "C++: scenarioengine::TeleportAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::reference);
+		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::TeleportAction::*)()) &scenarioengine::TeleportAction::Copy, "C++: scenarioengine::TeleportAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::automatic);
 		cl.def("Step", (void (scenarioengine::TeleportAction::*)(double, double)) &scenarioengine::TeleportAction::Step, "C++: scenarioengine::TeleportAction::Step(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("Start", (void (scenarioengine::TeleportAction::*)(double, double)) &scenarioengine::TeleportAction::Start, "C++: scenarioengine::TeleportAction::Start(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("ReplaceObjectRefs", (void (scenarioengine::TeleportAction::*)(class scenarioengine::Object *, class scenarioengine::Object *)) &scenarioengine::TeleportAction::ReplaceObjectRefs, "C++: scenarioengine::TeleportAction::ReplaceObjectRefs(class scenarioengine::Object *, class scenarioengine::Object *) --> void", pybind11::arg("obj1"), pybind11::arg("obj2"));
@@ -3504,7 +3483,7 @@ void bind_unknown_unknown_9(std::function< pybind11::module &(std::string const 
 		cl.def( pybind11::init( [](){ return new scenarioengine::AssignRouteAction(); }, [](){ return new PyCallBack_scenarioengine_AssignRouteAction(); } ) );
 		cl.def( pybind11::init( [](PyCallBack_scenarioengine_AssignRouteAction const &o){ return new PyCallBack_scenarioengine_AssignRouteAction(o); } ) );
 		cl.def( pybind11::init( [](scenarioengine::AssignRouteAction const &o){ return new scenarioengine::AssignRouteAction(o); } ) );
-		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::AssignRouteAction::*)()) &scenarioengine::AssignRouteAction::Copy, "C++: scenarioengine::AssignRouteAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::reference);
+		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::AssignRouteAction::*)()) &scenarioengine::AssignRouteAction::Copy, "C++: scenarioengine::AssignRouteAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::automatic);
 		cl.def("Start", (void (scenarioengine::AssignRouteAction::*)(double, double)) &scenarioengine::AssignRouteAction::Start, "C++: scenarioengine::AssignRouteAction::Start(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("Step", (void (scenarioengine::AssignRouteAction::*)(double, double)) &scenarioengine::AssignRouteAction::Step, "C++: scenarioengine::AssignRouteAction::Step(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("ReplaceObjectRefs", (void (scenarioengine::AssignRouteAction::*)(class scenarioengine::Object *, class scenarioengine::Object *)) &scenarioengine::AssignRouteAction::ReplaceObjectRefs, "C++: scenarioengine::AssignRouteAction::ReplaceObjectRefs(class scenarioengine::Object *, class scenarioengine::Object *) --> void", pybind11::arg("obj1"), pybind11::arg("obj2"));
@@ -3527,7 +3506,7 @@ void bind_unknown_unknown_9(std::function< pybind11::module &(std::string const 
 		cl.def_readwrite("timing_offset_", &scenarioengine::FollowTrajectoryAction::timing_offset_);
 		cl.def_readwrite("time_", &scenarioengine::FollowTrajectoryAction::time_);
 		cl.def_readwrite("initialDistanceOffset_", &scenarioengine::FollowTrajectoryAction::initialDistanceOffset_);
-		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::FollowTrajectoryAction::*)()) &scenarioengine::FollowTrajectoryAction::Copy, "C++: scenarioengine::FollowTrajectoryAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::reference);
+		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::FollowTrajectoryAction::*)()) &scenarioengine::FollowTrajectoryAction::Copy, "C++: scenarioengine::FollowTrajectoryAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::automatic);
 		cl.def("Step", (void (scenarioengine::FollowTrajectoryAction::*)(double, double)) &scenarioengine::FollowTrajectoryAction::Step, "C++: scenarioengine::FollowTrajectoryAction::Step(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("Start", (void (scenarioengine::FollowTrajectoryAction::*)(double, double)) &scenarioengine::FollowTrajectoryAction::Start, "C++: scenarioengine::FollowTrajectoryAction::Start(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("End", (void (scenarioengine::FollowTrajectoryAction::*)()) &scenarioengine::FollowTrajectoryAction::End, "C++: scenarioengine::FollowTrajectoryAction::End() --> void");
@@ -3540,7 +3519,7 @@ void bind_unknown_unknown_9(std::function< pybind11::module &(std::string const 
 		cl.def( pybind11::init( [](){ return new scenarioengine::AcquirePositionAction(); }, [](){ return new PyCallBack_scenarioengine_AcquirePositionAction(); } ) );
 		cl.def( pybind11::init( [](PyCallBack_scenarioengine_AcquirePositionAction const &o){ return new PyCallBack_scenarioengine_AcquirePositionAction(o); } ) );
 		cl.def( pybind11::init( [](scenarioengine::AcquirePositionAction const &o){ return new scenarioengine::AcquirePositionAction(o); } ) );
-		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::AcquirePositionAction::*)()) &scenarioengine::AcquirePositionAction::Copy, "C++: scenarioengine::AcquirePositionAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::reference);
+		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::AcquirePositionAction::*)()) &scenarioengine::AcquirePositionAction::Copy, "C++: scenarioengine::AcquirePositionAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::automatic);
 		cl.def("Start", (void (scenarioengine::AcquirePositionAction::*)(double, double)) &scenarioengine::AcquirePositionAction::Start, "C++: scenarioengine::AcquirePositionAction::Start(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("Step", (void (scenarioengine::AcquirePositionAction::*)(double, double)) &scenarioengine::AcquirePositionAction::Step, "C++: scenarioengine::AcquirePositionAction::Step(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("ReplaceObjectRefs", (void (scenarioengine::AcquirePositionAction::*)(class scenarioengine::Object *, class scenarioengine::Object *)) &scenarioengine::AcquirePositionAction::ReplaceObjectRefs, "C++: scenarioengine::AcquirePositionAction::ReplaceObjectRefs(class scenarioengine::Object *, class scenarioengine::Object *) --> void", pybind11::arg("obj1"), pybind11::arg("obj2"));
@@ -3554,7 +3533,7 @@ void bind_unknown_unknown_9(std::function< pybind11::module &(std::string const 
 		cl.def( pybind11::init( [](PyCallBack_scenarioengine_AssignControllerAction const &o){ return new PyCallBack_scenarioengine_AssignControllerAction(o); } ) );
 		cl.def( pybind11::init( [](scenarioengine::AssignControllerAction const &o){ return new scenarioengine::AssignControllerAction(o); } ) );
 		cl.def_readwrite("domainMask_", &scenarioengine::AssignControllerAction::domainMask_);
-		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::AssignControllerAction::*)()) &scenarioengine::AssignControllerAction::Copy, "C++: scenarioengine::AssignControllerAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::reference);
+		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::AssignControllerAction::*)()) &scenarioengine::AssignControllerAction::Copy, "C++: scenarioengine::AssignControllerAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::automatic);
 		cl.def("Step", (void (scenarioengine::AssignControllerAction::*)(double, double)) &scenarioengine::AssignControllerAction::Step, "C++: scenarioengine::AssignControllerAction::Step(double, double) --> void", pybind11::arg(""), pybind11::arg(""));
 		cl.def("Start", (void (scenarioengine::AssignControllerAction::*)(double, double)) &scenarioengine::AssignControllerAction::Start, "C++: scenarioengine::AssignControllerAction::Start(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("assign", (class scenarioengine::AssignControllerAction & (scenarioengine::AssignControllerAction::*)(const class scenarioengine::AssignControllerAction &)) &scenarioengine::AssignControllerAction::operator=, "C++: scenarioengine::AssignControllerAction::operator=(const class scenarioengine::AssignControllerAction &) --> class scenarioengine::AssignControllerAction &", pybind11::return_value_policy::automatic, pybind11::arg(""));
@@ -3568,7 +3547,7 @@ void bind_unknown_unknown_9(std::function< pybind11::module &(std::string const 
 		cl.def( pybind11::init( [](PyCallBack_scenarioengine_ActivateControllerAction const &o){ return new PyCallBack_scenarioengine_ActivateControllerAction(o); } ) );
 		cl.def( pybind11::init( [](scenarioengine::ActivateControllerAction const &o){ return new scenarioengine::ActivateControllerAction(o); } ) );
 		cl.def_readwrite("domainMask_", &scenarioengine::ActivateControllerAction::domainMask_);
-		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::ActivateControllerAction::*)()) &scenarioengine::ActivateControllerAction::Copy, "C++: scenarioengine::ActivateControllerAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::reference);
+		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::ActivateControllerAction::*)()) &scenarioengine::ActivateControllerAction::Copy, "C++: scenarioengine::ActivateControllerAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::automatic);
 		cl.def("Start", (void (scenarioengine::ActivateControllerAction::*)(double, double)) &scenarioengine::ActivateControllerAction::Start, "C++: scenarioengine::ActivateControllerAction::Start(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("Step", (void (scenarioengine::ActivateControllerAction::*)(double, double)) &scenarioengine::ActivateControllerAction::Step, "C++: scenarioengine::ActivateControllerAction::Step(double, double) --> void", pybind11::arg(""), pybind11::arg(""));
 		cl.def("End", (void (scenarioengine::ActivateControllerAction::*)()) &scenarioengine::ActivateControllerAction::End, "C++: scenarioengine::ActivateControllerAction::End() --> void");
@@ -3592,11 +3571,6 @@ void bind_unknown_unknown_9(std::function< pybind11::module &(std::string const 
 #include <pybind11/stl.h>
 #include <pybind11/stl_bind.h>
 #include <pybind11/functional.h>
-#include <fstream>
-#include "ScenarioEngine.hpp"
-#include "CommonMini.hpp"
-#include "ControllerFollowGhost.hpp"
-#include "ControllerExternal.hpp"
 #include <fstream>
 #include "viewer.hpp"
 #include <osgDB/ReadFile>
@@ -3622,11 +3596,14 @@ void bind_unknown_unknown_9(std::function< pybind11::module &(std::string const 
 #include <osgShadow/ShadowMap>
 #include <osgShadow/ShadowedScene>
 #include <osgUtil/SmoothingVisitor>
-#include "CommonMini.hpp"
 #include "RubberbandManipulator.hpp"
 #include "IdealSensor.hpp"
 #include "RoadManager.hpp"
 #include "roadgeom.hpp"
+#include "ScenarioEngine.hpp"
+#include "CommonMini.hpp"
+#include "ControllerFollowGhost.hpp"
+#include "ControllerExternal.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -3969,7 +3946,7 @@ void bind_unknown_unknown_10(std::function< pybind11::module &(std::string const
 		cl.def_readwrite("graphics_", &scenarioengine::VisibilityAction::graphics_);
 		cl.def_readwrite("traffic_", &scenarioengine::VisibilityAction::traffic_);
 		cl.def_readwrite("sensors_", &scenarioengine::VisibilityAction::sensors_);
-		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::VisibilityAction::*)()) &scenarioengine::VisibilityAction::Copy, "C++: scenarioengine::VisibilityAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::reference);
+		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::VisibilityAction::*)()) &scenarioengine::VisibilityAction::Copy, "C++: scenarioengine::VisibilityAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::automatic);
 		cl.def("Step", (void (scenarioengine::VisibilityAction::*)(double, double)) &scenarioengine::VisibilityAction::Step, "C++: scenarioengine::VisibilityAction::Step(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("Start", (void (scenarioengine::VisibilityAction::*)(double, double)) &scenarioengine::VisibilityAction::Start, "C++: scenarioengine::VisibilityAction::Start(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("assign", (class scenarioengine::VisibilityAction & (scenarioengine::VisibilityAction::*)(const class scenarioengine::VisibilityAction &)) &scenarioengine::VisibilityAction::operator=, "C++: scenarioengine::VisibilityAction::operator=(const class scenarioengine::VisibilityAction &) --> class scenarioengine::VisibilityAction &", pybind11::return_value_policy::automatic, pybind11::arg(""));
@@ -3985,7 +3962,7 @@ void bind_unknown_unknown_10(std::function< pybind11::module &(std::string const
 		cl.def_readwrite("type_", &scenarioengine::OverrideControlAction::type_);
 		cl.def("Step", (void (scenarioengine::OverrideControlAction::*)(double, double)) &scenarioengine::OverrideControlAction::Step, "C++: scenarioengine::OverrideControlAction::Step(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
 		cl.def("Start", (void (scenarioengine::OverrideControlAction::*)(double, double)) &scenarioengine::OverrideControlAction::Start, "C++: scenarioengine::OverrideControlAction::Start(double, double) --> void", pybind11::arg("simTime"), pybind11::arg("dt"));
-		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::OverrideControlAction::*)()) &scenarioengine::OverrideControlAction::Copy, "C++: scenarioengine::OverrideControlAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::reference);
+		cl.def("Copy", (class scenarioengine::OSCPrivateAction * (scenarioengine::OverrideControlAction::*)()) &scenarioengine::OverrideControlAction::Copy, "C++: scenarioengine::OverrideControlAction::Copy() --> class scenarioengine::OSCPrivateAction *", pybind11::return_value_policy::automatic);
 		cl.def("RangeCheckAndErrorLog", [](scenarioengine::OverrideControlAction &o, scenarioengine::Object::OverrideType const & a0, double const & a1) -> double { return o.RangeCheckAndErrorLog(a0, a1); }, "", pybind11::arg("type"), pybind11::arg("valueCheck"));
 		cl.def("RangeCheckAndErrorLog", [](scenarioengine::OverrideControlAction &o, scenarioengine::Object::OverrideType const & a0, double const & a1, double const & a2) -> double { return o.RangeCheckAndErrorLog(a0, a1, a2); }, "", pybind11::arg("type"), pybind11::arg("valueCheck"), pybind11::arg("lowerLimit"));
 		cl.def("RangeCheckAndErrorLog", [](scenarioengine::OverrideControlAction &o, scenarioengine::Object::OverrideType const & a0, double const & a1, double const & a2, double const & a3) -> double { return o.RangeCheckAndErrorLog(a0, a1, a2, a3); }, "", pybind11::arg("type"), pybind11::arg("valueCheck"), pybind11::arg("lowerLimit"), pybind11::arg("upperLimit"));
@@ -4113,11 +4090,6 @@ void bind_unknown_unknown_10(std::function< pybind11::module &(std::string const
 #include <pybind11/stl_bind.h>
 #include <pybind11/functional.h>
 #include <fstream>
-#include "ScenarioEngine.hpp"
-#include "CommonMini.hpp"
-#include "ControllerFollowGhost.hpp"
-#include "ControllerExternal.hpp"
-#include <fstream>
 #include "viewer.hpp"
 #include <osgDB/ReadFile>
 #include <osg/ComputeBoundsVisitor>
@@ -4142,11 +4114,14 @@ void bind_unknown_unknown_10(std::function< pybind11::module &(std::string const
 #include <osgShadow/ShadowMap>
 #include <osgShadow/ShadowedScene>
 #include <osgUtil/SmoothingVisitor>
-#include "CommonMini.hpp"
 #include "RubberbandManipulator.hpp"
 #include "IdealSensor.hpp"
 #include "RoadManager.hpp"
 #include "roadgeom.hpp"
+#include "ScenarioEngine.hpp"
+#include "CommonMini.hpp"
+#include "ControllerFollowGhost.hpp"
+#include "ControllerExternal.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -4616,11 +4591,6 @@ void bind_unknown_unknown_11(std::function< pybind11::module &(std::string const
 #include <pybind11/stl_bind.h>
 #include <pybind11/functional.h>
 #include <fstream>
-#include "ScenarioEngine.hpp"
-#include "CommonMini.hpp"
-#include "ControllerFollowGhost.hpp"
-#include "ControllerExternal.hpp"
-#include <fstream>
 #include "viewer.hpp"
 #include <osgDB/ReadFile>
 #include <osg/ComputeBoundsVisitor>
@@ -4645,11 +4615,14 @@ void bind_unknown_unknown_11(std::function< pybind11::module &(std::string const
 #include <osgShadow/ShadowMap>
 #include <osgShadow/ShadowedScene>
 #include <osgUtil/SmoothingVisitor>
-#include "CommonMini.hpp"
 #include "RubberbandManipulator.hpp"
 #include "IdealSensor.hpp"
 #include "RoadManager.hpp"
 #include "roadgeom.hpp"
+#include "ScenarioEngine.hpp"
+#include "CommonMini.hpp"
+#include "ControllerFollowGhost.hpp"
+#include "ControllerExternal.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -5117,11 +5090,6 @@ void bind_unknown_unknown_12(std::function< pybind11::module &(std::string const
 #include <pybind11/stl_bind.h>
 #include <pybind11/functional.h>
 #include <fstream>
-#include "ScenarioEngine.hpp"
-#include "CommonMini.hpp"
-#include "ControllerFollowGhost.hpp"
-#include "ControllerExternal.hpp"
-#include <fstream>
 #include "viewer.hpp"
 #include <osgDB/ReadFile>
 #include <osg/ComputeBoundsVisitor>
@@ -5146,11 +5114,14 @@ void bind_unknown_unknown_12(std::function< pybind11::module &(std::string const
 #include <osgShadow/ShadowMap>
 #include <osgShadow/ShadowedScene>
 #include <osgUtil/SmoothingVisitor>
-#include "CommonMini.hpp"
 #include "RubberbandManipulator.hpp"
 #include "IdealSensor.hpp"
 #include "RoadManager.hpp"
 #include "roadgeom.hpp"
+#include "ScenarioEngine.hpp"
+#include "CommonMini.hpp"
+#include "ControllerFollowGhost.hpp"
+#include "ControllerExternal.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -5182,7 +5153,7 @@ void bind_unknown_unknown_13(std::function< pybind11::module &(std::string const
 		cl.def("parseOSCHeader", (int (scenarioengine::ScenarioReader::*)()) &scenarioengine::ScenarioReader::parseOSCHeader, "C++: scenarioengine::ScenarioReader::parseOSCHeader() --> int");
 		cl.def("parseRoadNetwork", (void (scenarioengine::ScenarioReader::*)(class scenarioengine::RoadNetwork &)) &scenarioengine::ScenarioReader::parseRoadNetwork, "C++: scenarioengine::ScenarioReader::parseRoadNetwork(class scenarioengine::RoadNetwork &) --> void", pybind11::arg("roadNetwork"));
 		cl.def("parseCatalogs", (void (scenarioengine::ScenarioReader::*)()) &scenarioengine::ScenarioReader::parseCatalogs, "C++: scenarioengine::ScenarioReader::parseCatalogs() --> void");
-		cl.def("GetCatalogs", (class scenarioengine::Catalogs * (scenarioengine::ScenarioReader::*)()) &scenarioengine::ScenarioReader::GetCatalogs, "C++: scenarioengine::ScenarioReader::GetCatalogs() --> class scenarioengine::Catalogs *", pybind11::return_value_policy::reference);
+		cl.def("GetCatalogs", (class scenarioengine::Catalogs * (scenarioengine::ScenarioReader::*)()) &scenarioengine::ScenarioReader::GetCatalogs, "C++: scenarioengine::ScenarioReader::GetCatalogs() --> class scenarioengine::Catalogs *", pybind11::return_value_policy::automatic);
 		cl.def("parseGlobalParameterDeclarations", (void (scenarioengine::ScenarioReader::*)()) &scenarioengine::ScenarioReader::parseGlobalParameterDeclarations, "C++: scenarioengine::ScenarioReader::parseGlobalParameterDeclarations() --> void");
 		cl.def("parseEntities", (int (scenarioengine::ScenarioReader::*)()) &scenarioengine::ScenarioReader::parseEntities, "C++: scenarioengine::ScenarioReader::parseEntities() --> int");
 		cl.def("parseInit", (void (scenarioengine::ScenarioReader::*)(class scenarioengine::Init &)) &scenarioengine::ScenarioReader::parseInit, "C++: scenarioengine::ScenarioReader::parseInit(class scenarioengine::Init &) --> void", pybind11::arg("init"));
@@ -5209,17 +5180,17 @@ void bind_unknown_unknown_13(std::function< pybind11::module &(std::string const
 		cl.def("ReplaceObjectInTrigger", (void (scenarioengine::ScenarioEngine::*)(class scenarioengine::Trigger *, class scenarioengine::Object *, class scenarioengine::Object *, double, class scenarioengine::Event *)) &scenarioengine::ScenarioEngine::ReplaceObjectInTrigger, "C++: scenarioengine::ScenarioEngine::ReplaceObjectInTrigger(class scenarioengine::Trigger *, class scenarioengine::Object *, class scenarioengine::Object *, double, class scenarioengine::Event *) --> void", pybind11::arg("trigger"), pybind11::arg("obj1"), pybind11::arg("obj2"), pybind11::arg("timeOffset"), pybind11::arg("event"));
 		cl.def("SetupGhost", (void (scenarioengine::ScenarioEngine::*)(class scenarioengine::Object *)) &scenarioengine::ScenarioEngine::SetupGhost, "C++: scenarioengine::ScenarioEngine::SetupGhost(class scenarioengine::Object *) --> void", pybind11::arg("object"));
 		cl.def("ResetEvents", (void (scenarioengine::ScenarioEngine::*)()) &scenarioengine::ScenarioEngine::ResetEvents, "C++: scenarioengine::ScenarioEngine::ResetEvents() --> void");
-		cl.def("getScenarioGateway", (class scenarioengine::ScenarioGateway * (scenarioengine::ScenarioEngine::*)()) &scenarioengine::ScenarioEngine::getScenarioGateway, "C++: scenarioengine::ScenarioEngine::getScenarioGateway() --> class scenarioengine::ScenarioGateway *", pybind11::return_value_policy::reference);
+		cl.def("getScenarioGateway", (class scenarioengine::ScenarioGateway * (scenarioengine::ScenarioEngine::*)()) &scenarioengine::ScenarioEngine::getScenarioGateway, "C++: scenarioengine::ScenarioEngine::getScenarioGateway() --> class scenarioengine::ScenarioGateway *", pybind11::return_value_policy::automatic);
 		cl.def("getSimulationTime", (double (scenarioengine::ScenarioEngine::*)()) &scenarioengine::ScenarioEngine::getSimulationTime, "C++: scenarioengine::ScenarioEngine::getSimulationTime() --> double");
 		cl.def("GetQuitFlag", (bool (scenarioengine::ScenarioEngine::*)()) &scenarioengine::ScenarioEngine::GetQuitFlag, "C++: scenarioengine::ScenarioEngine::GetQuitFlag() --> bool");
-		cl.def("GetScenarioReader", (class scenarioengine::ScenarioReader * (scenarioengine::ScenarioEngine::*)()) &scenarioengine::ScenarioEngine::GetScenarioReader, "C++: scenarioengine::ScenarioEngine::GetScenarioReader() --> class scenarioengine::ScenarioReader *", pybind11::return_value_policy::reference);
+		cl.def("GetScenarioReader", (class scenarioengine::ScenarioReader * (scenarioengine::ScenarioEngine::*)()) &scenarioengine::ScenarioEngine::GetScenarioReader, "C++: scenarioengine::ScenarioEngine::GetScenarioReader() --> class scenarioengine::ScenarioReader *", pybind11::return_value_policy::automatic);
 		cl.def("SetHeadstartTime", (void (scenarioengine::ScenarioEngine::*)(double)) &scenarioengine::ScenarioEngine::SetHeadstartTime, "C++: scenarioengine::ScenarioEngine::SetHeadstartTime(double) --> void", pybind11::arg("headstartTime"));
 		cl.def("GetHeadstartTime", (double (scenarioengine::ScenarioEngine::*)()) &scenarioengine::ScenarioEngine::GetHeadstartTime, "C++: scenarioengine::ScenarioEngine::GetHeadstartTime() --> double");
 		cl.def("SetSimulationTime", (void (scenarioengine::ScenarioEngine::*)(double)) &scenarioengine::ScenarioEngine::SetSimulationTime, "C++: scenarioengine::ScenarioEngine::SetSimulationTime(double) --> void", pybind11::arg("time"));
-		cl.def("GetSimulationTimePtr", (double * (scenarioengine::ScenarioEngine::*)()) &scenarioengine::ScenarioEngine::GetSimulationTimePtr, "C++: scenarioengine::ScenarioEngine::GetSimulationTimePtr() --> double *", pybind11::return_value_policy::reference);
+		cl.def("GetSimulationTimePtr", (double * (scenarioengine::ScenarioEngine::*)()) &scenarioengine::ScenarioEngine::GetSimulationTimePtr, "C++: scenarioengine::ScenarioEngine::GetSimulationTimePtr() --> double *", pybind11::return_value_policy::automatic);
 		cl.def("SetTrueTime", (void (scenarioengine::ScenarioEngine::*)(double)) &scenarioengine::ScenarioEngine::SetTrueTime, "C++: scenarioengine::ScenarioEngine::SetTrueTime(double) --> void", pybind11::arg("time"));
 		cl.def("GetTrueTime", (double (scenarioengine::ScenarioEngine::*)()) &scenarioengine::ScenarioEngine::GetTrueTime, "C++: scenarioengine::ScenarioEngine::GetTrueTime() --> double");
-		cl.def("GetTrueTimePtr", (double * (scenarioengine::ScenarioEngine::*)()) &scenarioengine::ScenarioEngine::GetTrueTimePtr, "C++: scenarioengine::ScenarioEngine::GetTrueTimePtr() --> double *", pybind11::return_value_policy::reference);
+		cl.def("GetTrueTimePtr", (double * (scenarioengine::ScenarioEngine::*)()) &scenarioengine::ScenarioEngine::GetTrueTimePtr, "C++: scenarioengine::ScenarioEngine::GetTrueTimePtr() --> double *", pybind11::return_value_policy::automatic);
 	}
 }
 
