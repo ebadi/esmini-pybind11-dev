@@ -16,6 +16,36 @@
 #include "CommonMini.hpp"
 #include "ControllerFollowGhost.hpp"
 #include "ControllerExternal.hpp"
+#include <fstream>
+#include "viewer.hpp"
+#include <osgDB/ReadFile>
+#include <osg/ComputeBoundsVisitor>
+#include <osg/LineWidth>
+#include <osg/Point>
+#include <osg/BlendFunc>
+#include <osg/BlendColor>
+#include <osg/Geode>
+#include <osg/Group>
+#include <osg/ShapeDrawable>
+#include <osg/CullFace>
+#include <osgGA/StateSetManipulator>
+#include <osgGA/TrackballManipulator>
+#include <osgGA/KeySwitchMatrixManipulator>
+#include <osgGA/FlightManipulator>
+#include <osgGA/DriveManipulator>
+#include <osgGA/TerrainManipulator>
+#include <osgGA/SphericalManipulator>
+#include <osgViewer/ViewerEventHandlers>
+#include <osgDB/Registry>
+#include <osgShadow/StandardShadowMap>
+#include <osgShadow/ShadowMap>
+#include <osgShadow/ShadowedScene>
+#include <osgUtil/SmoothingVisitor>
+#include "CommonMini.hpp"
+#include "RubberbandManipulator.hpp"
+#include "IdealSensor.hpp"
+#include "RoadManager.hpp"
+#include "roadgeom.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -27,7 +57,6 @@
 
 void bind_unknown_unknown(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
-/*
 	std::cout << "B0_[ControlDomains] ";
 	// ControlDomains file: line:80
 	pybind11::enum_<ControlDomains>(M(""), "ControlDomains", "")
@@ -70,7 +99,6 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 	std::cout << "B30_[void ZYZ2EulerAngles(double, double, double, double &, double &, double &)] ";
 	std::cout << "B31_[void R0R12EulerAngles(double, double, double, double, double, double, double &, double &, double &)] ";
 	std::cout << "B32_[void SwapByteOrder(unsigned char *, int, int)] ";
-*/
 }
 
 
@@ -94,6 +122,36 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 #include "CommonMini.hpp"
 #include "ControllerFollowGhost.hpp"
 #include "ControllerExternal.hpp"
+#include <fstream>
+#include "viewer.hpp"
+#include <osgDB/ReadFile>
+#include <osg/ComputeBoundsVisitor>
+#include <osg/LineWidth>
+#include <osg/Point>
+#include <osg/BlendFunc>
+#include <osg/BlendColor>
+#include <osg/Geode>
+#include <osg/Group>
+#include <osg/ShapeDrawable>
+#include <osg/CullFace>
+#include <osgGA/StateSetManipulator>
+#include <osgGA/TrackballManipulator>
+#include <osgGA/KeySwitchMatrixManipulator>
+#include <osgGA/FlightManipulator>
+#include <osgGA/DriveManipulator>
+#include <osgGA/TerrainManipulator>
+#include <osgGA/SphericalManipulator>
+#include <osgViewer/ViewerEventHandlers>
+#include <osgDB/Registry>
+#include <osgShadow/StandardShadowMap>
+#include <osgShadow/ShadowMap>
+#include <osgShadow/ShadowedScene>
+#include <osgUtil/SmoothingVisitor>
+#include "CommonMini.hpp"
+#include "RubberbandManipulator.hpp"
+#include "IdealSensor.hpp"
+#include "RoadManager.hpp"
+#include "roadgeom.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -102,6 +160,7 @@ void bind_unknown_unknown(std::function< pybind11::module &(std::string const &n
 	PYBIND11_DECLARE_HOLDER_TYPE(T, T*)
 	PYBIND11_MAKE_OPAQUE(std::shared_ptr<void>)
 #endif
+
 
 void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
@@ -160,6 +219,36 @@ void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const 
 #include "CommonMini.hpp"
 #include "ControllerFollowGhost.hpp"
 #include "ControllerExternal.hpp"
+#include <fstream>
+#include "viewer.hpp"
+#include <osgDB/ReadFile>
+#include <osg/ComputeBoundsVisitor>
+#include <osg/LineWidth>
+#include <osg/Point>
+#include <osg/BlendFunc>
+#include <osg/BlendColor>
+#include <osg/Geode>
+#include <osg/Group>
+#include <osg/ShapeDrawable>
+#include <osg/CullFace>
+#include <osgGA/StateSetManipulator>
+#include <osgGA/TrackballManipulator>
+#include <osgGA/KeySwitchMatrixManipulator>
+#include <osgGA/FlightManipulator>
+#include <osgGA/DriveManipulator>
+#include <osgGA/TerrainManipulator>
+#include <osgGA/SphericalManipulator>
+#include <osgViewer/ViewerEventHandlers>
+#include <osgDB/Registry>
+#include <osgShadow/StandardShadowMap>
+#include <osgShadow/ShadowMap>
+#include <osgShadow/ShadowedScene>
+#include <osgUtil/SmoothingVisitor>
+#include "CommonMini.hpp"
+#include "RubberbandManipulator.hpp"
+#include "IdealSensor.hpp"
+#include "RoadManager.hpp"
+#include "roadgeom.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -171,7 +260,6 @@ void bind_unknown_unknown_1(std::function< pybind11::module &(std::string const 
 
 void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const &namespace_) > &M)
 {
-/*
 	std::cout << "B44_[scenarioengine::OSCProperties] ";
 	{ // scenarioengine::OSCProperties file: line:21
 		pybind11::class_<scenarioengine::OSCProperties, std::shared_ptr<scenarioengine::OSCProperties>> cl(M("scenarioengine"), "OSCProperties", "");
@@ -200,7 +288,6 @@ void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const 
 		}
 
 	}
-*/
 }
 
 
@@ -224,6 +311,36 @@ void bind_unknown_unknown_2(std::function< pybind11::module &(std::string const 
 #include "CommonMini.hpp"
 #include "ControllerFollowGhost.hpp"
 #include "ControllerExternal.hpp"
+#include <fstream>
+#include "viewer.hpp"
+#include <osgDB/ReadFile>
+#include <osg/ComputeBoundsVisitor>
+#include <osg/LineWidth>
+#include <osg/Point>
+#include <osg/BlendFunc>
+#include <osg/BlendColor>
+#include <osg/Geode>
+#include <osg/Group>
+#include <osg/ShapeDrawable>
+#include <osg/CullFace>
+#include <osgGA/StateSetManipulator>
+#include <osgGA/TrackballManipulator>
+#include <osgGA/KeySwitchMatrixManipulator>
+#include <osgGA/FlightManipulator>
+#include <osgGA/DriveManipulator>
+#include <osgGA/TerrainManipulator>
+#include <osgGA/SphericalManipulator>
+#include <osgViewer/ViewerEventHandlers>
+#include <osgDB/Registry>
+#include <osgShadow/StandardShadowMap>
+#include <osgShadow/ShadowMap>
+#include <osgShadow/ShadowedScene>
+#include <osgUtil/SmoothingVisitor>
+#include "CommonMini.hpp"
+#include "RubberbandManipulator.hpp"
+#include "IdealSensor.hpp"
+#include "RoadManager.hpp"
+#include "roadgeom.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -359,6 +476,36 @@ void bind_unknown_unknown_3(std::function< pybind11::module &(std::string const 
 #include "CommonMini.hpp"
 #include "ControllerFollowGhost.hpp"
 #include "ControllerExternal.hpp"
+#include <fstream>
+#include "viewer.hpp"
+#include <osgDB/ReadFile>
+#include <osg/ComputeBoundsVisitor>
+#include <osg/LineWidth>
+#include <osg/Point>
+#include <osg/BlendFunc>
+#include <osg/BlendColor>
+#include <osg/Geode>
+#include <osg/Group>
+#include <osg/ShapeDrawable>
+#include <osg/CullFace>
+#include <osgGA/StateSetManipulator>
+#include <osgGA/TrackballManipulator>
+#include <osgGA/KeySwitchMatrixManipulator>
+#include <osgGA/FlightManipulator>
+#include <osgGA/DriveManipulator>
+#include <osgGA/TerrainManipulator>
+#include <osgGA/SphericalManipulator>
+#include <osgViewer/ViewerEventHandlers>
+#include <osgDB/Registry>
+#include <osgShadow/StandardShadowMap>
+#include <osgShadow/ShadowMap>
+#include <osgShadow/ShadowedScene>
+#include <osgUtil/SmoothingVisitor>
+#include "CommonMini.hpp"
+#include "RubberbandManipulator.hpp"
+#include "IdealSensor.hpp"
+#include "RoadManager.hpp"
+#include "roadgeom.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -612,6 +759,36 @@ void bind_unknown_unknown_4(std::function< pybind11::module &(std::string const 
 #include "CommonMini.hpp"
 #include "ControllerFollowGhost.hpp"
 #include "ControllerExternal.hpp"
+#include <fstream>
+#include "viewer.hpp"
+#include <osgDB/ReadFile>
+#include <osg/ComputeBoundsVisitor>
+#include <osg/LineWidth>
+#include <osg/Point>
+#include <osg/BlendFunc>
+#include <osg/BlendColor>
+#include <osg/Geode>
+#include <osg/Group>
+#include <osg/ShapeDrawable>
+#include <osg/CullFace>
+#include <osgGA/StateSetManipulator>
+#include <osgGA/TrackballManipulator>
+#include <osgGA/KeySwitchMatrixManipulator>
+#include <osgGA/FlightManipulator>
+#include <osgGA/DriveManipulator>
+#include <osgGA/TerrainManipulator>
+#include <osgGA/SphericalManipulator>
+#include <osgViewer/ViewerEventHandlers>
+#include <osgDB/Registry>
+#include <osgShadow/StandardShadowMap>
+#include <osgShadow/ShadowMap>
+#include <osgShadow/ShadowedScene>
+#include <osgUtil/SmoothingVisitor>
+#include "CommonMini.hpp"
+#include "RubberbandManipulator.hpp"
+#include "IdealSensor.hpp"
+#include "RoadManager.hpp"
+#include "roadgeom.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -748,6 +925,36 @@ void bind_unknown_unknown_5(std::function< pybind11::module &(std::string const 
 #include "CommonMini.hpp"
 #include "ControllerFollowGhost.hpp"
 #include "ControllerExternal.hpp"
+#include <fstream>
+#include "viewer.hpp"
+#include <osgDB/ReadFile>
+#include <osg/ComputeBoundsVisitor>
+#include <osg/LineWidth>
+#include <osg/Point>
+#include <osg/BlendFunc>
+#include <osg/BlendColor>
+#include <osg/Geode>
+#include <osg/Group>
+#include <osg/ShapeDrawable>
+#include <osg/CullFace>
+#include <osgGA/StateSetManipulator>
+#include <osgGA/TrackballManipulator>
+#include <osgGA/KeySwitchMatrixManipulator>
+#include <osgGA/FlightManipulator>
+#include <osgGA/DriveManipulator>
+#include <osgGA/TerrainManipulator>
+#include <osgGA/SphericalManipulator>
+#include <osgViewer/ViewerEventHandlers>
+#include <osgDB/Registry>
+#include <osgShadow/StandardShadowMap>
+#include <osgShadow/ShadowMap>
+#include <osgShadow/ShadowedScene>
+#include <osgUtil/SmoothingVisitor>
+#include "CommonMini.hpp"
+#include "RubberbandManipulator.hpp"
+#include "IdealSensor.hpp"
+#include "RoadManager.hpp"
+#include "roadgeom.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -1309,6 +1516,36 @@ void bind_unknown_unknown_6(std::function< pybind11::module &(std::string const 
 #include "CommonMini.hpp"
 #include "ControllerFollowGhost.hpp"
 #include "ControllerExternal.hpp"
+#include <fstream>
+#include "viewer.hpp"
+#include <osgDB/ReadFile>
+#include <osg/ComputeBoundsVisitor>
+#include <osg/LineWidth>
+#include <osg/Point>
+#include <osg/BlendFunc>
+#include <osg/BlendColor>
+#include <osg/Geode>
+#include <osg/Group>
+#include <osg/ShapeDrawable>
+#include <osg/CullFace>
+#include <osgGA/StateSetManipulator>
+#include <osgGA/TrackballManipulator>
+#include <osgGA/KeySwitchMatrixManipulator>
+#include <osgGA/FlightManipulator>
+#include <osgGA/DriveManipulator>
+#include <osgGA/TerrainManipulator>
+#include <osgGA/SphericalManipulator>
+#include <osgViewer/ViewerEventHandlers>
+#include <osgDB/Registry>
+#include <osgShadow/StandardShadowMap>
+#include <osgShadow/ShadowMap>
+#include <osgShadow/ShadowedScene>
+#include <osgUtil/SmoothingVisitor>
+#include "CommonMini.hpp"
+#include "RubberbandManipulator.hpp"
+#include "IdealSensor.hpp"
+#include "RoadManager.hpp"
+#include "roadgeom.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -1432,7 +1669,6 @@ struct PyCallBack_scenarioengine_OSCPositionTrajectory : public scenarioengine::
 	}
 };
 
-/*
 // scenarioengine::Controller file: line:31
 struct PyCallBack_scenarioengine_Controller : public scenarioengine::Controller {
 	using scenarioengine::Controller::Controller;
@@ -1542,7 +1778,6 @@ struct PyCallBack_scenarioengine_Controller : public scenarioengine::Controller 
 		return Controller::Step(a0);
 	}
 };
-*/
 
 // scenarioengine::OSCPrivateAction file: line:32
 struct PyCallBack_scenarioengine_OSCPrivateAction : public scenarioengine::OSCPrivateAction {
@@ -1834,6 +2069,36 @@ void bind_unknown_unknown_7(std::function< pybind11::module &(std::string const 
 #include "CommonMini.hpp"
 #include "ControllerFollowGhost.hpp"
 #include "ControllerExternal.hpp"
+#include <fstream>
+#include "viewer.hpp"
+#include <osgDB/ReadFile>
+#include <osg/ComputeBoundsVisitor>
+#include <osg/LineWidth>
+#include <osg/Point>
+#include <osg/BlendFunc>
+#include <osg/BlendColor>
+#include <osg/Geode>
+#include <osg/Group>
+#include <osg/ShapeDrawable>
+#include <osg/CullFace>
+#include <osgGA/StateSetManipulator>
+#include <osgGA/TrackballManipulator>
+#include <osgGA/KeySwitchMatrixManipulator>
+#include <osgGA/FlightManipulator>
+#include <osgGA/DriveManipulator>
+#include <osgGA/TerrainManipulator>
+#include <osgGA/SphericalManipulator>
+#include <osgViewer/ViewerEventHandlers>
+#include <osgDB/Registry>
+#include <osgShadow/StandardShadowMap>
+#include <osgShadow/ShadowMap>
+#include <osgShadow/ShadowedScene>
+#include <osgUtil/SmoothingVisitor>
+#include "CommonMini.hpp"
+#include "RubberbandManipulator.hpp"
+#include "IdealSensor.hpp"
+#include "RoadManager.hpp"
+#include "roadgeom.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -2482,6 +2747,36 @@ void bind_unknown_unknown_8(std::function< pybind11::module &(std::string const 
 #include "CommonMini.hpp"
 #include "ControllerFollowGhost.hpp"
 #include "ControllerExternal.hpp"
+#include <fstream>
+#include "viewer.hpp"
+#include <osgDB/ReadFile>
+#include <osg/ComputeBoundsVisitor>
+#include <osg/LineWidth>
+#include <osg/Point>
+#include <osg/BlendFunc>
+#include <osg/BlendColor>
+#include <osg/Geode>
+#include <osg/Group>
+#include <osg/ShapeDrawable>
+#include <osg/CullFace>
+#include <osgGA/StateSetManipulator>
+#include <osgGA/TrackballManipulator>
+#include <osgGA/KeySwitchMatrixManipulator>
+#include <osgGA/FlightManipulator>
+#include <osgGA/DriveManipulator>
+#include <osgGA/TerrainManipulator>
+#include <osgGA/SphericalManipulator>
+#include <osgViewer/ViewerEventHandlers>
+#include <osgDB/Registry>
+#include <osgShadow/StandardShadowMap>
+#include <osgShadow/ShadowMap>
+#include <osgShadow/ShadowedScene>
+#include <osgUtil/SmoothingVisitor>
+#include "CommonMini.hpp"
+#include "RubberbandManipulator.hpp"
+#include "IdealSensor.hpp"
+#include "RoadManager.hpp"
+#include "roadgeom.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -3302,6 +3597,36 @@ void bind_unknown_unknown_9(std::function< pybind11::module &(std::string const 
 #include "CommonMini.hpp"
 #include "ControllerFollowGhost.hpp"
 #include "ControllerExternal.hpp"
+#include <fstream>
+#include "viewer.hpp"
+#include <osgDB/ReadFile>
+#include <osg/ComputeBoundsVisitor>
+#include <osg/LineWidth>
+#include <osg/Point>
+#include <osg/BlendFunc>
+#include <osg/BlendColor>
+#include <osg/Geode>
+#include <osg/Group>
+#include <osg/ShapeDrawable>
+#include <osg/CullFace>
+#include <osgGA/StateSetManipulator>
+#include <osgGA/TrackballManipulator>
+#include <osgGA/KeySwitchMatrixManipulator>
+#include <osgGA/FlightManipulator>
+#include <osgGA/DriveManipulator>
+#include <osgGA/TerrainManipulator>
+#include <osgGA/SphericalManipulator>
+#include <osgViewer/ViewerEventHandlers>
+#include <osgDB/Registry>
+#include <osgShadow/StandardShadowMap>
+#include <osgShadow/ShadowMap>
+#include <osgShadow/ShadowedScene>
+#include <osgUtil/SmoothingVisitor>
+#include "CommonMini.hpp"
+#include "RubberbandManipulator.hpp"
+#include "IdealSensor.hpp"
+#include "RoadManager.hpp"
+#include "roadgeom.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -3792,6 +4117,36 @@ void bind_unknown_unknown_10(std::function< pybind11::module &(std::string const
 #include "CommonMini.hpp"
 #include "ControllerFollowGhost.hpp"
 #include "ControllerExternal.hpp"
+#include <fstream>
+#include "viewer.hpp"
+#include <osgDB/ReadFile>
+#include <osg/ComputeBoundsVisitor>
+#include <osg/LineWidth>
+#include <osg/Point>
+#include <osg/BlendFunc>
+#include <osg/BlendColor>
+#include <osg/Geode>
+#include <osg/Group>
+#include <osg/ShapeDrawable>
+#include <osg/CullFace>
+#include <osgGA/StateSetManipulator>
+#include <osgGA/TrackballManipulator>
+#include <osgGA/KeySwitchMatrixManipulator>
+#include <osgGA/FlightManipulator>
+#include <osgGA/DriveManipulator>
+#include <osgGA/TerrainManipulator>
+#include <osgGA/SphericalManipulator>
+#include <osgViewer/ViewerEventHandlers>
+#include <osgDB/Registry>
+#include <osgShadow/StandardShadowMap>
+#include <osgShadow/ShadowMap>
+#include <osgShadow/ShadowedScene>
+#include <osgUtil/SmoothingVisitor>
+#include "CommonMini.hpp"
+#include "RubberbandManipulator.hpp"
+#include "IdealSensor.hpp"
+#include "RoadManager.hpp"
+#include "roadgeom.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -4265,6 +4620,36 @@ void bind_unknown_unknown_11(std::function< pybind11::module &(std::string const
 #include "CommonMini.hpp"
 #include "ControllerFollowGhost.hpp"
 #include "ControllerExternal.hpp"
+#include <fstream>
+#include "viewer.hpp"
+#include <osgDB/ReadFile>
+#include <osg/ComputeBoundsVisitor>
+#include <osg/LineWidth>
+#include <osg/Point>
+#include <osg/BlendFunc>
+#include <osg/BlendColor>
+#include <osg/Geode>
+#include <osg/Group>
+#include <osg/ShapeDrawable>
+#include <osg/CullFace>
+#include <osgGA/StateSetManipulator>
+#include <osgGA/TrackballManipulator>
+#include <osgGA/KeySwitchMatrixManipulator>
+#include <osgGA/FlightManipulator>
+#include <osgGA/DriveManipulator>
+#include <osgGA/TerrainManipulator>
+#include <osgGA/SphericalManipulator>
+#include <osgViewer/ViewerEventHandlers>
+#include <osgDB/Registry>
+#include <osgShadow/StandardShadowMap>
+#include <osgShadow/ShadowMap>
+#include <osgShadow/ShadowedScene>
+#include <osgUtil/SmoothingVisitor>
+#include "CommonMini.hpp"
+#include "RubberbandManipulator.hpp"
+#include "IdealSensor.hpp"
+#include "RoadManager.hpp"
+#include "roadgeom.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER
@@ -4736,6 +5121,36 @@ void bind_unknown_unknown_12(std::function< pybind11::module &(std::string const
 #include "CommonMini.hpp"
 #include "ControllerFollowGhost.hpp"
 #include "ControllerExternal.hpp"
+#include <fstream>
+#include "viewer.hpp"
+#include <osgDB/ReadFile>
+#include <osg/ComputeBoundsVisitor>
+#include <osg/LineWidth>
+#include <osg/Point>
+#include <osg/BlendFunc>
+#include <osg/BlendColor>
+#include <osg/Geode>
+#include <osg/Group>
+#include <osg/ShapeDrawable>
+#include <osg/CullFace>
+#include <osgGA/StateSetManipulator>
+#include <osgGA/TrackballManipulator>
+#include <osgGA/KeySwitchMatrixManipulator>
+#include <osgGA/FlightManipulator>
+#include <osgGA/DriveManipulator>
+#include <osgGA/TerrainManipulator>
+#include <osgGA/SphericalManipulator>
+#include <osgViewer/ViewerEventHandlers>
+#include <osgDB/Registry>
+#include <osgShadow/StandardShadowMap>
+#include <osgShadow/ShadowMap>
+#include <osgShadow/ShadowedScene>
+#include <osgUtil/SmoothingVisitor>
+#include "CommonMini.hpp"
+#include "RubberbandManipulator.hpp"
+#include "IdealSensor.hpp"
+#include "RoadManager.hpp"
+#include "roadgeom.hpp"
 
 
 #ifndef BINDER_PYBIND11_TYPE_CASTER

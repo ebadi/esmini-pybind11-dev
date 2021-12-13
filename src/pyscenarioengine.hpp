@@ -1,4 +1,5 @@
 #include "ScenarioEngine.hpp"
+#include "Controller.hpp"
 /*
 #include "OSCAction.hpp"
 #include "OSCBoundingBox.hpp"

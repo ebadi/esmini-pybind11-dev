@@ -1,6 +1,6 @@
 #!/bin/bash
 
-array=(playerbase roadmanager scenarioengine viewerbase controller)
+array=(playerbase roadmanager scenarioengine viewerbase)
 for MYMODULE in "${array[@]}"; do
   echo "--------"
   echo $MYMODULE

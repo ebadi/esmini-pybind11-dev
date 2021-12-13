@@ -163,33 +163,6 @@ target_compile_definitions(pyroadmanager PRIVATE VERSION_INFO=${EXAMPLE_VERSION_
 
 
 
-
-file(GLOB CONTROLLER_SRCS "Modules/Controllers/*.cpp" )
-
-pybind11_add_module(pycontroller MODULE "${CMAKE_CURRENT_SOURCE_DIR}/src/controller/pycontroller.cpp"
-${ROADMANAGER_INCLUDE_DIR}/RoadManager.cpp
-${ROADMANAGER_INCLUDE_DIR}/odrSpiral.cpp
-${COMMON_MINI_INCLUDE_DIR}/buildnr.cpp
-${COMMON_MINI_INCLUDE_DIR}/version.cpp
-${PUGIXML_INCLUDE_DIR}/pugixml.cpp)
-target_link_libraries(pycontroller PRIVATE
-    ViewerBase ${OSG_LIBRARIES}
-    ${SUMO_LIBRARIES}
-    ${OSI_LIBRARIES}
-    PlayerBase
-    ScenarioEngine
-    Controllers
-    RoadManager
-    CommonMini
-    ${viewer_libs}
-    ${osi_libs}
-    ${sumo_libs}
-    ${TIME_LIB}
-    ${SOCK_LIB}
-)
-target_compile_definitions(pycontroller PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
-
-
 pybind11_add_module(pyscenarioengine "${CMAKE_CURRENT_SOURCE_DIR}/src/scenarioengine/pyscenarioengine.cpp"
 ${SCENARIO_SRCS}
 ${ROADMANAGER_INCLUDE_DIR}/RoadManager.cpp
